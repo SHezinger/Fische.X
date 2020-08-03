@@ -1,6 +1,6 @@
-build/
+Fische.X/build/
 dist/*
-dist/default/production/Fische.X.*
+FIdist/default/production/Fische.X.*
 !dist/default/production/*.hex
 
 
