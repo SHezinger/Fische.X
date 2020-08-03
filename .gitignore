@@ -1,7 +1,6 @@
-Fische.X/build/
-dist/*
-FIdist/default/production/Fische.X.*
-!dist/default/production/*.hex
+build/
+#dist/
+
 
 
 nbproject/private/
