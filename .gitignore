@@ -1,3 +1,4 @@
 build/
 dist/*
+dist/default/production/*
 !dist/default/production/*.hex
