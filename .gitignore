@@ -1,9 +1,12 @@
 # Ignoring files according to http://microchip.wikidot.com/faq:72
 build/
 dist/*
+
+dist/default/production/*.X.production.cmf
+dist/default/production/*.
 !dist/default/production/*.hex
 
-dist/default/production/*.cmf
+
 
 
 
