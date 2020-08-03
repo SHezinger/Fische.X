@@ -1,4 +1,4 @@
 build/
 dist/*
-dist/default/production/*
+dist/default/production/Fische.X*
 !dist/default/production/*.hex
