@@ -87,6 +87,8 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
     
+    TMR1_StartTimer();
+    
     setState( STATE_WAIT_TIME);
 
     while (1)
@@ -118,8 +120,7 @@ void main(void)
                 break;
 
             case STATE_END:
-                OUTPUT_1_FORWARD_SetLow();
-                OUTPUT_2_RETURN_SetLow();
+                while(1); //wait till dooms day
                 break;
         }
         // Add your application code
@@ -170,4 +171,6 @@ void setState(states_t newState)
 void secondsTick()
 {
     currentSecondsTick++;
+    
+    OUTPUT_2_RETURN_Toggle();
 }
