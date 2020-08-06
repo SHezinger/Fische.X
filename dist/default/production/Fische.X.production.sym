@@ -1,10 +1,10 @@
-__S0 144 0 ABS 0
+__S0 145 0 ABS 0
 __S1 7C 0 ABS 0
 __S2 0 0 ABS 0
 __Hintentry 19 0 CODE 0
 __Lintentry 4 0 CODE 0
 __pintentry 4 0 CODE 0
-_TMR1_DefaultInterruptHandler 143 0 CODE 0
+_TMR1_DefaultInterruptHandler 144 0 CODE 0
 _LATA 10C 0 ABS 0
 _WPUA 20C 0 ABS 0
 _currentState 74 0 COMMON 1
@@ -33,7 +33,7 @@ __Lram 0 0 ABS 0
 int$flags 7E 0 ABS 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
-__end_of_WDT_Initialize 140 0 CODE 0
+__end_of_WDT_Initialize 141 0 CODE 0
 _INTERRUPT_InterruptManager 4 0 CODE 0
 __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
@@ -73,7 +73,7 @@ __Hsfr8 0 0 ABS 0
 __Lsfr8 0 0 ABS 0
 __Hsfr9 0 0 ABS 0
 __Lsfr9 0 0 ABS 0
-__end_of_TMR1_SetInterruptHandler 136 0 CODE 0
+__end_of_TMR1_SetInterruptHandler 13D 0 CODE 0
 ___stackhi 206F 0 ABS 0
 __size_of_secondsTick 0 0 ABS 0
 __Hcode 0 0 ABS 0
@@ -90,7 +90,7 @@ end_of_initialization 1F 0 CODE 0
 __HnvBANK0 0 0 ABS 0
 __LnvBANK0 0 0 ABS 0
 ___stacklo 2004 0 ABS 0
-_TMR1_StartTimer 140 0 CODE 0
+_TMR1_StartTimer 141 0 CODE 0
 __pnvBANK0 20 0 BANK0 1
 __Hsfr10 0 0 ABS 0
 __Lsfr10 0 0 ABS 0
@@ -152,7 +152,7 @@ __Hbank1 0 0 ABS 0
 __Lbank1 0 0 ABS 0
 __Hbank2 0 0 BANK2 1
 __Lbank2 0 0 BANK2 1
-_TMR1_SetInterruptHandler 130 0 CODE 0
+_TMR1_SetInterruptHandler 137 0 CODE 0
 __Hbank3 0 0 BANK3 1
 __Lbank3 0 0 BANK3 1
 ___latbits 0 0 ABS 0
@@ -173,13 +173,13 @@ __size_of_TMR1_WriteTimer 0 0 ABS 0
 __Hbank9 0 0 BANK9 1
 __Lbank9 0 0 BANK9 1
 __ptext1 79 0 CODE 0
-__ptext2 140 0 CODE 0
+__ptext2 141 0 CODE 0
 __ptext3 109 0 CODE 0
-__ptext4 13C 0 CODE 0
+__ptext4 13D 0 CODE 0
 __ptext5 B8 0 CODE 0
-__ptext6 130 0 CODE 0
+__ptext6 137 0 CODE 0
 __ptext7 D0 0 CODE 0
-__ptext8 136 0 CODE 0
+__ptext8 130 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 _TMR1_InterruptHandler 20 0 BANK0 1
@@ -188,9 +188,9 @@ __size_of_TMR1_SetInterruptHandler 0 0 ABS 0
 _TMR1_Initialize B8 0 CODE 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
-__Hspace_0 144 0 ABS 0
+__Hspace_0 145 0 ABS 0
 __Lspace_0 0 0 ABS 0
-__end_of_TMR1_DefaultInterruptHandler 144 0 CODE 0
+__end_of_TMR1_DefaultInterruptHandler 145 0 CODE 0
 __Hspace_1 7C 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hspace_2 0 0 ABS 0
@@ -206,7 +206,7 @@ __Lspace_4 0 0 ABS 0
 _PIN_MANAGER_Initialize D0 0 CODE 0
 __end_of_TMR1_CallBack 130 0 CODE 0
 __end_of_TMR1_WriteTimer F8 0 CODE 0
-__end_of_TMR1_StartTimer 143 0 CODE 0
+__end_of_TMR1_StartTimer 144 0 CODE 0
 __size_of_TMR1_ISR 0 0 ABS 0
 setState@newState 79 0 COMMON 1
 __size_of_SYSTEM_Initialize 0 0 ABS 0
@@ -220,7 +220,7 @@ __Lbank30 0 0 BANK30 1
 __Lbank11 0 0 BANK11 1
 __Hbank21 0 0 BANK21 1
 __Lbank21 0 0 BANK21 1
-__end_of_OSCILLATOR_Initialize 13C 0 CODE 0
+__end_of_OSCILLATOR_Initialize 137 0 CODE 0
 __Hbank31 0 0 BANK31 1
 __Hbank12 0 0 BANK12 1
 __Lbank31 0 0 BANK31 1
@@ -254,7 +254,7 @@ __Lbank17 0 0 BANK17 1
 __size_of_TMR1_DefaultInterruptHandler 0 0 ABS 0
 __Hbank27 0 0 BANK27 1
 __Lbank27 0 0 BANK27 1
-__ptext13 143 0 CODE 0
+__ptext13 144 0 CODE 0
 __Hbank18 0 0 BANK18 1
 __Lbank18 0 0 BANK18 1
 __Hbank28 0 0 BANK28 1
@@ -274,10 +274,10 @@ _timer1ReloadVal 7A 0 COMMON 1
 _INTCONbits B 0 ABS 0
 __Hend_init 1A 0 CODE 0
 __Lend_init 19 0 CODE 0
-_WDT_Initialize 13C 0 CODE 0
+_WDT_Initialize 13D 0 CODE 0
 __size_of_TMR1_CallBack 0 0 ABS 0
 __size_of_TMR1_Initialize 0 0 ABS 0
-_OSCILLATOR_Initialize 136 0 CODE 0
+_OSCILLATOR_Initialize 130 0 CODE 0
 __size_of_INTERRUPT_InterruptManager 0 0 ABS 0
 __Hreset_vec 1 0 CODE 0
 __Lreset_vec 0 0 CODE 0
@@ -306,12 +306,12 @@ _OPTION_REGbits 95 0 ABS 0
 __initialization 1A 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
-intentry 8 287 CODE 8 0
+intentry 8 289 CODE 8 0
 bssCOMMON 70 7B COMMON 70 1
 nvBANK0 20 23 BANK0 20 1
 %locals
 dist/default/production\Fische.X.production.o
-C:\Users\SHEZIN~1\AppData\Local\Temp\skm4.s
+C:\Users\SHEZIN~1\AppData\Local\Temp\si98.s
 1790 1A 0 CODE 0
 1793 1A 0 CODE 0
 1811 1A 0 CODE 0
@@ -358,9 +358,9 @@ main.c
 165 B3 0 CODE 0
 168 B7 0 CODE 0
 mcc_generated_files/tmr1.c
-93 140 0 CODE 0
-96 140 0 CODE 0
-97 142 0 CODE 0
+93 141 0 CODE 0
+96 141 0 CODE 0
+97 143 0 CODE 0
 mcc_generated_files/mcc.c
 50 109 0 CODE 0
 53 109 0 CODE 0
@@ -368,9 +368,9 @@ mcc_generated_files/mcc.c
 55 10F 0 CODE 0
 56 112 0 CODE 0
 57 115 0 CODE 0
-69 13C 0 CODE 0
-72 13C 0 CODE 0
-73 13F 0 CODE 0
+69 13D 0 CODE 0
+72 13D 0 CODE 0
+73 140 0 CODE 0
 mcc_generated_files/tmr1.c
 64 B8 0 CODE 0
 69 B8 0 CODE 0
@@ -382,9 +382,9 @@ mcc_generated_files/tmr1.c
 87 C5 0 CODE 0
 90 CC 0 CODE 0
 91 CF 0 CODE 0
-178 130 0 CODE 0
-179 130 0 CODE 0
-180 135 0 CODE 0
+178 137 0 CODE 0
+179 137 0 CODE 0
+180 13C 0 CODE 0
 mcc_generated_files/pin_manager.c
 55 D0 0 CODE 0
 60 D0 0 CODE 0
@@ -398,11 +398,11 @@ mcc_generated_files/pin_manager.c
 96 E4 0 CODE 0
 103 E6 0 CODE 0
 mcc_generated_files/mcc.c
-59 136 0 CODE 0
-62 136 0 CODE 0
-64 138 0 CODE 0
-66 139 0 CODE 0
-67 13B 0 CODE 0
+59 130 0 CODE 0
+62 130 0 CODE 0
+64 133 0 CODE 0
+66 134 0 CODE 0
+67 136 0 CODE 0
 mcc_generated_files/interrupt_manager.c
 52 4 0 CODE 0
 55 6 0 CODE 0
@@ -429,8 +429,8 @@ mcc_generated_files/tmr1.c
 172 123 0 CODE 0
 174 12A 0 CODE 0
 176 12F 0 CODE 0
-182 143 0 CODE 0
-185 143 0 CODE 0
+182 144 0 CODE 0
+185 144 0 CODE 0
 main.c
 171 F8 0 CODE 0
 173 F8 0 CODE 0
