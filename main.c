@@ -14,7 +14,7 @@
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.78.1
-        Device            :  PIC12LF1571
+        Device            :  PIC12F1571
         Driver Version    :  2.00
 */
 
@@ -72,14 +72,12 @@ void main(void)
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
-    
-    TMR1_SetInterruptHandler(secondsTick);
 
     // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
 
     // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
@@ -87,9 +85,12 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
     
+        
+    TMR1_SetInterruptHandler(secondsTick);
+    
     TMR1_StartTimer();
     
-    setState( STATE_WAIT_TIME);
+    setState(STATE_WAIT_TIME);
 
     while (1)
     {
@@ -123,7 +124,9 @@ void main(void)
                 while(1); //wait till dooms day
                 break;
         }
-        // Add your application code
+        
+        OUTPUT_1_FORWARD_Toggle();
+
     }
 }
 /**
