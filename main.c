@@ -92,18 +92,6 @@ void main(void)
     
     setState(STATE_WAIT_TIME);
     
-    while(1)
-    {
-        if(INPUT_STOP_GetValue())
-        {
-            OUTPUT_2_RETURN_SetHigh();
-        }
-        else
-        {
-            OUTPUT_2_RETURN_SetLow();
-        }
-        //OUTPUT_2_RETURN_Toggle();
-    };
 
     while (1)
     {
@@ -138,7 +126,7 @@ void main(void)
                 break;
         }
         
-        OUTPUT_1_FORWARD_Toggle();
+
 
     }
 }
@@ -179,8 +167,6 @@ void setState(states_t newState)
     }
     
     currentState = newState;
-
-    
 }
 
 

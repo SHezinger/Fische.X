@@ -17,9 +17,9 @@ STATE_END 4
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "68 C:\Users\SM\Desktop\Software\Fische.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"150
+"138
 [v _setState setState `(v  1 e 1 0 ]
-"187
+"173
 [v _secondsTick secondsTick `(v  1 e 1 0 ]
 "52 C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
@@ -198,16 +198,16 @@ STATE_END 4
 "68 C:\Users\SM\Desktop\Software\Fische.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"144
+"132
 } 0
-"150
+"138
 [v _setState setState `(v  1 e 1 0 ]
 {
 [v setState@newState newState `E2970  1 a 1 wreg ]
 [v setState@newState newState `E2970  1 a 1 wreg ]
-"152
-[v setState@newState newState `E2970  1 a 1 2 ]
-"184
+"140
+[v setState@newState newState `E2970  1 a 1 4 ]
+"170
 } 0
 "93 C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
 [v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
@@ -232,7 +232,7 @@ STATE_END 4
 "178
 [v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 2 ]
 "180
 } 0
 "55 C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
@@ -271,8 +271,8 @@ STATE_END 4
 {
 "185
 } 0
-"187 C:\Users\SM\Desktop\Software\Fische.X\main.c
+"173 C:\Users\SM\Desktop\Software\Fische.X\main.c
 [v _secondsTick secondsTick `(v  1 e 1 0 ]
 {
-"192
+"178
 } 0
