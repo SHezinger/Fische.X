@@ -91,6 +91,11 @@ void main(void)
     TMR1_StartTimer();
     
     setState(STATE_WAIT_TIME);
+    
+    while(1)
+    {
+        OUTPUT_2_RETURN_Toggle();
+    };
 
     while (1)
     {
