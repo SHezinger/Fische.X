@@ -14,25 +14,25 @@
 $dist/default/production\Fische.X.production.o
 cinit CODE 0 1A 1A 8 2
 text1 CODE 0 22 22 41 2
-text2 CODE 0 10E 10E 3 2
-text3 CODE 0 D7 D7 D 2
-text4 CODE 0 10A 10A 4 2
-text5 CODE 0 85 85 19 2
-text6 CODE 0 104 104 6 2
-text7 CODE 0 9E 9E 17 2
-text8 CODE 0 FD FD 7 2
+text2 CODE 0 100 100 3 2
+text3 CODE 0 C4 C4 D 2
+text4 CODE 0 FC FC 4 2
+text5 CODE 0 83 83 19 2
+text6 CODE 0 F1 F1 6 2
+text7 CODE 0 9C 9C 17 2
+text8 CODE 0 EA EA 7 2
 nvCOMMON COMMON 1 75 75 4 1
-text10 CODE 0 E4 E4 D 2
-text11 CODE 0 B5 B5 11 2
-text12 CODE 0 F1 F1 C 2
-text13 CODE 0 111 111 1 2
-text14 CODE 0 C6 C6 11 2
-maintext CODE 0 63 63 22 2
+text10 CODE 0 D1 D1 D 2
+text11 CODE 0 B3 B3 11 2
+text12 CODE 0 DE DE C 2
+text13 CODE 0 103 103 1 2
+text14 CODE 0 F7 F7 5 2
+maintext CODE 0 63 63 20 2
 cstackCOMMON COMMON 1 79 79 3 1
 cstackBANK0 BANK0 1 20 20 2 1
 intentry CODE 0 4 4 15 2
 bssCOMMON COMMON 1 70 70 5 1
-$C:\Users\SM\AppData\Local\Temp\sbgs.o
+$C:\Users\SM\AppData\Local\Temp\sc40.o
 reset_vec CODE 0 0 0 1 2
 end_init CODE 0 19 19 1 2
 config CONFIG 0 8007 8007 2 2
@@ -47,9 +47,9 @@ RAM A0-BF 1
 BANK0 22-6F 1
 BANK1 A0-BF 1
 CONST 1-3 2
-CONST 112-3FF 2
+CONST 104-3FF 2
 ENTRY 1-3 2
-ENTRY 112-3FF 2
+ENTRY 104-3FF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -75,7 +75,7 @@ SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 STACK 2002-206F 1
 CODE 1-3 2
-CODE 112-3FF 2
+CODE 104-3FF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-16F 1
@@ -89,9 +89,9 @@ SFR9 480-4EF 1
 BIGRAM 2000-206F 1
 COMMON 7C-7D 1
 STRCODE 1-3 2
-STRCODE 112-3FF 2
+STRCODE 104-3FF 2
 STRING 1-3 2
-STRING 112-3FF 2
+STRING 104-3FF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -106,105 +106,104 @@ STRING 112-3FF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Fische.X.production.o
-1A cinit CODE >1795:C:\Users\SM\AppData\Local\Temp\sbgs.s
-1A cinit CODE >1798:C:\Users\SM\AppData\Local\Temp\sbgs.s
-1A cinit CODE >1816:C:\Users\SM\AppData\Local\Temp\sbgs.s
-1B cinit CODE >1817:C:\Users\SM\AppData\Local\Temp\sbgs.s
-1C cinit CODE >1818:C:\Users\SM\AppData\Local\Temp\sbgs.s
-1D cinit CODE >1819:C:\Users\SM\AppData\Local\Temp\sbgs.s
-1E cinit CODE >1820:C:\Users\SM\AppData\Local\Temp\sbgs.s
-1F cinit CODE >1826:C:\Users\SM\AppData\Local\Temp\sbgs.s
-1F cinit CODE >1828:C:\Users\SM\AppData\Local\Temp\sbgs.s
-20 cinit CODE >1829:C:\Users\SM\AppData\Local\Temp\sbgs.s
-21 cinit CODE >1830:C:\Users\SM\AppData\Local\Temp\sbgs.s
+1A cinit CODE >1795:C:\Users\SM\AppData\Local\Temp\sc40.s
+1A cinit CODE >1798:C:\Users\SM\AppData\Local\Temp\sc40.s
+1A cinit CODE >1816:C:\Users\SM\AppData\Local\Temp\sc40.s
+1B cinit CODE >1817:C:\Users\SM\AppData\Local\Temp\sc40.s
+1C cinit CODE >1818:C:\Users\SM\AppData\Local\Temp\sc40.s
+1D cinit CODE >1819:C:\Users\SM\AppData\Local\Temp\sc40.s
+1E cinit CODE >1820:C:\Users\SM\AppData\Local\Temp\sc40.s
+1F cinit CODE >1826:C:\Users\SM\AppData\Local\Temp\sc40.s
+1F cinit CODE >1828:C:\Users\SM\AppData\Local\Temp\sc40.s
+20 cinit CODE >1829:C:\Users\SM\AppData\Local\Temp\sc40.s
+21 cinit CODE >1830:C:\Users\SM\AppData\Local\Temp\sc40.s
 4 intentry CODE >52:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/interrupt_manager.c
 6 intentry CODE >55:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/interrupt_manager.c
 A intentry CODE >57:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/interrupt_manager.c
 14 intentry CODE >59:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/interrupt_manager.c
 17 intentry CODE >70:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/interrupt_manager.c
-C6 text14 CODE >179:C:\Users\SM\Desktop\Software\Fische.X\main.c
-C6 text14 CODE >181:C:\Users\SM\Desktop\Software\Fische.X\main.c
-CA text14 CODE >183:C:\Users\SM\Desktop\Software\Fische.X\main.c
-D6 text14 CODE >184:C:\Users\SM\Desktop\Software\Fische.X\main.c
-111 text13 CODE >182:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-111 text13 CODE >185:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-F1 text12 CODE >169:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-F1 text12 CODE >172:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-F7 text12 CODE >174:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-FC text12 CODE >176:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-B5 text11 CODE >120:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-B5 text11 CODE >122:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-BA text11 CODE >125:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-BB text11 CODE >128:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-BD text11 CODE >129:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-BF text11 CODE >132:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-C0 text11 CODE >133:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-C1 text11 CODE >137:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-C3 text11 CODE >138:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-C5 text11 CODE >140:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-E4 text10 CODE >157:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-E4 text10 CODE >161:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-E6 text10 CODE >162:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-ED text10 CODE >166:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-F0 text10 CODE >167:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-FD text8 CODE >59:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-FD text8 CODE >62:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-100 text8 CODE >64:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-101 text8 CODE >66:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-103 text8 CODE >67:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-9E text7 CODE >55:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-9E text7 CODE >60:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-A0 text7 CODE >65:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-A3 text7 CODE >70:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-A6 text7 CODE >75:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-A8 text7 CODE >76:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-AA text7 CODE >81:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-AC text7 CODE >86:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-AF text7 CODE >91:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-B2 text7 CODE >96:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-B4 text7 CODE >103:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
-104 text6 CODE >178:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-104 text6 CODE >179:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-109 text6 CODE >180:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-85 text5 CODE >64:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-85 text5 CODE >69:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-87 text5 CODE >72:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-89 text5 CODE >75:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-8B text5 CODE >78:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-8C text5 CODE >81:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-90 text5 CODE >84:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-92 text5 CODE >87:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-9A text5 CODE >90:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-9D text5 CODE >91:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-10A text4 CODE >69:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-10A text4 CODE >72:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-10D text4 CODE >73:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-D7 text3 CODE >50:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-D7 text3 CODE >53:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-DA text3 CODE >54:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-DD text3 CODE >55:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-E0 text3 CODE >56:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-E3 text3 CODE >57:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
-10E text2 CODE >93:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-10E text2 CODE >96:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-110 text2 CODE >97:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
-22 text1 CODE >142:C:\Users\SM\Desktop\Software\Fische.X\main.c
-23 text1 CODE >144:C:\Users\SM\Desktop\Software\Fische.X\main.c
-2A text1 CODE >151:C:\Users\SM\Desktop\Software\Fische.X\main.c
-2C text1 CODE >152:C:\Users\SM\Desktop\Software\Fische.X\main.c
-2D text1 CODE >153:C:\Users\SM\Desktop\Software\Fische.X\main.c
-33 text1 CODE >154:C:\Users\SM\Desktop\Software\Fische.X\main.c
-34 text1 CODE >157:C:\Users\SM\Desktop\Software\Fische.X\main.c
-36 text1 CODE >158:C:\Users\SM\Desktop\Software\Fische.X\main.c
-38 text1 CODE >162:C:\Users\SM\Desktop\Software\Fische.X\main.c
-3A text1 CODE >163:C:\Users\SM\Desktop\Software\Fische.X\main.c
-3B text1 CODE >164:C:\Users\SM\Desktop\Software\Fische.X\main.c
-41 text1 CODE >165:C:\Users\SM\Desktop\Software\Fische.X\main.c
-42 text1 CODE >168:C:\Users\SM\Desktop\Software\Fische.X\main.c
-44 text1 CODE >169:C:\Users\SM\Desktop\Software\Fische.X\main.c
-46 text1 CODE >171:C:\Users\SM\Desktop\Software\Fische.X\main.c
-5D text1 CODE >173:C:\Users\SM\Desktop\Software\Fische.X\main.c
-62 text1 CODE >176:C:\Users\SM\Desktop\Software\Fische.X\main.c
+F7 text14 CODE >187:C:\Users\SM\Desktop\Software\Fische.X\main.c
+F7 text14 CODE >189:C:\Users\SM\Desktop\Software\Fische.X\main.c
+FB text14 CODE >192:C:\Users\SM\Desktop\Software\Fische.X\main.c
+103 text13 CODE >182:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+103 text13 CODE >185:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+DE text12 CODE >169:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+DE text12 CODE >172:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+E4 text12 CODE >174:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+E9 text12 CODE >176:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+B3 text11 CODE >120:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+B3 text11 CODE >122:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+B8 text11 CODE >125:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+B9 text11 CODE >128:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+BB text11 CODE >129:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+BD text11 CODE >132:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+BE text11 CODE >133:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+BF text11 CODE >137:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+C1 text11 CODE >138:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+C3 text11 CODE >140:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+D1 text10 CODE >157:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+D1 text10 CODE >161:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+D3 text10 CODE >162:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+DA text10 CODE >166:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+DD text10 CODE >167:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+EA text8 CODE >59:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+EA text8 CODE >62:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+ED text8 CODE >64:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+EE text8 CODE >66:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+F0 text8 CODE >67:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+9C text7 CODE >55:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+9C text7 CODE >60:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+9E text7 CODE >65:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+A1 text7 CODE >70:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+A4 text7 CODE >75:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+A6 text7 CODE >76:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+A8 text7 CODE >81:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+AA text7 CODE >86:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+AD text7 CODE >91:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+B0 text7 CODE >96:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+B2 text7 CODE >103:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+F1 text6 CODE >178:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+F1 text6 CODE >179:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+F6 text6 CODE >180:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+83 text5 CODE >64:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+83 text5 CODE >69:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+85 text5 CODE >72:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+87 text5 CODE >75:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+89 text5 CODE >78:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+8A text5 CODE >81:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+8E text5 CODE >84:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+90 text5 CODE >87:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+98 text5 CODE >90:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+9B text5 CODE >91:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+FC text4 CODE >69:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+FC text4 CODE >72:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+FF text4 CODE >73:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+C4 text3 CODE >50:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+C4 text3 CODE >53:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+C7 text3 CODE >54:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+CA text3 CODE >55:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+CD text3 CODE >56:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+D0 text3 CODE >57:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
+100 text2 CODE >93:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+100 text2 CODE >96:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+102 text2 CODE >97:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
+22 text1 CODE >150:C:\Users\SM\Desktop\Software\Fische.X\main.c
+23 text1 CODE >152:C:\Users\SM\Desktop\Software\Fische.X\main.c
+2A text1 CODE >159:C:\Users\SM\Desktop\Software\Fische.X\main.c
+2C text1 CODE >160:C:\Users\SM\Desktop\Software\Fische.X\main.c
+2D text1 CODE >161:C:\Users\SM\Desktop\Software\Fische.X\main.c
+33 text1 CODE >162:C:\Users\SM\Desktop\Software\Fische.X\main.c
+34 text1 CODE >165:C:\Users\SM\Desktop\Software\Fische.X\main.c
+36 text1 CODE >166:C:\Users\SM\Desktop\Software\Fische.X\main.c
+38 text1 CODE >170:C:\Users\SM\Desktop\Software\Fische.X\main.c
+3A text1 CODE >171:C:\Users\SM\Desktop\Software\Fische.X\main.c
+3B text1 CODE >172:C:\Users\SM\Desktop\Software\Fische.X\main.c
+41 text1 CODE >173:C:\Users\SM\Desktop\Software\Fische.X\main.c
+42 text1 CODE >176:C:\Users\SM\Desktop\Software\Fische.X\main.c
+44 text1 CODE >177:C:\Users\SM\Desktop\Software\Fische.X\main.c
+46 text1 CODE >179:C:\Users\SM\Desktop\Software\Fische.X\main.c
+5D text1 CODE >181:C:\Users\SM\Desktop\Software\Fische.X\main.c
+62 text1 CODE >184:C:\Users\SM\Desktop\Software\Fische.X\main.c
 63 maintext CODE >68:C:\Users\SM\Desktop\Software\Fische.X\main.c
 63 maintext CODE >71:C:\Users\SM\Desktop\Software\Fische.X\main.c
 66 maintext CODE >77:C:\Users\SM\Desktop\Software\Fische.X\main.c
@@ -213,6 +212,8 @@ E3 text3 CODE >57:C:\Users\SM\Desktop\Software\Fische.X\mcc_generated_files/mcc.
 70 maintext CODE >91:C:\Users\SM\Desktop\Software\Fische.X\main.c
 73 maintext CODE >93:C:\Users\SM\Desktop\Software\Fische.X\main.c
 77 maintext CODE >97:C:\Users\SM\Desktop\Software\Fische.X\main.c
+7C maintext CODE >99:C:\Users\SM\Desktop\Software\Fische.X\main.c
+7F maintext CODE >103:C:\Users\SM\Desktop\Software\Fische.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -233,14 +234,14 @@ __Hspace_3 0 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 _T1CONbits 18 0 ABS 0 - dist/default/production\Fische.X.production.o
-__end_of_WDT_Initialize 21C 0 CODE 0 text4 dist/default/production\Fische.X.production.o
+__end_of_WDT_Initialize 200 0 CODE 0 text4 dist/default/production\Fische.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _LATA 10C 0 ABS 0 - dist/default/production\Fische.X.production.o
 _WPUA 20C 0 ABS 0 - dist/default/production\Fische.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\SM\AppData\Local\Temp\sbgs.o
+___sp 0 0 STACK 2 stack C:\Users\SM\AppData\Local\Temp\sc40.o
 _main C6 0 CODE 0 maintext dist/default/production\Fische.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Fische.X.production.o
-start 32 0 CODE 0 init C:\Users\SM\AppData\Local\Temp\sbgs.o
+start 32 0 CODE 0 init C:\Users\SM\AppData\Local\Temp\sc40.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 95 0 ABS 0 - dist/default/production\Fische.X.production.o
@@ -251,19 +252,19 @@ __size_of_TMR1_StartTimer 0 0 ABS 0 - dist/default/production\Fische.X.productio
 __size_of_TMR1_WriteTimer 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 __LnvCOMMON 0 0 ABS 0 nvCOMMON -
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\Fische.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sbgs.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sbgs.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sbgs.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sbgs.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sbgs.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sbgs.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sc40.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sc40.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sc40.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sc40.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sc40.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\SM\AppData\Local\Temp\sc40.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Fische.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __size_of_TMR1_DefaultInterruptHandler 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 _currentSecondsTick 72 0 COMMON 1 bssCOMMON dist/default/production\Fische.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_TMR1_DefaultInterruptHandler 224 0 CODE 0 text13 dist/default/production\Fische.X.production.o
+__end_of_TMR1_DefaultInterruptHandler 208 0 CODE 0 text13 dist/default/production\Fische.X.production.o
 __size_of_secondsTick 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 _ANSELA 18C 0 ABS 0 - dist/default/production\Fische.X.production.o
 _APFCON 11D 0 ABS 0 - dist/default/production\Fische.X.production.o
@@ -272,19 +273,19 @@ __end_of_INTERRUPT_InterruptManager 32 0 CODE 0 intentry dist/default/production
 __size_of_TMR1_SetInterruptHandler 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _INLVLA 38C 0 ABS 0 - dist/default/production\Fische.X.production.o
-___stackhi 206F 0 ABS 0 - C:\Users\SM\AppData\Local\Temp\sbgs.o
-___stacklo 2002 0 ABS 0 - C:\Users\SM\AppData\Local\Temp\sbgs.o
+___stackhi 206F 0 ABS 0 - C:\Users\SM\AppData\Local\Temp\sc40.o
+___stacklo 2002 0 ABS 0 - C:\Users\SM\AppData\Local\Temp\sc40.o
 __HnvCOMMON 0 0 ABS 0 nvCOMMON -
-_PIN_MANAGER_Initialize 13C 0 CODE 0 text7 dist/default/production\Fische.X.production.o
+_PIN_MANAGER_Initialize 138 0 CODE 0 text7 dist/default/production\Fische.X.production.o
 start_initialization 34 0 CODE 0 cinit dist/default/production\Fische.X.production.o
 _ODCONA 28C 0 ABS 0 - dist/default/production\Fische.X.production.o
 _OSCCON 99 0 ABS 0 - dist/default/production\Fische.X.production.o
-__end_of_SYSTEM_Initialize 1C8 0 CODE 0 text3 dist/default/production\Fische.X.production.o
+__end_of_SYSTEM_Initialize 1A2 0 CODE 0 text3 dist/default/production\Fische.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Fische.X.production.o
 _T1GCON 19 0 ABS 0 - dist/default/production\Fische.X.production.o
-__end_of_TMR1_SetInterruptHandler 214 0 CODE 0 text6 dist/default/production\Fische.X.production.o
+__end_of_TMR1_SetInterruptHandler 1EE 0 CODE 0 text6 dist/default/production\Fische.X.production.o
 _WDTCON 97 0 ABS 0 - dist/default/production\Fische.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\SM\AppData\Local\Temp\sbgs.o
+___int_sp 0 0 STACK 2 stack C:\Users\SM\AppData\Local\Temp\sc40.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -424,21 +425,21 @@ __S1 7C 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __size_of_TMR1_ISR 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 __pnvCOMMON 75 0 COMMON 1 nvCOMMON dist/default/production\Fische.X.production.o
-_secondsTick 18C 0 CODE 0 text14 dist/default/production\Fische.X.production.o
-_TMR1_CallBack 1E2 0 CODE 0 text12 dist/default/production\Fische.X.production.o
-_SYSTEM_Initialize 1AE 0 CODE 0 text3 dist/default/production\Fische.X.production.o
+_secondsTick 1EE 0 CODE 0 text14 dist/default/production\Fische.X.production.o
+_TMR1_CallBack 1BC 0 CODE 0 text12 dist/default/production\Fische.X.production.o
+_SYSTEM_Initialize 188 0 CODE 0 text3 dist/default/production\Fische.X.production.o
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\SM\AppData\Local\Temp\sbgs.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\SM\AppData\Local\Temp\sc40.o
 _INTERRUPT_InterruptManager 8 0 CODE 0 intentry dist/default/production\Fische.X.production.o
 _PIE1bits 91 0 ABS 0 - dist/default/production\Fische.X.production.o
-_TMR1_ISR 1C8 0 CODE 0 text10 dist/default/production\Fische.X.production.o
-__ptext10 1C8 0 CODE 0 text10 dist/default/production\Fische.X.production.o
-__ptext11 16A 0 CODE 0 text11 dist/default/production\Fische.X.production.o
-__ptext12 1E2 0 CODE 0 text12 dist/default/production\Fische.X.production.o
-__ptext13 222 0 CODE 0 text13 dist/default/production\Fische.X.production.o
-__ptext14 18C 0 CODE 0 text14 dist/default/production\Fische.X.production.o
-__end_of_PIN_MANAGER_Initialize 16A 0 CODE 0 text7 dist/default/production\Fische.X.production.o
+_TMR1_ISR 1A2 0 CODE 0 text10 dist/default/production\Fische.X.production.o
+__ptext10 1A2 0 CODE 0 text10 dist/default/production\Fische.X.production.o
+__ptext11 166 0 CODE 0 text11 dist/default/production\Fische.X.production.o
+__ptext12 1BC 0 CODE 0 text12 dist/default/production\Fische.X.production.o
+__ptext13 206 0 CODE 0 text13 dist/default/production\Fische.X.production.o
+__ptext14 1EE 0 CODE 0 text14 dist/default/production\Fische.X.production.o
+__end_of_PIN_MANAGER_Initialize 166 0 CODE 0 text7 dist/default/production\Fische.X.production.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -469,7 +470,7 @@ __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Fische.X.production.o
-__end_of_TMR1_ISR 1E2 0 CODE 0 text10 dist/default/production\Fische.X.production.o
+__end_of_TMR1_ISR 1BC 0 CODE 0 text10 dist/default/production\Fische.X.production.o
 _LATAbits 10C 0 ABS 0 - dist/default/production\Fische.X.production.o
 _demandedSecondsTick 70 0 COMMON 1 bssCOMMON dist/default/production\Fische.X.production.o
 _OSCTUNE 98 0 ABS 0 - dist/default/production\Fische.X.production.o
@@ -493,22 +494,22 @@ __Hreset_vec 2 0 CODE 0 reset_vec -
 _setState 44 0 CODE 0 text1 dist/default/production\Fische.X.production.o
 TMR1_SetInterruptHandler@InterruptHandler 20 0 BANK0 1 cstackBANK0 dist/default/production\Fische.X.production.o
 __ptext1 44 0 CODE 0 text1 dist/default/production\Fische.X.production.o
-__ptext2 21C 0 CODE 0 text2 dist/default/production\Fische.X.production.o
-__ptext3 1AE 0 CODE 0 text3 dist/default/production\Fische.X.production.o
-__ptext4 214 0 CODE 0 text4 dist/default/production\Fische.X.production.o
-__ptext5 10A 0 CODE 0 text5 dist/default/production\Fische.X.production.o
-__ptext6 208 0 CODE 0 text6 dist/default/production\Fische.X.production.o
-__ptext7 13C 0 CODE 0 text7 dist/default/production\Fische.X.production.o
-__ptext8 1FA 0 CODE 0 text8 dist/default/production\Fische.X.production.o
+__ptext2 200 0 CODE 0 text2 dist/default/production\Fische.X.production.o
+__ptext3 188 0 CODE 0 text3 dist/default/production\Fische.X.production.o
+__ptext4 1F8 0 CODE 0 text4 dist/default/production\Fische.X.production.o
+__ptext5 106 0 CODE 0 text5 dist/default/production\Fische.X.production.o
+__ptext6 1E2 0 CODE 0 text6 dist/default/production\Fische.X.production.o
+__ptext7 138 0 CODE 0 text7 dist/default/production\Fische.X.production.o
+__ptext8 1D4 0 CODE 0 text8 dist/default/production\Fische.X.production.o
 __end_of_setState C6 0 CODE 0 text1 dist/default/production\Fische.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 _currentState 74 0 COMMON 1 bssCOMMON dist/default/production\Fische.X.production.o
 TMR1_WriteTimer@timerVal 79 0 COMMON 1 cstackCOMMON dist/default/production\Fische.X.production.o
-__end_of_TMR1_Initialize 13C 0 CODE 0 text5 dist/default/production\Fische.X.production.o
-__end_of_TMR1_StartTimer 222 0 CODE 0 text2 dist/default/production\Fische.X.production.o
-__end_of_TMR1_WriteTimer 18C 0 CODE 0 text11 dist/default/production\Fische.X.production.o
-__end_of_TMR1_CallBack 1FA 0 CODE 0 text12 dist/default/production\Fische.X.production.o
+__end_of_TMR1_Initialize 138 0 CODE 0 text5 dist/default/production\Fische.X.production.o
+__end_of_TMR1_StartTimer 206 0 CODE 0 text2 dist/default/production\Fische.X.production.o
+__end_of_TMR1_WriteTimer 188 0 CODE 0 text11 dist/default/production\Fische.X.production.o
+__end_of_TMR1_CallBack 1D4 0 CODE 0 text12 dist/default/production\Fische.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 _SLRCONA 30C 0 ABS 0 - dist/default/production\Fische.X.production.o
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\Fische.X.production.o
@@ -517,30 +518,30 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 _timer1ReloadVal 77 0 COMMON 1 nvCOMMON dist/default/production\Fische.X.production.o
 __CFG_PLLEN$OFF 0 0 ABS 0 - dist/default/production\Fische.X.production.o
-_TMR1_DefaultInterruptHandler 222 0 CODE 0 text13 dist/default/production\Fische.X.production.o
+_TMR1_DefaultInterruptHandler 206 0 CODE 0 text13 dist/default/production\Fische.X.production.o
 __pcstackCOMMON 79 0 COMMON 1 cstackCOMMON dist/default/production\Fische.X.production.o
 __Hend_init 34 0 CODE 0 end_init -
-__end_of_main 10A 0 CODE 0 maintext dist/default/production\Fische.X.production.o
+__end_of_main 106 0 CODE 0 maintext dist/default/production\Fische.X.production.o
 _T1CON 18 0 ABS 0 - dist/default/production\Fische.X.production.o
 _TMR1H 17 0 ABS 0 - dist/default/production\Fische.X.production.o
 _TMR1L 16 0 ABS 0 - dist/default/production\Fische.X.production.o
 _TRISA 8C 0 ABS 0 - dist/default/production\Fische.X.production.o
-__end_of_secondsTick 1AE 0 CODE 0 text14 dist/default/production\Fische.X.production.o
+__end_of_secondsTick 1F8 0 CODE 0 text14 dist/default/production\Fische.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_TMR1_Initialize 10A 0 CODE 0 text5 dist/default/production\Fische.X.production.o
-_TMR1_StartTimer 21C 0 CODE 0 text2 dist/default/production\Fische.X.production.o
-_TMR1_WriteTimer 16A 0 CODE 0 text11 dist/default/production\Fische.X.production.o
+_TMR1_Initialize 106 0 CODE 0 text5 dist/default/production\Fische.X.production.o
+_TMR1_StartTimer 200 0 CODE 0 text2 dist/default/production\Fische.X.production.o
+_TMR1_WriteTimer 166 0 CODE 0 text11 dist/default/production\Fische.X.production.o
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\Fische.X.production.o
-_WDT_Initialize 214 0 CODE 0 text4 dist/default/production\Fische.X.production.o
+_WDT_Initialize 1F8 0 CODE 0 text4 dist/default/production\Fische.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Fische.X.production.o
-__end_of_OSCILLATOR_Initialize 208 0 CODE 0 text8 dist/default/production\Fische.X.production.o
+__end_of_OSCILLATOR_Initialize 1E2 0 CODE 0 text8 dist/default/production\Fische.X.production.o
 __initialization 34 0 CODE 0 cinit dist/default/production\Fische.X.production.o
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\Fische.X.production.o
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Fische.X.production.o
-_TMR1_SetInterruptHandler 208 0 CODE 0 text6 dist/default/production\Fische.X.production.o
+_TMR1_SetInterruptHandler 1E2 0 CODE 0 text6 dist/default/production\Fische.X.production.o
 _TMR1_InterruptHandler 75 0 COMMON 1 nvCOMMON dist/default/production\Fische.X.production.o
-_OSCILLATOR_Initialize 1FA 0 CODE 0 text8 dist/default/production\Fische.X.production.o
+_OSCILLATOR_Initialize 1D4 0 CODE 0 text8 dist/default/production\Fische.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -567,7 +568,7 @@ _OSCILLATOR_Initialize 1FA 0 CODE 0 text8 dist/default/production\Fische.X.produ
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cstackBANK0 1 20 20 2 1
-intentry 0 4 8 10E 2
+intentry 0 4 8 100 2
 reset_vec 0 0 0 1 2
 bssCOMMON 1 70 70 C 1
 config 0 8007 1000E 2 2

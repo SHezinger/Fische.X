@@ -54,7 +54,7 @@ typedef enum {
 
 states_t currentState = STATE_UNDEFINED;
 
-uint16_t currentSecondsTick = 0;
+volatile uint16_t currentSecondsTick = 0;
 uint16_t demandedSecondsTick = 0;
 
 void setState(states_t newState);
@@ -94,7 +94,15 @@ void main(void)
     
     while(1)
     {
-        OUTPUT_2_RETURN_Toggle();
+        if(INPUT_STOP_GetValue())
+        {
+            OUTPUT_2_RETURN_SetHigh();
+        }
+        else
+        {
+            OUTPUT_2_RETURN_SetLow();
+        }
+        //OUTPUT_2_RETURN_Toggle();
     };
 
     while (1)
@@ -180,5 +188,5 @@ void secondsTick()
 {
     currentSecondsTick++;
     
-    OUTPUT_2_RETURN_Toggle();
+//    OUTPUT_2_RETURN_Toggle();
 }
