@@ -431,7 +431,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TCON" settingAlias="TMRCS"/>
-         <value>LFINTOSC</value>
+         <value>FOSC</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TCON" settingAlias="TCKPS" alias="1:4"/>
@@ -863,7 +863,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR1" registerAlias="TCON"/>
-         <value>193</value>
+         <value>65</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="IOCAF" settingAlias="IOCAF3" alias="enabled"/>
@@ -1845,7 +1845,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.c</file>
-         <hash>2046fcf975e77933c4baf8a373dca0535e344759395261dea6d8e1c09ed675e5</hash>
+         <hash>7f98be6bca5ad6bad350b80a273385d61f0ba383b8c0ad1b81fced9195a5cdf6</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
