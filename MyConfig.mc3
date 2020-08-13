@@ -431,7 +431,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TCON" settingAlias="TMRCS"/>
-         <value>LFINTOSC</value>
+         <value>FOSC</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TCON" settingAlias="TCKPS" alias="1:4"/>
@@ -863,7 +863,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR1" registerAlias="TCON"/>
-         <value>193</value>
+         <value>65</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="IOCAF" settingAlias="IOCAF3" alias="enabled"/>
@@ -1710,12 +1710,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Interrupt Module" name="IVT_NAME"/>
-         <value>IVT1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG1" settingAlias="CP" alias="OFF"/>
          <value>128</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Interrupt Module" name="IVT_NAME"/>
+         <value>IVT1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRA4"/>
@@ -1816,16 +1816,16 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>01eec61007b47e076dca3b03e490bd3989e3a3d88e196e0d22cb694465cfd547</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\mcc.h</file>
          <hash>d3da97fde73432442664c764254e2522bb2821a877e2b508cfbc455c8cee8b62</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.h</file>
          <hash>6be5aa7e81a8a781bd7584bd98e49b8d40f464cc96c233a84dd49fb11fc9850b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\interrupt_manager.h</file>
+         <hash>01eec61007b47e076dca3b03e490bd3989e3a3d88e196e0d22cb694465cfd547</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.h</file>
@@ -1845,15 +1845,15 @@
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.c</file>
-         <hash>2046fcf975e77933c4baf8a373dca0535e344759395261dea6d8e1c09ed675e5</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>333c6901d721bac8080d9e1fd1e9dc663d1c018c23626faf198890cfafebeaeb</hash>
+         <hash>7f98be6bca5ad6bad350b80a273385d61f0ba383b8c0ad1b81fced9195a5cdf6</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
          <hash>1caaee8db81a32a90c95d04a95e3df4fa3cfee28d324ef4a4561170d9710cf86</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\interrupt_manager.c</file>
+         <hash>333c6901d721bac8080d9e1fd1e9dc663d1c018c23626faf198890cfafebeaeb</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
