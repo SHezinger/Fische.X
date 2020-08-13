@@ -173,6 +173,4 @@ void setState(states_t newState)
 void secondsTick()
 {
     currentSecondsTick++;
-    
-//    OUTPUT_2_RETURN_Toggle();
 }
