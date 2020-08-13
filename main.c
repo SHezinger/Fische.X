@@ -157,7 +157,7 @@ void setState(states_t newState)
         case STATE_CLOSE_VALVE:
             OUTPUT_1_FORWARD_SetLow();
             OUTPUT_2_RETURN_SetHigh();
-            demandedSecondsTick = currentSecondsTick + 30;
+            demandedSecondsTick = currentSecondsTick + 10;
             break;
                     
         case STATE_END:
