@@ -103,14 +103,7 @@ void main(void)
             OUTPUT_2_RETURN_SetLow();
         }
         
-        if(INPUT_START_GetValue())
-        {
-            OUTPUT_1_FORWARD_SetHigh();
-        }
-        else
-        {
-            OUTPUT_1_FORWARD_SetLow();
-        }
+
             
         //OUTPUT_2_RETURN_Toggle();
     };
@@ -198,5 +191,14 @@ void secondsTick()
 {
     currentSecondsTick++;
     
+    
+    if(INPUT_START_GetValue())
+    {
+        OUTPUT_1_FORWARD_SetHigh();
+    }
+    else
+    {
+        OUTPUT_1_FORWARD_SetLow();
+    }
 //    OUTPUT_2_RETURN_Toggle();
 }
