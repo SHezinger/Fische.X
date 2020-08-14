@@ -106,16 +106,11 @@ void main(void)
                 break;
                     
             case STATE_OPEN_VALVE:
-                //shutdown after 20 minutes
-                if(currentSecondsTick >= demandedSecondsTick)
-                {
-                    setState(STATE_END);
-                }
-                else if(INPUT_STOP_GetValue())
+                //shutdown after button press or 20 minutes
+                if(INPUT_STOP_GetValue() || (currentSecondsTick >= demandedSecondsTick))
                 {
                     setState(STATE_CLOSE_VALVE);
                 }
-
                 break;
 
             case STATE_CLOSE_VALVE:
