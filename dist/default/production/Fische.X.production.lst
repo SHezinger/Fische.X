@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Fri Aug 14 11:06:04 2020
+                                                                                               Fri Aug 14 11:09:58 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	12F1571
@@ -1365,11 +1365,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1344  00A4  110C               	bcf	12,2	;volatile
   1345  00A5                     l806:
   1346                           
-  1347                           ;main.c: 162:             demandedSecondsTick = currentSecondsTick + 60;
+  1347                           ;main.c: 162:             demandedSecondsTick = currentSecondsTick + 1200;
   1348  00A5  0872               	movf	_currentSecondsTick,w	;volatile
-  1349  00A6  3E3C               	addlw	60
+  1349  00A6  3EB0               	addlw	176
   1350  00A7  00F0               	movwf	_demandedSecondsTick
-  1351  00A8  3000               	movlw	0
+  1351  00A8  3004               	movlw	4
   1352  00A9  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
   1353  00AA  00F1               	movwf	_demandedSecondsTick+1
   1354                           
@@ -2532,7 +2532,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Fri Aug 14 11:06:04 2020
+Symbol Table                                                                                   Fri Aug 14 11:09:58 2020
 
                                       l22 0142                                        l25 0151  
                                       l19 0121                                        l46 0103  
