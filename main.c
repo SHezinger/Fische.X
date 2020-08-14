@@ -99,23 +99,31 @@ void main(void)
         switch(currentState)
         {
             case STATE_WAIT_TIME:
-                //TODO: wait 1 second
-                if(INPUT_START_GetValue() && (currentSecondsTick >= demandedSecondsTick))
+                if(INPUT_START_GetValue() && (currentSecondsTick >= demandedSecondsTick))  //wait 1 second
                 {
                     setState(STATE_OPEN_VALVE);
                 }
                 break;
                     
             case STATE_OPEN_VALVE:
-                if(INPUT_STOP_GetValue())
+                //shutdown after 20 minutes
+                if(currentSecondsTick >= demandedSecondsTick)
+                {
+                    setState(STATE_END);
+                }
+                else if(INPUT_STOP_GetValue())
                 {
                     setState(STATE_CLOSE_VALVE);
                 }
+
                 break;
 
             case STATE_CLOSE_VALVE:
-                //TODO: wait 30 seconds
-                if(currentSecondsTick >= demandedSecondsTick)
+                if(INPUT_START_GetValue())
+                {
+                    setState(STATE_OPEN_VALVE);
+                }
+                else if(currentSecondsTick >= demandedSecondsTick) //end after 10 seconds
                 {
                     setState(STATE_END);
                 }
@@ -141,6 +149,10 @@ void setState(states_t newState)
         return;
     
     
+    //Reset seconds tick
+    currentSecondsTick = 0;
+    
+    
     switch(newState)
     {
         case STATE_WAIT_TIME:
@@ -152,6 +164,7 @@ void setState(states_t newState)
         case STATE_OPEN_VALVE:
             OUTPUT_1_FORWARD_SetHigh();
             OUTPUT_2_RETURN_SetLow();
+            demandedSecondsTick = currentSecondsTick + 60;
             break;
                     
         case STATE_CLOSE_VALVE:
