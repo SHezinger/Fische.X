@@ -103,6 +103,10 @@ void main(void)
                 {
                     setState(STATE_OPEN_VALVE);
                 }
+                else if(INPUT_STOP_GetValue())
+                {
+                    setState(STATE_CLOSE_VALVE);
+                }
                 break;
                     
             case STATE_OPEN_VALVE:

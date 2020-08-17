@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Fri Aug 14 11:09:58 2020
+                                                                                               Mon Aug 17 11:08:15 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	12F1571
@@ -1081,38 +1081,38 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1067                           
   1068                           ;psect for function _main
   1069  0022                     _main:
-  1070  0022                     l1040:	
+  1070  0022                     l1046:	
   1071                           ;incstack = 0
   1072                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
   1073                           
   1074                           
   1075                           ;main.c: 71:     SYSTEM_Initialize();
-  1076  0022  3181  2115  3180   	fcall	_SYSTEM_Initialize
-  1077  0025                     l1042:
+  1076  0022  3181  211E  3180   	fcall	_SYSTEM_Initialize
+  1077  0025                     l1048:
   1078                           
   1079                           ;main.c: 77:     (INTCONbits.GIE = 1);
   1080  0025  178B               	bsf	11,7	;volatile
-  1081  0026                     l1044:
+  1081  0026                     l1050:
   1082                           
   1083                           ;main.c: 80:     (INTCONbits.PEIE = 1);
   1084  0026  170B               	bsf	11,6	;volatile
   1085                           
   1086                           ;main.c: 89:     TMR1_SetInterruptHandler(secondsTick);
-  1087  0027  3049               	movlw	low _secondsTick
+  1087  0027  3052               	movlw	low _secondsTick
   1088  0028  00F7               	movwf	TMR1_SetInterruptHandler@InterruptHandler
   1089  0029  3001               	movlw	high _secondsTick
   1090  002A  00F8               	movwf	TMR1_SetInterruptHandler@InterruptHandler+1
-  1091  002B  3181  2143  3180   	fcall	_TMR1_SetInterruptHandler
-  1092  002E                     l1046:
+  1091  002B  3181  214C  3180   	fcall	_TMR1_SetInterruptHandler
+  1092  002E                     l1052:
   1093                           
   1094                           ;main.c: 91:     TMR1_StartTimer();
-  1095  002E  3181  2152  3180   	fcall	_TMR1_StartTimer
-  1096  0031                     l1048:
+  1095  002E  3181  215B  3180   	fcall	_TMR1_StartTimer
+  1096  0031                     l1054:
   1097                           
   1098                           ;main.c: 93:     setState(STATE_WAIT_TIME);
   1099  0031  3001               	movlw	1
-  1100  0032  3180  208D  3180   	fcall	_setState
-  1101  0035  2875               	goto	l1066
+  1100  0032  3180  2096  3180   	fcall	_setState
+  1101  0035  287E               	goto	l1074
   1102  0036                     l160:	
   1103                           ;main.c: 100:         {;main.c: 101:             case STATE_WAIT_TIME:
   1104                           
@@ -1120,1204 +1120,1222 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1106                           ;main.c: 102:                 if(PORTAbits.RA5 && (currentSecondsTick >= demandedSeconds
       +                          Tick))
   1107  0036  1E8C               	btfss	12,5	;volatile
-  1108  0037  2839               	goto	u241
-  1109  0038  283A               	goto	u240
-  1110  0039                     u241:
-  1111  0039  2875               	goto	l1066
-  1112  003A                     u240:
-  1113  003A                     l1050:
+  1108  0037  2839               	goto	u261
+  1109  0038  283A               	goto	u260
+  1110  0039                     u261:
+  1111  0039  2849               	goto	l161
+  1112  003A                     u260:
+  1113  003A                     l1056:
   1114  003A  0871               	movf	_demandedSecondsTick+1,w
   1115  003B  0273               	subwf	_currentSecondsTick+1,w	;volatile
   1116  003C  1D03               	skipz
-  1117  003D  2840               	goto	u255
+  1117  003D  2840               	goto	u275
   1118  003E  0870               	movf	_demandedSecondsTick,w
   1119  003F  0272               	subwf	_currentSecondsTick,w	;volatile
-  1120  0040                     u255:
+  1120  0040                     u275:
   1121  0040  1C03               	skipc
-  1122  0041  2843               	goto	u251
-  1123  0042  2844               	goto	u250
-  1124  0043                     u251:
-  1125  0043  2875               	goto	l1066
-  1126  0044                     u250:
-  1127  0044                     l1052:
+  1122  0041  2843               	goto	u271
+  1123  0042  2844               	goto	u270
+  1124  0043                     u271:
+  1125  0043  2849               	goto	l161
+  1126  0044                     u270:
+  1127  0044                     l1058:
   1128                           
   1129                           ;main.c: 103:                 {;main.c: 104:                     setState(STATE_OPEN_VAL
       +                          VE);
   1130  0044  3002               	movlw	2
-  1131  0045  3180  208D  3180   	fcall	_setState
-  1132  0048  2875               	goto	l1066
-  1133  0049                     l163:	
-  1134                           ;main.c: 108:             case STATE_OPEN_VALVE:
-  1135                           
-  1136                           
-  1137                           ;main.c: 110:                 if(PORTAbits.RA4 || (currentSecondsTick >= demandedSeconds
-      +                          Tick))
-  1138  0049  1A0C               	btfsc	12,4	;volatile
-  1139  004A  284C               	goto	u261
-  1140  004B  284D               	goto	u260
-  1141  004C                     u261:
-  1142  004C  2857               	goto	l1056
-  1143  004D                     u260:
-  1144  004D                     l1054:
-  1145  004D  0871               	movf	_demandedSecondsTick+1,w
-  1146  004E  0273               	subwf	_currentSecondsTick+1,w	;volatile
-  1147  004F  1D03               	skipz
-  1148  0050  2853               	goto	u275
-  1149  0051  0870               	movf	_demandedSecondsTick,w
-  1150  0052  0272               	subwf	_currentSecondsTick,w	;volatile
-  1151  0053                     u275:
-  1152  0053  1C03               	skipc
-  1153  0054  2856               	goto	u271
-  1154  0055  2857               	goto	u270
-  1155  0056                     u271:
-  1156  0056  2875               	goto	l159
-  1157  0057                     u270:
-  1158  0057                     l1056:
-  1159                           
-  1160                           ;main.c: 111:                 {;main.c: 112:                     setState(STATE_CLOSE_VA
+  1131  0045  3180  2096  3180   	fcall	_setState
+  1132                           
+  1133                           ;main.c: 105:                 }
+  1134  0048  287E               	goto	l1074
+  1135  0049                     l161:	
+  1136                           ;main.c: 106:                 else if(PORTAbits.RA4)
+  1137                           
+  1138  0049  1E0C               	btfss	12,4	;volatile
+  1139  004A  284C               	goto	u281
+  1140  004B  284D               	goto	u280
+  1141  004C                     u281:
+  1142  004C  287E               	goto	l159
+  1143  004D                     u280:
+  1144  004D                     l1060:
+  1145                           
+  1146                           ;main.c: 107:                 {;main.c: 108:                     setState(STATE_CLOSE_VA
       +                          LVE);
-  1161  0057  3003               	movlw	3
-  1162  0058  3180  208D  3180   	fcall	_setState
-  1163  005B  2875               	goto	l1066
-  1164  005C                     l167:	
-  1165                           ;main.c: 116:             case STATE_CLOSE_VALVE:
-  1166                           
-  1167                           
-  1168                           ;main.c: 117:                 if(PORTAbits.RA5)
-  1169  005C  1E8C               	btfss	12,5	;volatile
-  1170  005D  285F               	goto	u281
-  1171  005E  2860               	goto	u280
-  1172  005F                     u281:
-  1173  005F  2865               	goto	l1060
-  1174  0060                     u280:
-  1175  0060                     l1058:
+  1147  004D  3003               	movlw	3
+  1148  004E  3180  2096  3180   	fcall	_setState
+  1149  0051  287E               	goto	l1074
+  1150  0052                     l165:	
+  1151                           ;main.c: 112:             case STATE_OPEN_VALVE:
+  1152                           
+  1153                           
+  1154                           ;main.c: 114:                 if(PORTAbits.RA4 || (currentSecondsTick >= demandedSeconds
+      +                          Tick))
+  1155  0052  1A0C               	btfsc	12,4	;volatile
+  1156  0053  2855               	goto	u291
+  1157  0054  2856               	goto	u290
+  1158  0055                     u291:
+  1159  0055  2860               	goto	l1064
+  1160  0056                     u290:
+  1161  0056                     l1062:
+  1162  0056  0871               	movf	_demandedSecondsTick+1,w
+  1163  0057  0273               	subwf	_currentSecondsTick+1,w	;volatile
+  1164  0058  1D03               	skipz
+  1165  0059  285C               	goto	u305
+  1166  005A  0870               	movf	_demandedSecondsTick,w
+  1167  005B  0272               	subwf	_currentSecondsTick,w	;volatile
+  1168  005C                     u305:
+  1169  005C  1C03               	skipc
+  1170  005D  285F               	goto	u301
+  1171  005E  2860               	goto	u300
+  1172  005F                     u301:
+  1173  005F  287E               	goto	l159
+  1174  0060                     u300:
+  1175  0060                     l1064:
   1176                           
-  1177                           ;main.c: 118:                 {;main.c: 119:                     setState(STATE_OPEN_VAL
+  1177                           ;main.c: 115:                 {;main.c: 116:                     setState(STATE_CLOSE_VA
+      +                          LVE);
+  1178  0060  3003               	movlw	3
+  1179  0061  3180  2096  3180   	fcall	_setState
+  1180  0064  287E               	goto	l1074
+  1181  0065                     l169:	
+  1182                           ;main.c: 120:             case STATE_CLOSE_VALVE:
+  1183                           
+  1184                           
+  1185                           ;main.c: 121:                 if(PORTAbits.RA5)
+  1186  0065  1E8C               	btfss	12,5	;volatile
+  1187  0066  2868               	goto	u311
+  1188  0067  2869               	goto	u310
+  1189  0068                     u311:
+  1190  0068  286E               	goto	l1068
+  1191  0069                     u310:
+  1192  0069                     l1066:
+  1193                           
+  1194                           ;main.c: 122:                 {;main.c: 123:                     setState(STATE_OPEN_VAL
       +                          VE);
-  1178  0060  3002               	movlw	2
-  1179  0061  3180  208D  3180   	fcall	_setState
-  1180                           
-  1181                           ;main.c: 120:                 }
-  1182  0064  2875               	goto	l1066
-  1183  0065                     l1060:
-  1184  0065  0871               	movf	_demandedSecondsTick+1,w
-  1185  0066  0273               	subwf	_currentSecondsTick+1,w	;volatile
-  1186  0067  1D03               	skipz
-  1187  0068  286B               	goto	u295
-  1188  0069  0870               	movf	_demandedSecondsTick,w
-  1189  006A  0272               	subwf	_currentSecondsTick,w	;volatile
-  1190  006B                     u295:
-  1191  006B  1C03               	skipc
-  1192  006C  286E               	goto	u291
-  1193  006D  286F               	goto	u290
-  1194  006E                     u291:
-  1195  006E  2875               	goto	l159
-  1196  006F                     u290:
-  1197  006F                     l1062:
-  1198                           
-  1199                           ;main.c: 122:                 {;main.c: 123:                     setState(STATE_END);
-  1200  006F  3004               	movlw	4
-  1201  0070  3180  208D  3180   	fcall	_setState
-  1202  0073  2875               	goto	l1066
-  1203  0074                     l172:	
-  1204                           ;main.c: 128:                 while(1);
-  1205                           
-  1206  0074  2874               	goto	l172
-  1207  0075                     l159:
-  1208  0075                     l1066:
-  1209  0075  0874               	movf	_currentState,w
-  1210  0076  0020               	movlb	0	; select bank0
-  1211  0077  00A2               	movwf	??_main
-  1212  0078  01A3               	clrf	??_main+1
-  1213                           
-  1214                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+  1195  0069  3002               	movlw	2
+  1196  006A  3180  2096  3180   	fcall	_setState
+  1197                           
+  1198                           ;main.c: 124:                 }
+  1199  006D  287E               	goto	l1074
+  1200  006E                     l1068:
+  1201  006E  0871               	movf	_demandedSecondsTick+1,w
+  1202  006F  0273               	subwf	_currentSecondsTick+1,w	;volatile
+  1203  0070  1D03               	skipz
+  1204  0071  2874               	goto	u325
+  1205  0072  0870               	movf	_demandedSecondsTick,w
+  1206  0073  0272               	subwf	_currentSecondsTick,w	;volatile
+  1207  0074                     u325:
+  1208  0074  1C03               	skipc
+  1209  0075  2877               	goto	u321
+  1210  0076  2878               	goto	u320
+  1211  0077                     u321:
+  1212  0077  287E               	goto	l159
+  1213  0078                     u320:
+  1214  0078                     l1070:
+  1215                           
+  1216                           ;main.c: 126:                 {;main.c: 127:                     setState(STATE_END);
+  1217  0078  3004               	movlw	4
+  1218  0079  3180  2096  3180   	fcall	_setState
+  1219  007C  287E               	goto	l1074
+  1220  007D                     l174:	
+  1221                           ;main.c: 132:                 while(1);
+  1222                           
+  1223  007D  287D               	goto	l174
+  1224  007E                     l159:
+  1225  007E                     l1074:
+  1226  007E  0874               	movf	_currentState,w
+  1227  007F  0020               	movlb	0	; select bank0
+  1228  0080  00A2               	movwf	??_main
+  1229  0081  01A3               	clrf	??_main+1
+  1230                           
+  1231                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-  1215                           ; Switch size 1, requested type "simple"
-  1216                           ; Number of cases is 1, Range of values is 0 to 0
-  1217                           ; switch strategies available:
-  1218                           ; Name         Instructions Cycles
-  1219                           ; simple_byte            4     3 (average)
-  1220                           ; direct_byte            8     6 (fixed)
-  1221                           ; jumptable            260     6 (fixed)
-  1222                           ;	Chosen strategy is simple_byte
-  1223  0079  0823               	movf	??_main+1,w
-  1224  007A  3A00               	xorlw	0	; case 0
-  1225  007B  1903               	skipnz
-  1226  007C  287E               	goto	l1112
-  1227  007D  2875               	goto	l1066
-  1228  007E                     l1112:
-  1229                           
-  1230                           ; Switch size 1, requested type "simple"
-  1231                           ; Number of cases is 4, Range of values is 1 to 4
-  1232                           ; switch strategies available:
-  1233                           ; Name         Instructions Cycles
-  1234                           ; simple_byte           13     7 (average)
-  1235                           ; direct_byte           17     9 (fixed)
-  1236                           ; jumptable            263     9 (fixed)
-  1237                           ;	Chosen strategy is simple_byte
-  1238  007E  0822               	movf	??_main,w
-  1239  007F  3A01               	xorlw	1	; case 1
-  1240  0080  1903               	skipnz
-  1241  0081  2836               	goto	l160
-  1242  0082  3A03               	xorlw	3	; case 2
-  1243  0083  1903               	skipnz
-  1244  0084  2849               	goto	l163
-  1245  0085  3A01               	xorlw	1	; case 3
-  1246  0086  1903               	skipnz
-  1247  0087  285C               	goto	l167
-  1248  0088  3A07               	xorlw	7	; case 4
-  1249  0089  1903               	skipnz
-  1250  008A  2874               	goto	l172
-  1251  008B  2875               	goto	l1066
-  1252  008C  2819               	ljmp	start
-  1253  008D                     __end_of_main:
-  1254                           
-  1255                           	psect	text1
-  1256  008D                     __ptext1:	
-  1257 ;; *************** function _setState *****************
-  1258 ;; Defined at:
-  1259 ;;		line 141 in file "main.c"
-  1260 ;; Parameters:    Size  Location     Type
-  1261 ;;  newState        1    wreg     enum E2970
-  1262 ;; Auto vars:     Size  Location     Type
-  1263 ;;  newState        1    4[COMMON] enum E2970
-  1264 ;; Return value:  Size  Location     Type
-  1265 ;;                  1    wreg      void 
-  1266 ;; Registers used:
-  1267 ;;		wreg, fsr0l, fsr0h, status,2, status,0
-  1268 ;; Tracked objects:
-  1269 ;;		On entry : 0/0
-  1270 ;;		On exit  : 0/0
-  1271 ;;		Unchanged: 0/0
-  1272 ;; Data sizes:     COMMON   BANK0   BANK1
-  1273 ;;      Params:         0       0       0
-  1274 ;;      Locals:         1       0       0
-  1275 ;;      Temps:          2       0       0
-  1276 ;;      Totals:         3       0       0
-  1277 ;;Total ram usage:        3 bytes
-  1278 ;; Hardware stack levels used:    1
-  1279 ;; Hardware stack levels required when called:    4
-  1280 ;; This function calls:
-  1281 ;;		Nothing
-  1282 ;; This function is called by:
-  1283 ;;		_main
-  1284 ;; This function uses a non-reentrant model
-  1285 ;;
-  1286                           
-  1287                           
-  1288                           ;psect for function _setState
-  1289  008D                     _setState:
-  1290                           
-  1291                           ;incstack = 0
-  1292                           ; Regs used in _setState: [wreg-fsr0h+status,2+status,0]
-  1293                           ;setState@newState stored from wreg
-  1294  008D  00F9               	movwf	setState@newState
-  1295  008E                     l798:
-  1296                           
-  1297                           ;main.c: 141: void setState(states_t newState);main.c: 142: {;main.c: 143:     if(newSta
+  1232                           ; Switch size 1, requested type "simple"
+  1233                           ; Number of cases is 1, Range of values is 0 to 0
+  1234                           ; switch strategies available:
+  1235                           ; Name         Instructions Cycles
+  1236                           ; simple_byte            4     3 (average)
+  1237                           ; direct_byte            8     6 (fixed)
+  1238                           ; jumptable            260     6 (fixed)
+  1239                           ;	Chosen strategy is simple_byte
+  1240  0082  0823               	movf	??_main+1,w
+  1241  0083  3A00               	xorlw	0	; case 0
+  1242  0084  1903               	skipnz
+  1243  0085  2887               	goto	l1120
+  1244  0086  287E               	goto	l1074
+  1245  0087                     l1120:
+  1246                           
+  1247                           ; Switch size 1, requested type "simple"
+  1248                           ; Number of cases is 4, Range of values is 1 to 4
+  1249                           ; switch strategies available:
+  1250                           ; Name         Instructions Cycles
+  1251                           ; simple_byte           13     7 (average)
+  1252                           ; direct_byte           17     9 (fixed)
+  1253                           ; jumptable            263     9 (fixed)
+  1254                           ;	Chosen strategy is simple_byte
+  1255  0087  0822               	movf	??_main,w
+  1256  0088  3A01               	xorlw	1	; case 1
+  1257  0089  1903               	skipnz
+  1258  008A  2836               	goto	l160
+  1259  008B  3A03               	xorlw	3	; case 2
+  1260  008C  1903               	skipnz
+  1261  008D  2852               	goto	l165
+  1262  008E  3A01               	xorlw	1	; case 3
+  1263  008F  1903               	skipnz
+  1264  0090  2865               	goto	l169
+  1265  0091  3A07               	xorlw	7	; case 4
+  1266  0092  1903               	skipnz
+  1267  0093  287D               	goto	l174
+  1268  0094  287E               	goto	l1074
+  1269  0095  2819               	ljmp	start
+  1270  0096                     __end_of_main:
+  1271                           
+  1272                           	psect	text1
+  1273  0096                     __ptext1:	
+  1274 ;; *************** function _setState *****************
+  1275 ;; Defined at:
+  1276 ;;		line 145 in file "main.c"
+  1277 ;; Parameters:    Size  Location     Type
+  1278 ;;  newState        1    wreg     enum E2970
+  1279 ;; Auto vars:     Size  Location     Type
+  1280 ;;  newState        1    4[COMMON] enum E2970
+  1281 ;; Return value:  Size  Location     Type
+  1282 ;;                  1    wreg      void 
+  1283 ;; Registers used:
+  1284 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1285 ;; Tracked objects:
+  1286 ;;		On entry : 0/0
+  1287 ;;		On exit  : 0/0
+  1288 ;;		Unchanged: 0/0
+  1289 ;; Data sizes:     COMMON   BANK0   BANK1
+  1290 ;;      Params:         0       0       0
+  1291 ;;      Locals:         1       0       0
+  1292 ;;      Temps:          2       0       0
+  1293 ;;      Totals:         3       0       0
+  1294 ;;Total ram usage:        3 bytes
+  1295 ;; Hardware stack levels used:    1
+  1296 ;; Hardware stack levels required when called:    4
+  1297 ;; This function calls:
+  1298 ;;		Nothing
+  1299 ;; This function is called by:
+  1300 ;;		_main
+  1301 ;; This function uses a non-reentrant model
+  1302 ;;
+  1303                           
+  1304                           
+  1305                           ;psect for function _setState
+  1306  0096                     _setState:
+  1307                           
+  1308                           ;incstack = 0
+  1309                           ; Regs used in _setState: [wreg-fsr0h+status,2+status,0]
+  1310                           ;setState@newState stored from wreg
+  1311  0096  00F9               	movwf	setState@newState
+  1312  0097                     l800:
+  1313                           
+  1314                           ;main.c: 145: void setState(states_t newState);main.c: 146: {;main.c: 147:     if(newSta
       +                          te == currentState)
-  1298  008E  0879               	movf	setState@newState,w
-  1299  008F  0674               	xorwf	_currentState,w
-  1300  0090  1D03               	skipz
-  1301  0091  2893               	goto	u31
-  1302  0092  2894               	goto	u30
-  1303  0093                     u31:
-  1304  0093  2895               	goto	l802
-  1305  0094                     u30:
-  1306  0094  28D4               	goto	l181
-  1307  0095                     l802:
-  1308                           
-  1309                           ;main.c: 148:     currentSecondsTick = 0;
-  1310  0095  01F2               	clrf	_currentSecondsTick	;volatile
-  1311  0096  01F3               	clrf	_currentSecondsTick+1	;volatile
-  1312                           
-  1313                           ;main.c: 151:     switch(newState)
-  1314  0097  28BA               	goto	l812
-  1315  0098                     l184:	
-  1316                           ;main.c: 154:             do { LATAbits.LATA1 = 0; } while(0);
-  1317                           
-  1318  0098  0022               	movlb	2	; select bank2
-  1319  0099  108C               	bcf	12,1	;volatile
-  1320  009A                     l186:	
-  1321                           ;main.c: 155:             do { LATAbits.LATA2 = 0; } while(0);
-  1322                           
-  1323  009A  110C               	bcf	12,2	;volatile
-  1324  009B                     l804:
+  1315  0097  0879               	movf	setState@newState,w
+  1316  0098  0674               	xorwf	_currentState,w
+  1317  0099  1D03               	skipz
+  1318  009A  289C               	goto	u31
+  1319  009B  289D               	goto	u30
+  1320  009C                     u31:
+  1321  009C  289E               	goto	l804
+  1322  009D                     u30:
+  1323  009D  28DD               	goto	l183
+  1324  009E                     l804:
   1325                           
-  1326                           ;main.c: 156:             demandedSecondsTick = currentSecondsTick + 1;
-  1327  009B  0872               	movf	_currentSecondsTick,w	;volatile
-  1328  009C  3E01               	addlw	1
-  1329  009D  00F0               	movwf	_demandedSecondsTick
-  1330  009E  3000               	movlw	0
-  1331  009F  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
-  1332  00A0  00F1               	movwf	_demandedSecondsTick+1
-  1333                           
-  1334                           ;main.c: 157:             break;
-  1335  00A1  28D0               	goto	l814
-  1336  00A2                     l190:	
-  1337                           ;main.c: 160:             do { LATAbits.LATA1 = 1; } while(0);
-  1338                           
-  1339  00A2  0022               	movlb	2	; select bank2
-  1340  00A3  148C               	bsf	12,1	;volatile
-  1341  00A4                     l192:	
-  1342                           ;main.c: 161:             do { LATAbits.LATA2 = 0; } while(0);
-  1343                           
-  1344  00A4  110C               	bcf	12,2	;volatile
-  1345  00A5                     l806:
-  1346                           
-  1347                           ;main.c: 162:             demandedSecondsTick = currentSecondsTick + 1200;
-  1348  00A5  0872               	movf	_currentSecondsTick,w	;volatile
-  1349  00A6  3EB0               	addlw	176
-  1350  00A7  00F0               	movwf	_demandedSecondsTick
-  1351  00A8  3004               	movlw	4
-  1352  00A9  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
-  1353  00AA  00F1               	movwf	_demandedSecondsTick+1
-  1354                           
-  1355                           ;main.c: 163:             break;
-  1356  00AB  28D0               	goto	l814
-  1357  00AC                     l195:	
-  1358                           ;main.c: 166:             do { LATAbits.LATA1 = 0; } while(0);
-  1359                           
-  1360  00AC  0022               	movlb	2	; select bank2
-  1361  00AD  108C               	bcf	12,1	;volatile
-  1362  00AE                     l197:	
-  1363                           ;main.c: 167:             do { LATAbits.LATA2 = 1; } while(0);
-  1364                           
-  1365  00AE  150C               	bsf	12,2	;volatile
-  1366  00AF                     l808:
-  1367                           
-  1368                           ;main.c: 168:             demandedSecondsTick = currentSecondsTick + 10;
-  1369  00AF  0872               	movf	_currentSecondsTick,w	;volatile
-  1370  00B0  3E0A               	addlw	10
-  1371  00B1  00F0               	movwf	_demandedSecondsTick
-  1372  00B2  3000               	movlw	0
-  1373  00B3  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
-  1374  00B4  00F1               	movwf	_demandedSecondsTick+1
-  1375                           
-  1376                           ;main.c: 169:             break;
-  1377  00B5  28D0               	goto	l814
-  1378  00B6                     l200:	
-  1379                           ;main.c: 172:             do { LATAbits.LATA1 = 0; } while(0);
-  1380                           
-  1381  00B6  0022               	movlb	2	; select bank2
-  1382  00B7  108C               	bcf	12,1	;volatile
-  1383  00B8                     l202:	
-  1384                           ;main.c: 173:             do { LATAbits.LATA2 = 0; } while(0);
-  1385                           
-  1386  00B8  110C               	bcf	12,2	;volatile
-  1387  00B9  28D0               	goto	l814
-  1388  00BA                     l812:
-  1389  00BA  0879               	movf	setState@newState,w
-  1390  00BB  00F7               	movwf	??_setState
-  1391  00BC  01F8               	clrf	??_setState+1
+  1326                           ;main.c: 152:     currentSecondsTick = 0;
+  1327  009E  01F2               	clrf	_currentSecondsTick	;volatile
+  1328  009F  01F3               	clrf	_currentSecondsTick+1	;volatile
+  1329                           
+  1330                           ;main.c: 155:     switch(newState)
+  1331  00A0  28C3               	goto	l814
+  1332  00A1                     l186:	
+  1333                           ;main.c: 158:             do { LATAbits.LATA1 = 0; } while(0);
+  1334                           
+  1335  00A1  0022               	movlb	2	; select bank2
+  1336  00A2  108C               	bcf	12,1	;volatile
+  1337  00A3                     l188:	
+  1338                           ;main.c: 159:             do { LATAbits.LATA2 = 0; } while(0);
+  1339                           
+  1340  00A3  110C               	bcf	12,2	;volatile
+  1341  00A4                     l806:
+  1342                           
+  1343                           ;main.c: 160:             demandedSecondsTick = currentSecondsTick + 1;
+  1344  00A4  0872               	movf	_currentSecondsTick,w	;volatile
+  1345  00A5  3E01               	addlw	1
+  1346  00A6  00F0               	movwf	_demandedSecondsTick
+  1347  00A7  3000               	movlw	0
+  1348  00A8  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
+  1349  00A9  00F1               	movwf	_demandedSecondsTick+1
+  1350                           
+  1351                           ;main.c: 161:             break;
+  1352  00AA  28D9               	goto	l816
+  1353  00AB                     l192:	
+  1354                           ;main.c: 164:             do { LATAbits.LATA1 = 1; } while(0);
+  1355                           
+  1356  00AB  0022               	movlb	2	; select bank2
+  1357  00AC  148C               	bsf	12,1	;volatile
+  1358  00AD                     l194:	
+  1359                           ;main.c: 165:             do { LATAbits.LATA2 = 0; } while(0);
+  1360                           
+  1361  00AD  110C               	bcf	12,2	;volatile
+  1362  00AE                     l808:
+  1363                           
+  1364                           ;main.c: 166:             demandedSecondsTick = currentSecondsTick + 1200;
+  1365  00AE  0872               	movf	_currentSecondsTick,w	;volatile
+  1366  00AF  3EB0               	addlw	176
+  1367  00B0  00F0               	movwf	_demandedSecondsTick
+  1368  00B1  3004               	movlw	4
+  1369  00B2  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
+  1370  00B3  00F1               	movwf	_demandedSecondsTick+1
+  1371                           
+  1372                           ;main.c: 167:             break;
+  1373  00B4  28D9               	goto	l816
+  1374  00B5                     l197:	
+  1375                           ;main.c: 170:             do { LATAbits.LATA1 = 0; } while(0);
+  1376                           
+  1377  00B5  0022               	movlb	2	; select bank2
+  1378  00B6  108C               	bcf	12,1	;volatile
+  1379  00B7                     l199:	
+  1380                           ;main.c: 171:             do { LATAbits.LATA2 = 1; } while(0);
+  1381                           
+  1382  00B7  150C               	bsf	12,2	;volatile
+  1383  00B8                     l810:
+  1384                           
+  1385                           ;main.c: 172:             demandedSecondsTick = currentSecondsTick + 10;
+  1386  00B8  0872               	movf	_currentSecondsTick,w	;volatile
+  1387  00B9  3E0A               	addlw	10
+  1388  00BA  00F0               	movwf	_demandedSecondsTick
+  1389  00BB  3000               	movlw	0
+  1390  00BC  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
+  1391  00BD  00F1               	movwf	_demandedSecondsTick+1
   1392                           
-  1393                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+  1393                           ;main.c: 173:             break;
+  1394  00BE  28D9               	goto	l816
+  1395  00BF                     l202:	
+  1396                           ;main.c: 176:             do { LATAbits.LATA1 = 0; } while(0);
+  1397                           
+  1398  00BF  0022               	movlb	2	; select bank2
+  1399  00C0  108C               	bcf	12,1	;volatile
+  1400  00C1                     l204:	
+  1401                           ;main.c: 177:             do { LATAbits.LATA2 = 0; } while(0);
+  1402                           
+  1403  00C1  110C               	bcf	12,2	;volatile
+  1404  00C2  28D9               	goto	l816
+  1405  00C3                     l814:
+  1406  00C3  0879               	movf	setState@newState,w
+  1407  00C4  00F7               	movwf	??_setState
+  1408  00C5  01F8               	clrf	??_setState+1
+  1409                           
+  1410                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-  1394                           ; Switch size 1, requested type "simple"
-  1395                           ; Number of cases is 1, Range of values is 0 to 0
-  1396                           ; switch strategies available:
-  1397                           ; Name         Instructions Cycles
-  1398                           ; simple_byte            4     3 (average)
-  1399                           ; direct_byte            8     6 (fixed)
-  1400                           ; jumptable            260     6 (fixed)
-  1401                           ;	Chosen strategy is simple_byte
-  1402  00BD  0878               	movf	??_setState+1,w
-  1403  00BE  3A00               	xorlw	0	; case 0
-  1404  00BF  1903               	skipnz
-  1405  00C0  28C2               	goto	l1114
-  1406  00C1  28D0               	goto	l814
-  1407  00C2                     l1114:
-  1408                           
-  1409                           ; Switch size 1, requested type "simple"
-  1410                           ; Number of cases is 4, Range of values is 1 to 4
-  1411                           ; switch strategies available:
-  1412                           ; Name         Instructions Cycles
-  1413                           ; simple_byte           13     7 (average)
-  1414                           ; direct_byte           17     9 (fixed)
-  1415                           ; jumptable            263     9 (fixed)
-  1416                           ;	Chosen strategy is simple_byte
-  1417  00C2  0877               	movf	??_setState,w
-  1418  00C3  3A01               	xorlw	1	; case 1
-  1419  00C4  1903               	skipnz
-  1420  00C5  2898               	goto	l184
-  1421  00C6  3A03               	xorlw	3	; case 2
-  1422  00C7  1903               	skipnz
-  1423  00C8  28A2               	goto	l190
-  1424  00C9  3A01               	xorlw	1	; case 3
-  1425  00CA  1903               	skipnz
-  1426  00CB  28AC               	goto	l195
-  1427  00CC  3A07               	xorlw	7	; case 4
-  1428  00CD  1903               	skipnz
-  1429  00CE  28B6               	goto	l200
-  1430  00CF  28D0               	goto	l814
-  1431  00D0                     l814:
-  1432                           
-  1433                           ;main.c: 177:     currentState = newState;
-  1434  00D0  0879               	movf	setState@newState,w
-  1435  00D1  00F7               	movwf	??_setState
-  1436  00D2  0877               	movf	??_setState,w
-  1437  00D3  00F4               	movwf	_currentState
-  1438  00D4                     l181:
-  1439  00D4  0008               	return
-  1440  00D5                     __end_of_setState:
-  1441                           
-  1442                           	psect	text2
-  1443  0152                     __ptext2:	
-  1444 ;; *************** function _TMR1_StartTimer *****************
-  1445 ;; Defined at:
-  1446 ;;		line 93 in file "mcc_generated_files/tmr1.c"
-  1447 ;; Parameters:    Size  Location     Type
-  1448 ;;		None
-  1449 ;; Auto vars:     Size  Location     Type
-  1450 ;;		None
-  1451 ;; Return value:  Size  Location     Type
-  1452 ;;                  1    wreg      void 
-  1453 ;; Registers used:
-  1454 ;;		None
-  1455 ;; Tracked objects:
-  1456 ;;		On entry : 0/0
-  1457 ;;		On exit  : 0/0
-  1458 ;;		Unchanged: 0/0
-  1459 ;; Data sizes:     COMMON   BANK0   BANK1
-  1460 ;;      Params:         0       0       0
-  1461 ;;      Locals:         0       0       0
-  1462 ;;      Temps:          0       0       0
-  1463 ;;      Totals:         0       0       0
-  1464 ;;Total ram usage:        0 bytes
-  1465 ;; Hardware stack levels used:    1
-  1466 ;; Hardware stack levels required when called:    4
-  1467 ;; This function calls:
-  1468 ;;		Nothing
-  1469 ;; This function is called by:
-  1470 ;;		_main
-  1471 ;; This function uses a non-reentrant model
-  1472 ;;
-  1473                           
-  1474                           
-  1475                           ;psect for function _TMR1_StartTimer
-  1476  0152                     _TMR1_StartTimer:
-  1477  0152                     l792:	
-  1478                           ;incstack = 0
-  1479                           ; Regs used in _TMR1_StartTimer: []
-  1480                           
-  1481                           
-  1482                           ;mcc_generated_files/tmr1.c: 96:     T1CONbits.TMR1ON = 1;
-  1483  0152  0020               	movlb	0	; select bank0
-  1484  0153  1418               	bsf	24,0	;volatile
-  1485  0154                     l81:
-  1486  0154  0008               	return
-  1487  0155                     __end_of_TMR1_StartTimer:
-  1488                           
-  1489                           	psect	text3
-  1490  0115                     __ptext3:	
-  1491 ;; *************** function _SYSTEM_Initialize *****************
-  1492 ;; Defined at:
-  1493 ;;		line 50 in file "mcc_generated_files/mcc.c"
-  1494 ;; Parameters:    Size  Location     Type
-  1495 ;;		None
-  1496 ;; Auto vars:     Size  Location     Type
-  1497 ;;		None
-  1498 ;; Return value:  Size  Location     Type
-  1499 ;;                  1    wreg      void 
-  1500 ;; Registers used:
-  1501 ;;		wreg, status,2, status,0, pclath, cstack
-  1502 ;; Tracked objects:
-  1503 ;;		On entry : 0/0
-  1504 ;;		On exit  : 0/0
-  1505 ;;		Unchanged: 0/0
-  1506 ;; Data sizes:     COMMON   BANK0   BANK1
-  1507 ;;      Params:         0       0       0
-  1508 ;;      Locals:         0       0       0
-  1509 ;;      Temps:          0       0       0
-  1510 ;;      Totals:         0       0       0
-  1511 ;;Total ram usage:        0 bytes
-  1512 ;; Hardware stack levels used:    1
-  1513 ;; Hardware stack levels required when called:    6
-  1514 ;; This function calls:
-  1515 ;;		_OSCILLATOR_Initialize
-  1516 ;;		_PIN_MANAGER_Initialize
-  1517 ;;		_TMR1_Initialize
-  1518 ;;		_WDT_Initialize
-  1519 ;; This function is called by:
-  1520 ;;		_main
-  1521 ;; This function uses a non-reentrant model
-  1522 ;;
-  1523                           
-  1524                           
-  1525                           ;psect for function _SYSTEM_Initialize
-  1526  0115                     _SYSTEM_Initialize:
-  1527  0115                     l952:	
-  1528                           ;incstack = 0
-  1529                           ; Regs used in _SYSTEM_Initialize: [wreg+status,2+status,0+pclath+cstack]
-  1530                           
-  1531                           
-  1532                           ;mcc_generated_files/mcc.c: 53:     PIN_MANAGER_Initialize();
-  1533  0115  3180  20ED  3181   	fcall	_PIN_MANAGER_Initialize
-  1534                           
-  1535                           ;mcc_generated_files/mcc.c: 54:     OSCILLATOR_Initialize();
-  1536  0118  3181  213C  3181   	fcall	_OSCILLATOR_Initialize
-  1537                           
-  1538                           ;mcc_generated_files/mcc.c: 55:     WDT_Initialize();
-  1539  011B  3181  214E  3181   	fcall	_WDT_Initialize
+  1411                           ; Switch size 1, requested type "simple"
+  1412                           ; Number of cases is 1, Range of values is 0 to 0
+  1413                           ; switch strategies available:
+  1414                           ; Name         Instructions Cycles
+  1415                           ; simple_byte            4     3 (average)
+  1416                           ; direct_byte            8     6 (fixed)
+  1417                           ; jumptable            260     6 (fixed)
+  1418                           ;	Chosen strategy is simple_byte
+  1419  00C6  0878               	movf	??_setState+1,w
+  1420  00C7  3A00               	xorlw	0	; case 0
+  1421  00C8  1903               	skipnz
+  1422  00C9  28CB               	goto	l1122
+  1423  00CA  28D9               	goto	l816
+  1424  00CB                     l1122:
+  1425                           
+  1426                           ; Switch size 1, requested type "simple"
+  1427                           ; Number of cases is 4, Range of values is 1 to 4
+  1428                           ; switch strategies available:
+  1429                           ; Name         Instructions Cycles
+  1430                           ; simple_byte           13     7 (average)
+  1431                           ; direct_byte           17     9 (fixed)
+  1432                           ; jumptable            263     9 (fixed)
+  1433                           ;	Chosen strategy is simple_byte
+  1434  00CB  0877               	movf	??_setState,w
+  1435  00CC  3A01               	xorlw	1	; case 1
+  1436  00CD  1903               	skipnz
+  1437  00CE  28A1               	goto	l186
+  1438  00CF  3A03               	xorlw	3	; case 2
+  1439  00D0  1903               	skipnz
+  1440  00D1  28AB               	goto	l192
+  1441  00D2  3A01               	xorlw	1	; case 3
+  1442  00D3  1903               	skipnz
+  1443  00D4  28B5               	goto	l197
+  1444  00D5  3A07               	xorlw	7	; case 4
+  1445  00D6  1903               	skipnz
+  1446  00D7  28BF               	goto	l202
+  1447  00D8  28D9               	goto	l816
+  1448  00D9                     l816:
+  1449                           
+  1450                           ;main.c: 181:     currentState = newState;
+  1451  00D9  0879               	movf	setState@newState,w
+  1452  00DA  00F7               	movwf	??_setState
+  1453  00DB  0877               	movf	??_setState,w
+  1454  00DC  00F4               	movwf	_currentState
+  1455  00DD                     l183:
+  1456  00DD  0008               	return
+  1457  00DE                     __end_of_setState:
+  1458                           
+  1459                           	psect	text2
+  1460  015B                     __ptext2:	
+  1461 ;; *************** function _TMR1_StartTimer *****************
+  1462 ;; Defined at:
+  1463 ;;		line 93 in file "mcc_generated_files/tmr1.c"
+  1464 ;; Parameters:    Size  Location     Type
+  1465 ;;		None
+  1466 ;; Auto vars:     Size  Location     Type
+  1467 ;;		None
+  1468 ;; Return value:  Size  Location     Type
+  1469 ;;                  1    wreg      void 
+  1470 ;; Registers used:
+  1471 ;;		None
+  1472 ;; Tracked objects:
+  1473 ;;		On entry : 0/0
+  1474 ;;		On exit  : 0/0
+  1475 ;;		Unchanged: 0/0
+  1476 ;; Data sizes:     COMMON   BANK0   BANK1
+  1477 ;;      Params:         0       0       0
+  1478 ;;      Locals:         0       0       0
+  1479 ;;      Temps:          0       0       0
+  1480 ;;      Totals:         0       0       0
+  1481 ;;Total ram usage:        0 bytes
+  1482 ;; Hardware stack levels used:    1
+  1483 ;; Hardware stack levels required when called:    4
+  1484 ;; This function calls:
+  1485 ;;		Nothing
+  1486 ;; This function is called by:
+  1487 ;;		_main
+  1488 ;; This function uses a non-reentrant model
+  1489 ;;
+  1490                           
+  1491                           
+  1492                           ;psect for function _TMR1_StartTimer
+  1493  015B                     _TMR1_StartTimer:
+  1494  015B                     l794:	
+  1495                           ;incstack = 0
+  1496                           ; Regs used in _TMR1_StartTimer: []
+  1497                           
+  1498                           
+  1499                           ;mcc_generated_files/tmr1.c: 96:     T1CONbits.TMR1ON = 1;
+  1500  015B  0020               	movlb	0	; select bank0
+  1501  015C  1418               	bsf	24,0	;volatile
+  1502  015D                     l81:
+  1503  015D  0008               	return
+  1504  015E                     __end_of_TMR1_StartTimer:
+  1505                           
+  1506                           	psect	text3
+  1507  011E                     __ptext3:	
+  1508 ;; *************** function _SYSTEM_Initialize *****************
+  1509 ;; Defined at:
+  1510 ;;		line 50 in file "mcc_generated_files/mcc.c"
+  1511 ;; Parameters:    Size  Location     Type
+  1512 ;;		None
+  1513 ;; Auto vars:     Size  Location     Type
+  1514 ;;		None
+  1515 ;; Return value:  Size  Location     Type
+  1516 ;;                  1    wreg      void 
+  1517 ;; Registers used:
+  1518 ;;		wreg, status,2, status,0, pclath, cstack
+  1519 ;; Tracked objects:
+  1520 ;;		On entry : 0/0
+  1521 ;;		On exit  : 0/0
+  1522 ;;		Unchanged: 0/0
+  1523 ;; Data sizes:     COMMON   BANK0   BANK1
+  1524 ;;      Params:         0       0       0
+  1525 ;;      Locals:         0       0       0
+  1526 ;;      Temps:          0       0       0
+  1527 ;;      Totals:         0       0       0
+  1528 ;;Total ram usage:        0 bytes
+  1529 ;; Hardware stack levels used:    1
+  1530 ;; Hardware stack levels required when called:    6
+  1531 ;; This function calls:
+  1532 ;;		_OSCILLATOR_Initialize
+  1533 ;;		_PIN_MANAGER_Initialize
+  1534 ;;		_TMR1_Initialize
+  1535 ;;		_WDT_Initialize
+  1536 ;; This function is called by:
+  1537 ;;		_main
+  1538 ;; This function uses a non-reentrant model
+  1539 ;;
   1540                           
-  1541                           ;mcc_generated_files/mcc.c: 56:     TMR1_Initialize();
-  1542  011E  3180  20D5  3181   	fcall	_TMR1_Initialize
-  1543  0121                     l19:
-  1544  0121  0008               	return
-  1545  0122                     __end_of_SYSTEM_Initialize:
-  1546                           
-  1547                           	psect	text4
-  1548  014E                     __ptext4:	
-  1549 ;; *************** function _WDT_Initialize *****************
-  1550 ;; Defined at:
-  1551 ;;		line 69 in file "mcc_generated_files/mcc.c"
-  1552 ;; Parameters:    Size  Location     Type
-  1553 ;;		None
-  1554 ;; Auto vars:     Size  Location     Type
-  1555 ;;		None
-  1556 ;; Return value:  Size  Location     Type
-  1557 ;;                  1    wreg      void 
-  1558 ;; Registers used:
-  1559 ;;		wreg
-  1560 ;; Tracked objects:
-  1561 ;;		On entry : 0/0
-  1562 ;;		On exit  : 0/0
-  1563 ;;		Unchanged: 0/0
-  1564 ;; Data sizes:     COMMON   BANK0   BANK1
-  1565 ;;      Params:         0       0       0
-  1566 ;;      Locals:         0       0       0
-  1567 ;;      Temps:          0       0       0
-  1568 ;;      Totals:         0       0       0
-  1569 ;;Total ram usage:        0 bytes
-  1570 ;; Hardware stack levels used:    1
-  1571 ;; Hardware stack levels required when called:    4
-  1572 ;; This function calls:
-  1573 ;;		Nothing
-  1574 ;; This function is called by:
-  1575 ;;		_SYSTEM_Initialize
-  1576 ;; This function uses a non-reentrant model
-  1577 ;;
-  1578                           
-  1579                           
-  1580                           ;psect for function _WDT_Initialize
-  1581  014E                     _WDT_Initialize:
-  1582  014E                     l754:	
-  1583                           ;incstack = 0
-  1584                           ; Regs used in _WDT_Initialize: [wreg]
-  1585                           
-  1586                           
-  1587                           ;mcc_generated_files/mcc.c: 72:     WDTCON = 0x16;
-  1588  014E  3016               	movlw	22
-  1589  014F  0021               	movlb	1	; select bank1
-  1590  0150  0097               	movwf	23	;volatile
-  1591  0151                     l25:
-  1592  0151  0008               	return
-  1593  0152                     __end_of_WDT_Initialize:
-  1594                           
-  1595                           	psect	text5
-  1596  00D5                     __ptext5:	
-  1597 ;; *************** function _TMR1_Initialize *****************
-  1598 ;; Defined at:
-  1599 ;;		line 64 in file "mcc_generated_files/tmr1.c"
-  1600 ;; Parameters:    Size  Location     Type
-  1601 ;;		None
-  1602 ;; Auto vars:     Size  Location     Type
-  1603 ;;		None
-  1604 ;; Return value:  Size  Location     Type
-  1605 ;;                  1    wreg      void 
-  1606 ;; Registers used:
-  1607 ;;		wreg, status,2, status,0, pclath, cstack
-  1608 ;; Tracked objects:
-  1609 ;;		On entry : 0/0
-  1610 ;;		On exit  : 0/0
-  1611 ;;		Unchanged: 0/0
-  1612 ;; Data sizes:     COMMON   BANK0   BANK1
-  1613 ;;      Params:         0       0       0
-  1614 ;;      Locals:         0       0       0
-  1615 ;;      Temps:          0       0       0
-  1616 ;;      Totals:         0       0       0
-  1617 ;;Total ram usage:        0 bytes
-  1618 ;; Hardware stack levels used:    1
-  1619 ;; Hardware stack levels required when called:    5
-  1620 ;; This function calls:
-  1621 ;;		_TMR1_SetInterruptHandler
-  1622 ;; This function is called by:
-  1623 ;;		_SYSTEM_Initialize
-  1624 ;; This function uses a non-reentrant model
-  1625 ;;
-  1626                           
-  1627                           
-  1628                           ;psect for function _TMR1_Initialize
-  1629  00D5                     _TMR1_Initialize:
-  1630  00D5                     l918:	
-  1631                           ;incstack = 0
-  1632                           ; Regs used in _TMR1_Initialize: [wreg+status,2+status,0+pclath+cstack]
-  1633                           
-  1634                           
-  1635                           ;mcc_generated_files/tmr1.c: 69:     T1GCON = 0x00;
-  1636  00D5  0020               	movlb	0	; select bank0
-  1637  00D6  0199               	clrf	25	;volatile
-  1638  00D7                     l920:
-  1639                           
-  1640                           ;mcc_generated_files/tmr1.c: 72:     TMR1H = 0x86;
-  1641  00D7  3086               	movlw	134
-  1642  00D8  0097               	movwf	23	;volatile
-  1643  00D9                     l922:
+  1541                           
+  1542                           ;psect for function _SYSTEM_Initialize
+  1543  011E                     _SYSTEM_Initialize:
+  1544  011E                     l956:	
+  1545                           ;incstack = 0
+  1546                           ; Regs used in _SYSTEM_Initialize: [wreg+status,2+status,0+pclath+cstack]
+  1547                           
+  1548                           
+  1549                           ;mcc_generated_files/mcc.c: 53:     PIN_MANAGER_Initialize();
+  1550  011E  3180  20F6  3181   	fcall	_PIN_MANAGER_Initialize
+  1551                           
+  1552                           ;mcc_generated_files/mcc.c: 54:     OSCILLATOR_Initialize();
+  1553  0121  3181  2145  3181   	fcall	_OSCILLATOR_Initialize
+  1554                           
+  1555                           ;mcc_generated_files/mcc.c: 55:     WDT_Initialize();
+  1556  0124  3181  2157  3181   	fcall	_WDT_Initialize
+  1557                           
+  1558                           ;mcc_generated_files/mcc.c: 56:     TMR1_Initialize();
+  1559  0127  3180  20DE  3181   	fcall	_TMR1_Initialize
+  1560  012A                     l19:
+  1561  012A  0008               	return
+  1562  012B                     __end_of_SYSTEM_Initialize:
+  1563                           
+  1564                           	psect	text4
+  1565  0157                     __ptext4:	
+  1566 ;; *************** function _WDT_Initialize *****************
+  1567 ;; Defined at:
+  1568 ;;		line 69 in file "mcc_generated_files/mcc.c"
+  1569 ;; Parameters:    Size  Location     Type
+  1570 ;;		None
+  1571 ;; Auto vars:     Size  Location     Type
+  1572 ;;		None
+  1573 ;; Return value:  Size  Location     Type
+  1574 ;;                  1    wreg      void 
+  1575 ;; Registers used:
+  1576 ;;		wreg
+  1577 ;; Tracked objects:
+  1578 ;;		On entry : 0/0
+  1579 ;;		On exit  : 0/0
+  1580 ;;		Unchanged: 0/0
+  1581 ;; Data sizes:     COMMON   BANK0   BANK1
+  1582 ;;      Params:         0       0       0
+  1583 ;;      Locals:         0       0       0
+  1584 ;;      Temps:          0       0       0
+  1585 ;;      Totals:         0       0       0
+  1586 ;;Total ram usage:        0 bytes
+  1587 ;; Hardware stack levels used:    1
+  1588 ;; Hardware stack levels required when called:    4
+  1589 ;; This function calls:
+  1590 ;;		Nothing
+  1591 ;; This function is called by:
+  1592 ;;		_SYSTEM_Initialize
+  1593 ;; This function uses a non-reentrant model
+  1594 ;;
+  1595                           
+  1596                           
+  1597                           ;psect for function _WDT_Initialize
+  1598  0157                     _WDT_Initialize:
+  1599  0157                     l756:	
+  1600                           ;incstack = 0
+  1601                           ; Regs used in _WDT_Initialize: [wreg]
+  1602                           
+  1603                           
+  1604                           ;mcc_generated_files/mcc.c: 72:     WDTCON = 0x16;
+  1605  0157  3016               	movlw	22
+  1606  0158  0021               	movlb	1	; select bank1
+  1607  0159  0097               	movwf	23	;volatile
+  1608  015A                     l25:
+  1609  015A  0008               	return
+  1610  015B                     __end_of_WDT_Initialize:
+  1611                           
+  1612                           	psect	text5
+  1613  00DE                     __ptext5:	
+  1614 ;; *************** function _TMR1_Initialize *****************
+  1615 ;; Defined at:
+  1616 ;;		line 64 in file "mcc_generated_files/tmr1.c"
+  1617 ;; Parameters:    Size  Location     Type
+  1618 ;;		None
+  1619 ;; Auto vars:     Size  Location     Type
+  1620 ;;		None
+  1621 ;; Return value:  Size  Location     Type
+  1622 ;;                  1    wreg      void 
+  1623 ;; Registers used:
+  1624 ;;		wreg, status,2, status,0, pclath, cstack
+  1625 ;; Tracked objects:
+  1626 ;;		On entry : 0/0
+  1627 ;;		On exit  : 0/0
+  1628 ;;		Unchanged: 0/0
+  1629 ;; Data sizes:     COMMON   BANK0   BANK1
+  1630 ;;      Params:         0       0       0
+  1631 ;;      Locals:         0       0       0
+  1632 ;;      Temps:          0       0       0
+  1633 ;;      Totals:         0       0       0
+  1634 ;;Total ram usage:        0 bytes
+  1635 ;; Hardware stack levels used:    1
+  1636 ;; Hardware stack levels required when called:    5
+  1637 ;; This function calls:
+  1638 ;;		_TMR1_SetInterruptHandler
+  1639 ;; This function is called by:
+  1640 ;;		_SYSTEM_Initialize
+  1641 ;; This function uses a non-reentrant model
+  1642 ;;
+  1643                           
   1644                           
-  1645                           ;mcc_generated_files/tmr1.c: 75:     TMR1L = 0xE8;
-  1646  00D9  30E8               	movlw	232
-  1647  00DA  0096               	movwf	22	;volatile
-  1648  00DB                     l924:
-  1649                           
-  1650                           ;mcc_generated_files/tmr1.c: 78:     PIR1bits.TMR1IF = 0;
-  1651  00DB  1011               	bcf	17,0	;volatile
-  1652  00DC                     l926:
-  1653                           
-  1654                           ;mcc_generated_files/tmr1.c: 81:     timer1ReloadVal=(uint16_t)((TMR1H << 8) | TMR1L);
-  1655  00DC  0817               	movf	23,w	;volatile
-  1656  00DD  00FB               	movwf	_timer1ReloadVal+1	;volatile
-  1657  00DE  0816               	movf	22,w	;volatile
-  1658  00DF  00FA               	movwf	_timer1ReloadVal	;volatile
-  1659  00E0                     l928:
-  1660                           
-  1661                           ;mcc_generated_files/tmr1.c: 84:     PIE1bits.TMR1IE = 1;
-  1662  00E0  0021               	movlb	1	; select bank1
-  1663  00E1  1411               	bsf	17,0	;volatile
-  1664  00E2                     l930:
-  1665                           
-  1666                           ;mcc_generated_files/tmr1.c: 87:     TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandl
+  1645                           ;psect for function _TMR1_Initialize
+  1646  00DE                     _TMR1_Initialize:
+  1647  00DE                     l922:	
+  1648                           ;incstack = 0
+  1649                           ; Regs used in _TMR1_Initialize: [wreg+status,2+status,0+pclath+cstack]
+  1650                           
+  1651                           
+  1652                           ;mcc_generated_files/tmr1.c: 69:     T1GCON = 0x00;
+  1653  00DE  0020               	movlb	0	; select bank0
+  1654  00DF  0199               	clrf	25	;volatile
+  1655  00E0                     l924:
+  1656                           
+  1657                           ;mcc_generated_files/tmr1.c: 72:     TMR1H = 0x86;
+  1658  00E0  3086               	movlw	134
+  1659  00E1  0097               	movwf	23	;volatile
+  1660  00E2                     l926:
+  1661                           
+  1662                           ;mcc_generated_files/tmr1.c: 75:     TMR1L = 0xE8;
+  1663  00E2  30E8               	movlw	232
+  1664  00E3  0096               	movwf	22	;volatile
+  1665  00E4                     l928:
+  1666                           
+  1667                           ;mcc_generated_files/tmr1.c: 78:     PIR1bits.TMR1IF = 0;
+  1668  00E4  1011               	bcf	17,0	;volatile
+  1669  00E5                     l930:
+  1670                           
+  1671                           ;mcc_generated_files/tmr1.c: 81:     timer1ReloadVal=(uint16_t)((TMR1H << 8) | TMR1L);
+  1672  00E5  0817               	movf	23,w	;volatile
+  1673  00E6  00FB               	movwf	_timer1ReloadVal+1	;volatile
+  1674  00E7  0816               	movf	22,w	;volatile
+  1675  00E8  00FA               	movwf	_timer1ReloadVal	;volatile
+  1676  00E9                     l932:
+  1677                           
+  1678                           ;mcc_generated_files/tmr1.c: 84:     PIE1bits.TMR1IE = 1;
+  1679  00E9  0021               	movlb	1	; select bank1
+  1680  00EA  1411               	bsf	17,0	;volatile
+  1681  00EB                     l934:
+  1682                           
+  1683                           ;mcc_generated_files/tmr1.c: 87:     TMR1_SetInterruptHandler(TMR1_DefaultInterruptHandl
       +                          er);
-  1667  00E2  3055               	movlw	low _TMR1_DefaultInterruptHandler
-  1668  00E3  00F7               	movwf	TMR1_SetInterruptHandler@InterruptHandler
-  1669  00E4  3001               	movlw	high _TMR1_DefaultInterruptHandler
-  1670  00E5  00F8               	movwf	TMR1_SetInterruptHandler@InterruptHandler+1
-  1671  00E6  3181  2143  3180   	fcall	_TMR1_SetInterruptHandler
-  1672  00E9                     l932:
-  1673                           
-  1674                           ;mcc_generated_files/tmr1.c: 90:     T1CON = 0x41;
-  1675  00E9  3041               	movlw	65
-  1676  00EA  0020               	movlb	0	; select bank0
-  1677  00EB  0098               	movwf	24	;volatile
-  1678  00EC                     l78:
-  1679  00EC  0008               	return
-  1680  00ED                     __end_of_TMR1_Initialize:
-  1681                           
-  1682                           	psect	text6
-  1683  0143                     __ptext6:	
-  1684 ;; *************** function _TMR1_SetInterruptHandler *****************
-  1685 ;; Defined at:
-  1686 ;;		line 178 in file "mcc_generated_files/tmr1.c"
-  1687 ;; Parameters:    Size  Location     Type
-  1688 ;;  InterruptHan    2    2[COMMON] PTR FTN()void 
-  1689 ;;		 -> secondsTick(1), TMR1_DefaultInterruptHandler(1), 
-  1690 ;; Auto vars:     Size  Location     Type
-  1691 ;;		None
-  1692 ;; Return value:  Size  Location     Type
-  1693 ;;                  1    wreg      void 
-  1694 ;; Registers used:
-  1695 ;;		wreg
-  1696 ;; Tracked objects:
-  1697 ;;		On entry : 0/0
-  1698 ;;		On exit  : 0/0
-  1699 ;;		Unchanged: 0/0
-  1700 ;; Data sizes:     COMMON   BANK0   BANK1
-  1701 ;;      Params:         2       0       0
-  1702 ;;      Locals:         0       0       0
-  1703 ;;      Temps:          0       0       0
-  1704 ;;      Totals:         2       0       0
-  1705 ;;Total ram usage:        2 bytes
-  1706 ;; Hardware stack levels used:    1
-  1707 ;; Hardware stack levels required when called:    4
-  1708 ;; This function calls:
-  1709 ;;		Nothing
-  1710 ;; This function is called by:
-  1711 ;;		_TMR1_Initialize
-  1712 ;;		_main
-  1713 ;; This function uses a non-reentrant model
-  1714 ;;
-  1715                           
-  1716                           
-  1717                           ;psect for function _TMR1_SetInterruptHandler
-  1718  0143                     _TMR1_SetInterruptHandler:
-  1719  0143                     l914:	
-  1720                           ;incstack = 0
-  1721                           ; Regs used in _TMR1_SetInterruptHandler: [wreg]
-  1722                           
-  1723                           
-  1724                           ;mcc_generated_files/tmr1.c: 179:     TMR1_InterruptHandler = InterruptHandler;
-  1725  0143  0878               	movf	TMR1_SetInterruptHandler@InterruptHandler+1,w
-  1726  0144  0020               	movlb	0	; select bank0
-  1727  0145  00A1               	movwf	_TMR1_InterruptHandler+1
-  1728  0146  0877               	movf	TMR1_SetInterruptHandler@InterruptHandler,w
-  1729  0147  00A0               	movwf	_TMR1_InterruptHandler
-  1730  0148                     l111:
-  1731  0148  0008               	return
-  1732  0149                     __end_of_TMR1_SetInterruptHandler:
+  1684  00EB  305E               	movlw	low _TMR1_DefaultInterruptHandler
+  1685  00EC  00F7               	movwf	TMR1_SetInterruptHandler@InterruptHandler
+  1686  00ED  3001               	movlw	high _TMR1_DefaultInterruptHandler
+  1687  00EE  00F8               	movwf	TMR1_SetInterruptHandler@InterruptHandler+1
+  1688  00EF  3181  214C  3180   	fcall	_TMR1_SetInterruptHandler
+  1689  00F2                     l936:
+  1690                           
+  1691                           ;mcc_generated_files/tmr1.c: 90:     T1CON = 0x41;
+  1692  00F2  3041               	movlw	65
+  1693  00F3  0020               	movlb	0	; select bank0
+  1694  00F4  0098               	movwf	24	;volatile
+  1695  00F5                     l78:
+  1696  00F5  0008               	return
+  1697  00F6                     __end_of_TMR1_Initialize:
+  1698                           
+  1699                           	psect	text6
+  1700  014C                     __ptext6:	
+  1701 ;; *************** function _TMR1_SetInterruptHandler *****************
+  1702 ;; Defined at:
+  1703 ;;		line 178 in file "mcc_generated_files/tmr1.c"
+  1704 ;; Parameters:    Size  Location     Type
+  1705 ;;  InterruptHan    2    2[COMMON] PTR FTN()void 
+  1706 ;;		 -> secondsTick(1), TMR1_DefaultInterruptHandler(1), 
+  1707 ;; Auto vars:     Size  Location     Type
+  1708 ;;		None
+  1709 ;; Return value:  Size  Location     Type
+  1710 ;;                  1    wreg      void 
+  1711 ;; Registers used:
+  1712 ;;		wreg
+  1713 ;; Tracked objects:
+  1714 ;;		On entry : 0/0
+  1715 ;;		On exit  : 0/0
+  1716 ;;		Unchanged: 0/0
+  1717 ;; Data sizes:     COMMON   BANK0   BANK1
+  1718 ;;      Params:         2       0       0
+  1719 ;;      Locals:         0       0       0
+  1720 ;;      Temps:          0       0       0
+  1721 ;;      Totals:         2       0       0
+  1722 ;;Total ram usage:        2 bytes
+  1723 ;; Hardware stack levels used:    1
+  1724 ;; Hardware stack levels required when called:    4
+  1725 ;; This function calls:
+  1726 ;;		Nothing
+  1727 ;; This function is called by:
+  1728 ;;		_TMR1_Initialize
+  1729 ;;		_main
+  1730 ;; This function uses a non-reentrant model
+  1731 ;;
+  1732                           
   1733                           
-  1734                           	psect	text7
-  1735  00ED                     __ptext7:	
-  1736 ;; *************** function _PIN_MANAGER_Initialize *****************
-  1737 ;; Defined at:
-  1738 ;;		line 55 in file "mcc_generated_files/pin_manager.c"
-  1739 ;; Parameters:    Size  Location     Type
-  1740 ;;		None
-  1741 ;; Auto vars:     Size  Location     Type
-  1742 ;;		None
-  1743 ;; Return value:  Size  Location     Type
-  1744 ;;                  1    wreg      void 
-  1745 ;; Registers used:
-  1746 ;;		wreg, status,2
-  1747 ;; Tracked objects:
-  1748 ;;		On entry : 0/0
-  1749 ;;		On exit  : 0/0
-  1750 ;;		Unchanged: 0/0
-  1751 ;; Data sizes:     COMMON   BANK0   BANK1
-  1752 ;;      Params:         0       0       0
-  1753 ;;      Locals:         0       0       0
-  1754 ;;      Temps:          0       0       0
-  1755 ;;      Totals:         0       0       0
-  1756 ;;Total ram usage:        0 bytes
-  1757 ;; Hardware stack levels used:    1
-  1758 ;; Hardware stack levels required when called:    4
-  1759 ;; This function calls:
-  1760 ;;		Nothing
-  1761 ;; This function is called by:
-  1762 ;;		_SYSTEM_Initialize
-  1763 ;; This function uses a non-reentrant model
-  1764 ;;
-  1765                           
-  1766                           
-  1767                           ;psect for function _PIN_MANAGER_Initialize
-  1768  00ED                     _PIN_MANAGER_Initialize:
-  1769  00ED                     l736:	
-  1770                           ;incstack = 0
-  1771                           ; Regs used in _PIN_MANAGER_Initialize: [wreg+status,2]
-  1772                           
-  1773                           
-  1774                           ;mcc_generated_files/pin_manager.c: 60:     LATA = 0x00;
-  1775  00ED  0022               	movlb	2	; select bank2
-  1776  00EE  018C               	clrf	12	;volatile
-  1777  00EF                     l738:
-  1778                           
-  1779                           ;mcc_generated_files/pin_manager.c: 65:     TRISA = 0x39;
-  1780  00EF  3039               	movlw	57
-  1781  00F0  0021               	movlb	1	; select bank1
-  1782  00F1  008C               	movwf	12	;volatile
-  1783  00F2                     l740:
-  1784                           
-  1785                           ;mcc_generated_files/pin_manager.c: 70:     ANSELA = 0x07;
-  1786  00F2  3007               	movlw	7
-  1787  00F3  0023               	movlb	3	; select bank3
-  1788  00F4  008C               	movwf	12	;volatile
+  1734                           ;psect for function _TMR1_SetInterruptHandler
+  1735  014C                     _TMR1_SetInterruptHandler:
+  1736  014C                     l918:	
+  1737                           ;incstack = 0
+  1738                           ; Regs used in _TMR1_SetInterruptHandler: [wreg]
+  1739                           
+  1740                           
+  1741                           ;mcc_generated_files/tmr1.c: 179:     TMR1_InterruptHandler = InterruptHandler;
+  1742  014C  0878               	movf	TMR1_SetInterruptHandler@InterruptHandler+1,w
+  1743  014D  0020               	movlb	0	; select bank0
+  1744  014E  00A1               	movwf	_TMR1_InterruptHandler+1
+  1745  014F  0877               	movf	TMR1_SetInterruptHandler@InterruptHandler,w
+  1746  0150  00A0               	movwf	_TMR1_InterruptHandler
+  1747  0151                     l111:
+  1748  0151  0008               	return
+  1749  0152                     __end_of_TMR1_SetInterruptHandler:
+  1750                           
+  1751                           	psect	text7
+  1752  00F6                     __ptext7:	
+  1753 ;; *************** function _PIN_MANAGER_Initialize *****************
+  1754 ;; Defined at:
+  1755 ;;		line 55 in file "mcc_generated_files/pin_manager.c"
+  1756 ;; Parameters:    Size  Location     Type
+  1757 ;;		None
+  1758 ;; Auto vars:     Size  Location     Type
+  1759 ;;		None
+  1760 ;; Return value:  Size  Location     Type
+  1761 ;;                  1    wreg      void 
+  1762 ;; Registers used:
+  1763 ;;		wreg, status,2
+  1764 ;; Tracked objects:
+  1765 ;;		On entry : 0/0
+  1766 ;;		On exit  : 0/0
+  1767 ;;		Unchanged: 0/0
+  1768 ;; Data sizes:     COMMON   BANK0   BANK1
+  1769 ;;      Params:         0       0       0
+  1770 ;;      Locals:         0       0       0
+  1771 ;;      Temps:          0       0       0
+  1772 ;;      Totals:         0       0       0
+  1773 ;;Total ram usage:        0 bytes
+  1774 ;; Hardware stack levels used:    1
+  1775 ;; Hardware stack levels required when called:    4
+  1776 ;; This function calls:
+  1777 ;;		Nothing
+  1778 ;; This function is called by:
+  1779 ;;		_SYSTEM_Initialize
+  1780 ;; This function uses a non-reentrant model
+  1781 ;;
+  1782                           
+  1783                           
+  1784                           ;psect for function _PIN_MANAGER_Initialize
+  1785  00F6                     _PIN_MANAGER_Initialize:
+  1786  00F6                     l738:	
+  1787                           ;incstack = 0
+  1788                           ; Regs used in _PIN_MANAGER_Initialize: [wreg+status,2]
   1789                           
-  1790                           ;mcc_generated_files/pin_manager.c: 75:     WPUA = 0x00;
-  1791  00F5  0024               	movlb	4	; select bank4
-  1792  00F6  018C               	clrf	12	;volatile
-  1793  00F7                     l742:
-  1794                           
-  1795                           ;mcc_generated_files/pin_manager.c: 76:     OPTION_REGbits.nWPUEN = 1;
-  1796  00F7  0021               	movlb	1	; select bank1
-  1797  00F8  1795               	bsf	21,7	;volatile
-  1798                           
-  1799                           ;mcc_generated_files/pin_manager.c: 81:     ODCONA = 0x00;
-  1800  00F9  0025               	movlb	5	; select bank5
-  1801  00FA  018C               	clrf	12	;volatile
-  1802  00FB                     l744:
-  1803                           
-  1804                           ;mcc_generated_files/pin_manager.c: 86:     SLRCONA = 0x37;
-  1805  00FB  3037               	movlw	55
-  1806  00FC  0026               	movlb	6	; select bank6
-  1807  00FD  008C               	movwf	12	;volatile
-  1808  00FE                     l746:
-  1809                           
-  1810                           ;mcc_generated_files/pin_manager.c: 91:     INLVLA = 0x3F;
-  1811  00FE  303F               	movlw	63
-  1812  00FF  0027               	movlb	7	; select bank7
-  1813  0100  008C               	movwf	12	;volatile
-  1814                           
-  1815                           ;mcc_generated_files/pin_manager.c: 96:     APFCON = 0x00;
-  1816  0101  0022               	movlb	2	; select bank2
-  1817  0102  019D               	clrf	29	;volatile
-  1818  0103                     l46:
-  1819  0103  0008               	return
-  1820  0104                     __end_of_PIN_MANAGER_Initialize:
-  1821                           
-  1822                           	psect	text8
-  1823  013C                     __ptext8:	
-  1824 ;; *************** function _OSCILLATOR_Initialize *****************
-  1825 ;; Defined at:
-  1826 ;;		line 59 in file "mcc_generated_files/mcc.c"
-  1827 ;; Parameters:    Size  Location     Type
-  1828 ;;		None
-  1829 ;; Auto vars:     Size  Location     Type
-  1830 ;;		None
-  1831 ;; Return value:  Size  Location     Type
-  1832 ;;                  1    wreg      void 
-  1833 ;; Registers used:
-  1834 ;;		wreg, status,2
-  1835 ;; Tracked objects:
-  1836 ;;		On entry : 0/0
-  1837 ;;		On exit  : 0/0
-  1838 ;;		Unchanged: 0/0
-  1839 ;; Data sizes:     COMMON   BANK0   BANK1
-  1840 ;;      Params:         0       0       0
-  1841 ;;      Locals:         0       0       0
-  1842 ;;      Temps:          0       0       0
-  1843 ;;      Totals:         0       0       0
-  1844 ;;Total ram usage:        0 bytes
-  1845 ;; Hardware stack levels used:    1
-  1846 ;; Hardware stack levels required when called:    4
-  1847 ;; This function calls:
-  1848 ;;		Nothing
-  1849 ;; This function is called by:
-  1850 ;;		_SYSTEM_Initialize
-  1851 ;; This function uses a non-reentrant model
-  1852 ;;
-  1853                           
-  1854                           
-  1855                           ;psect for function _OSCILLATOR_Initialize
-  1856  013C                     _OSCILLATOR_Initialize:
-  1857  013C                     l748:	
-  1858                           ;incstack = 0
-  1859                           ; Regs used in _OSCILLATOR_Initialize: [wreg+status,2]
-  1860                           
-  1861                           
-  1862                           ;mcc_generated_files/mcc.c: 62:     OSCCON = 0x02;
-  1863  013C  3002               	movlw	2
-  1864  013D  0021               	movlb	1	; select bank1
-  1865  013E  0099               	movwf	25	;volatile
-  1866  013F                     l750:
-  1867                           
-  1868                           ;mcc_generated_files/mcc.c: 64:     OSCTUNE = 0x00;
-  1869  013F  0198               	clrf	24	;volatile
-  1870  0140                     l752:
+  1790                           
+  1791                           ;mcc_generated_files/pin_manager.c: 60:     LATA = 0x00;
+  1792  00F6  0022               	movlb	2	; select bank2
+  1793  00F7  018C               	clrf	12	;volatile
+  1794  00F8                     l740:
+  1795                           
+  1796                           ;mcc_generated_files/pin_manager.c: 65:     TRISA = 0x39;
+  1797  00F8  3039               	movlw	57
+  1798  00F9  0021               	movlb	1	; select bank1
+  1799  00FA  008C               	movwf	12	;volatile
+  1800  00FB                     l742:
+  1801                           
+  1802                           ;mcc_generated_files/pin_manager.c: 70:     ANSELA = 0x07;
+  1803  00FB  3007               	movlw	7
+  1804  00FC  0023               	movlb	3	; select bank3
+  1805  00FD  008C               	movwf	12	;volatile
+  1806                           
+  1807                           ;mcc_generated_files/pin_manager.c: 75:     WPUA = 0x00;
+  1808  00FE  0024               	movlb	4	; select bank4
+  1809  00FF  018C               	clrf	12	;volatile
+  1810  0100                     l744:
+  1811                           
+  1812                           ;mcc_generated_files/pin_manager.c: 76:     OPTION_REGbits.nWPUEN = 1;
+  1813  0100  0021               	movlb	1	; select bank1
+  1814  0101  1795               	bsf	21,7	;volatile
+  1815                           
+  1816                           ;mcc_generated_files/pin_manager.c: 81:     ODCONA = 0x00;
+  1817  0102  0025               	movlb	5	; select bank5
+  1818  0103  018C               	clrf	12	;volatile
+  1819  0104                     l746:
+  1820                           
+  1821                           ;mcc_generated_files/pin_manager.c: 86:     SLRCONA = 0x37;
+  1822  0104  3037               	movlw	55
+  1823  0105  0026               	movlb	6	; select bank6
+  1824  0106  008C               	movwf	12	;volatile
+  1825  0107                     l748:
+  1826                           
+  1827                           ;mcc_generated_files/pin_manager.c: 91:     INLVLA = 0x3F;
+  1828  0107  303F               	movlw	63
+  1829  0108  0027               	movlb	7	; select bank7
+  1830  0109  008C               	movwf	12	;volatile
+  1831                           
+  1832                           ;mcc_generated_files/pin_manager.c: 96:     APFCON = 0x00;
+  1833  010A  0022               	movlb	2	; select bank2
+  1834  010B  019D               	clrf	29	;volatile
+  1835  010C                     l46:
+  1836  010C  0008               	return
+  1837  010D                     __end_of_PIN_MANAGER_Initialize:
+  1838                           
+  1839                           	psect	text8
+  1840  0145                     __ptext8:	
+  1841 ;; *************** function _OSCILLATOR_Initialize *****************
+  1842 ;; Defined at:
+  1843 ;;		line 59 in file "mcc_generated_files/mcc.c"
+  1844 ;; Parameters:    Size  Location     Type
+  1845 ;;		None
+  1846 ;; Auto vars:     Size  Location     Type
+  1847 ;;		None
+  1848 ;; Return value:  Size  Location     Type
+  1849 ;;                  1    wreg      void 
+  1850 ;; Registers used:
+  1851 ;;		wreg, status,2
+  1852 ;; Tracked objects:
+  1853 ;;		On entry : 0/0
+  1854 ;;		On exit  : 0/0
+  1855 ;;		Unchanged: 0/0
+  1856 ;; Data sizes:     COMMON   BANK0   BANK1
+  1857 ;;      Params:         0       0       0
+  1858 ;;      Locals:         0       0       0
+  1859 ;;      Temps:          0       0       0
+  1860 ;;      Totals:         0       0       0
+  1861 ;;Total ram usage:        0 bytes
+  1862 ;; Hardware stack levels used:    1
+  1863 ;; Hardware stack levels required when called:    4
+  1864 ;; This function calls:
+  1865 ;;		Nothing
+  1866 ;; This function is called by:
+  1867 ;;		_SYSTEM_Initialize
+  1868 ;; This function uses a non-reentrant model
+  1869 ;;
+  1870                           
   1871                           
-  1872                           ;mcc_generated_files/mcc.c: 66:     BORCON = 0x00;
-  1873  0140  0022               	movlb	2	; select bank2
-  1874  0141  0196               	clrf	22	;volatile
-  1875  0142                     l22:
-  1876  0142  0008               	return
-  1877  0143                     __end_of_OSCILLATOR_Initialize:
+  1872                           ;psect for function _OSCILLATOR_Initialize
+  1873  0145                     _OSCILLATOR_Initialize:
+  1874  0145                     l750:	
+  1875                           ;incstack = 0
+  1876                           ; Regs used in _OSCILLATOR_Initialize: [wreg+status,2]
+  1877                           
   1878                           
-  1879                           	psect	intentry
-  1880  0004                     __pintentry:	
-  1881 ;; *************** function _INTERRUPT_InterruptManager *****************
-  1882 ;; Defined at:
-  1883 ;;		line 52 in file "mcc_generated_files/interrupt_manager.c"
-  1884 ;; Parameters:    Size  Location     Type
-  1885 ;;		None
-  1886 ;; Auto vars:     Size  Location     Type
-  1887 ;;		None
-  1888 ;; Return value:  Size  Location     Type
-  1889 ;;                  1    wreg      void 
-  1890 ;; Registers used:
-  1891 ;;		wreg, status,2, status,0, pclath, cstack
-  1892 ;; Tracked objects:
-  1893 ;;		On entry : 0/0
-  1894 ;;		On exit  : 0/0
-  1895 ;;		Unchanged: 0/0
-  1896 ;; Data sizes:     COMMON   BANK0   BANK1
-  1897 ;;      Params:         0       0       0
-  1898 ;;      Locals:         0       0       0
-  1899 ;;      Temps:          0       0       0
-  1900 ;;      Totals:         0       0       0
-  1901 ;;Total ram usage:        0 bytes
-  1902 ;; Hardware stack levels used:    1
-  1903 ;; Hardware stack levels required when called:    3
-  1904 ;; This function calls:
-  1905 ;;		_TMR1_ISR
-  1906 ;; This function is called by:
-  1907 ;;		Interrupt level 1
-  1908 ;; This function uses a non-reentrant model
-  1909 ;;
-  1910                           
-  1911  0004                     _INTERRUPT_InterruptManager:
-  1912                           
-  1913                           ;incstack = 0
-  1914  0004  147E               	bsf	int$flags,0	;set compiler interrupt flag (level 1)
-  1915                           
-  1916                           ; Regs used in _INTERRUPT_InterruptManager: [wreg+status,2+status,0+pclath+cstack]
-  1917  0005  3180               	pagesel	$
-  1918  0006                     i1l960:
-  1919                           
-  1920                           ;mcc_generated_files/interrupt_manager.c: 55:     if(INTCONbits.PEIE == 1)
-  1921  0006  1F0B               	btfss	11,6	;volatile
-  1922  0007  2809               	goto	u15_21
-  1923  0008  280A               	goto	u15_20
-  1924  0009                     u15_21:
-  1925  0009  2817               	goto	i1l131
-  1926  000A                     u15_20:
-  1927  000A                     i1l962:
-  1928                           
-  1929                           ;mcc_generated_files/interrupt_manager.c: 56:     {;mcc_generated_files/interrupt_manage
+  1879                           ;mcc_generated_files/mcc.c: 62:     OSCCON = 0x02;
+  1880  0145  3002               	movlw	2
+  1881  0146  0021               	movlb	1	; select bank1
+  1882  0147  0099               	movwf	25	;volatile
+  1883  0148                     l752:
+  1884                           
+  1885                           ;mcc_generated_files/mcc.c: 64:     OSCTUNE = 0x00;
+  1886  0148  0198               	clrf	24	;volatile
+  1887  0149                     l754:
+  1888                           
+  1889                           ;mcc_generated_files/mcc.c: 66:     BORCON = 0x00;
+  1890  0149  0022               	movlb	2	; select bank2
+  1891  014A  0196               	clrf	22	;volatile
+  1892  014B                     l22:
+  1893  014B  0008               	return
+  1894  014C                     __end_of_OSCILLATOR_Initialize:
+  1895                           
+  1896                           	psect	intentry
+  1897  0004                     __pintentry:	
+  1898 ;; *************** function _INTERRUPT_InterruptManager *****************
+  1899 ;; Defined at:
+  1900 ;;		line 52 in file "mcc_generated_files/interrupt_manager.c"
+  1901 ;; Parameters:    Size  Location     Type
+  1902 ;;		None
+  1903 ;; Auto vars:     Size  Location     Type
+  1904 ;;		None
+  1905 ;; Return value:  Size  Location     Type
+  1906 ;;                  1    wreg      void 
+  1907 ;; Registers used:
+  1908 ;;		wreg, status,2, status,0, pclath, cstack
+  1909 ;; Tracked objects:
+  1910 ;;		On entry : 0/0
+  1911 ;;		On exit  : 0/0
+  1912 ;;		Unchanged: 0/0
+  1913 ;; Data sizes:     COMMON   BANK0   BANK1
+  1914 ;;      Params:         0       0       0
+  1915 ;;      Locals:         0       0       0
+  1916 ;;      Temps:          0       0       0
+  1917 ;;      Totals:         0       0       0
+  1918 ;;Total ram usage:        0 bytes
+  1919 ;; Hardware stack levels used:    1
+  1920 ;; Hardware stack levels required when called:    3
+  1921 ;; This function calls:
+  1922 ;;		_TMR1_ISR
+  1923 ;; This function is called by:
+  1924 ;;		Interrupt level 1
+  1925 ;; This function uses a non-reentrant model
+  1926 ;;
+  1927                           
+  1928  0004                     _INTERRUPT_InterruptManager:
+  1929                           
+  1930                           ;incstack = 0
+  1931  0004  147E               	bsf	int$flags,0	;set compiler interrupt flag (level 1)
+  1932                           
+  1933                           ; Regs used in _INTERRUPT_InterruptManager: [wreg+status,2+status,0+pclath+cstack]
+  1934  0005  3180               	pagesel	$
+  1935  0006                     i1l964:
+  1936                           
+  1937                           ;mcc_generated_files/interrupt_manager.c: 55:     if(INTCONbits.PEIE == 1)
+  1938  0006  1F0B               	btfss	11,6	;volatile
+  1939  0007  2809               	goto	u16_21
+  1940  0008  280A               	goto	u16_20
+  1941  0009                     u16_21:
+  1942  0009  2817               	goto	i1l131
+  1943  000A                     u16_20:
+  1944  000A                     i1l966:
+  1945                           
+  1946                           ;mcc_generated_files/interrupt_manager.c: 56:     {;mcc_generated_files/interrupt_manage
       +                          r.c: 57:         if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
-  1930  000A  0021               	movlb	1	; select bank1
-  1931  000B  1C11               	btfss	17,0	;volatile
-  1932  000C  280E               	goto	u16_21
-  1933  000D  280F               	goto	u16_20
-  1934  000E                     u16_21:
-  1935  000E  2817               	goto	i1l131
-  1936  000F                     u16_20:
-  1937  000F                     i1l964:
-  1938  000F  0020               	movlb	0	; select bank0
-  1939  0010  1C11               	btfss	17,0	;volatile
-  1940  0011  2813               	goto	u17_21
-  1941  0012  2814               	goto	u17_20
-  1942  0013                     u17_21:
-  1943  0013  2817               	goto	i1l131
-  1944  0014                     u17_20:
-  1945  0014                     i1l966:
-  1946                           
-  1947                           ;mcc_generated_files/interrupt_manager.c: 58:         {;mcc_generated_files/interrupt_ma
+  1947  000A  0021               	movlb	1	; select bank1
+  1948  000B  1C11               	btfss	17,0	;volatile
+  1949  000C  280E               	goto	u17_21
+  1950  000D  280F               	goto	u17_20
+  1951  000E                     u17_21:
+  1952  000E  2817               	goto	i1l131
+  1953  000F                     u17_20:
+  1954  000F                     i1l968:
+  1955  000F  0020               	movlb	0	; select bank0
+  1956  0010  1C11               	btfss	17,0	;volatile
+  1957  0011  2813               	goto	u18_21
+  1958  0012  2814               	goto	u18_20
+  1959  0013                     u18_21:
+  1960  0013  2817               	goto	i1l131
+  1961  0014                     u18_20:
+  1962  0014                     i1l970:
+  1963                           
+  1964                           ;mcc_generated_files/interrupt_manager.c: 58:         {;mcc_generated_files/interrupt_ma
       +                          nager.c: 59:             TMR1_ISR();
-  1948  0014  3181  2122  3180   	fcall	_TMR1_ISR
-  1949  0017                     i1l131:	
-  1950                           ;mcc_generated_files/interrupt_manager.c: 60:         }
-  1951                           
-  1952  0017  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
-  1953  0018  0009               	retfie
-  1954  0019                     __end_of_INTERRUPT_InterruptManager:
-  1955                           
-  1956                           	psect	text10
-  1957  0122                     __ptext10:	
-  1958 ;; *************** function _TMR1_ISR *****************
-  1959 ;; Defined at:
-  1960 ;;		line 157 in file "mcc_generated_files/tmr1.c"
-  1961 ;; Parameters:    Size  Location     Type
-  1962 ;;		None
-  1963 ;; Auto vars:     Size  Location     Type
-  1964 ;;		None
-  1965 ;; Return value:  Size  Location     Type
-  1966 ;;                  1    wreg      void 
-  1967 ;; Registers used:
-  1968 ;;		wreg, status,2, status,0, pclath, cstack
-  1969 ;; Tracked objects:
-  1970 ;;		On entry : 0/0
-  1971 ;;		On exit  : 0/0
-  1972 ;;		Unchanged: 0/0
-  1973 ;; Data sizes:     COMMON   BANK0   BANK1
-  1974 ;;      Params:         0       0       0
-  1975 ;;      Locals:         0       0       0
-  1976 ;;      Temps:          0       0       0
-  1977 ;;      Totals:         0       0       0
-  1978 ;;Total ram usage:        0 bytes
-  1979 ;; Hardware stack levels used:    1
-  1980 ;; Hardware stack levels required when called:    2
-  1981 ;; This function calls:
-  1982 ;;		_TMR1_CallBack
-  1983 ;;		_TMR1_WriteTimer
-  1984 ;; This function is called by:
-  1985 ;;		_INTERRUPT_InterruptManager
-  1986 ;; This function uses a non-reentrant model
-  1987 ;;
-  1988                           
-  1989                           
-  1990                           ;psect for function _TMR1_ISR
-  1991  0122                     _TMR1_ISR:
-  1992  0122                     i1l954:	
-  1993                           ;incstack = 0
-  1994                           ; Regs used in _TMR1_ISR: [wreg+status,2+status,0+pclath+cstack]
-  1995                           
-  1996                           
-  1997                           ;mcc_generated_files/tmr1.c: 161:     PIR1bits.TMR1IF = 0;
-  1998  0122  0020               	movlb	0	; select bank0
-  1999  0123  1011               	bcf	17,0	;volatile
-  2000  0124                     i1l956:
-  2001                           
-  2002                           ;mcc_generated_files/tmr1.c: 162:     TMR1_WriteTimer(timer1ReloadVal);
-  2003  0124  087B               	movf	_timer1ReloadVal+1,w	;volatile
-  2004  0125  00F6               	movwf	TMR1_WriteTimer@timerVal+1
-  2005  0126  087A               	movf	_timer1ReloadVal,w	;volatile
-  2006  0127  00F5               	movwf	TMR1_WriteTimer@timerVal
-  2007  0128  3181  2104  3181   	fcall	_TMR1_WriteTimer
-  2008                           
-  2009                           ;mcc_generated_files/tmr1.c: 166:     TMR1_CallBack();
-  2010  012B  3181  212F  3181   	fcall	_TMR1_CallBack
-  2011  012E                     i1l104:
-  2012  012E  0008               	return
-  2013  012F                     __end_of_TMR1_ISR:
-  2014                           
-  2015                           	psect	text11
-  2016  0104                     __ptext11:	
-  2017 ;; *************** function _TMR1_WriteTimer *****************
-  2018 ;; Defined at:
-  2019 ;;		line 120 in file "mcc_generated_files/tmr1.c"
-  2020 ;; Parameters:    Size  Location     Type
-  2021 ;;  timerVal        2    0[COMMON] unsigned short 
-  2022 ;; Auto vars:     Size  Location     Type
-  2023 ;;		None
-  2024 ;; Return value:  Size  Location     Type
-  2025 ;;                  1    wreg      void 
-  2026 ;; Registers used:
-  2027 ;;		wreg, status,2
-  2028 ;; Tracked objects:
-  2029 ;;		On entry : 0/0
-  2030 ;;		On exit  : 0/0
-  2031 ;;		Unchanged: 0/0
-  2032 ;; Data sizes:     COMMON   BANK0   BANK1
-  2033 ;;      Params:         2       0       0
-  2034 ;;      Locals:         0       0       0
-  2035 ;;      Temps:          0       0       0
-  2036 ;;      Totals:         2       0       0
-  2037 ;;Total ram usage:        2 bytes
-  2038 ;; Hardware stack levels used:    1
-  2039 ;; This function calls:
-  2040 ;;		Nothing
-  2041 ;; This function is called by:
-  2042 ;;		_TMR1_ISR
-  2043 ;;		_TMR1_Reload
-  2044 ;; This function uses a non-reentrant model
-  2045 ;;
-  2046                           
-  2047                           
-  2048                           ;psect for function _TMR1_WriteTimer
-  2049  0104                     _TMR1_WriteTimer:
-  2050  0104                     i1l934:	
-  2051                           ;incstack = 0
-  2052                           ; Regs used in _TMR1_WriteTimer: [wreg+status,2]
-  2053                           
-  2054                           
-  2055                           ;mcc_generated_files/tmr1.c: 120: void TMR1_WriteTimer(uint16_t timerVal);mcc_generated_
-      +                          files/tmr1.c: 121: {;mcc_generated_files/tmr1.c: 122:     if (T1CONbits.nT1SYNC == 1)
-  2056  0104  0020               	movlb	0	; select bank0
-  2057  0105  1D18               	btfss	24,2	;volatile
-  2058  0106  2908               	goto	u13_21
-  2059  0107  2909               	goto	u13_20
-  2060  0108                     u13_21:
-  2061  0108  2910               	goto	i1l944
-  2062  0109                     u13_20:
-  2063  0109                     i1l936:
+  1965  0014  3181  212B  3180   	fcall	_TMR1_ISR
+  1966  0017                     i1l131:	
+  1967                           ;mcc_generated_files/interrupt_manager.c: 60:         }
+  1968                           
+  1969  0017  107E               	bcf	int$flags,0	;clear compiler interrupt flag (level 1)
+  1970  0018  0009               	retfie
+  1971  0019                     __end_of_INTERRUPT_InterruptManager:
+  1972                           
+  1973                           	psect	text10
+  1974  012B                     __ptext10:	
+  1975 ;; *************** function _TMR1_ISR *****************
+  1976 ;; Defined at:
+  1977 ;;		line 157 in file "mcc_generated_files/tmr1.c"
+  1978 ;; Parameters:    Size  Location     Type
+  1979 ;;		None
+  1980 ;; Auto vars:     Size  Location     Type
+  1981 ;;		None
+  1982 ;; Return value:  Size  Location     Type
+  1983 ;;                  1    wreg      void 
+  1984 ;; Registers used:
+  1985 ;;		wreg, status,2, status,0, pclath, cstack
+  1986 ;; Tracked objects:
+  1987 ;;		On entry : 0/0
+  1988 ;;		On exit  : 0/0
+  1989 ;;		Unchanged: 0/0
+  1990 ;; Data sizes:     COMMON   BANK0   BANK1
+  1991 ;;      Params:         0       0       0
+  1992 ;;      Locals:         0       0       0
+  1993 ;;      Temps:          0       0       0
+  1994 ;;      Totals:         0       0       0
+  1995 ;;Total ram usage:        0 bytes
+  1996 ;; Hardware stack levels used:    1
+  1997 ;; Hardware stack levels required when called:    2
+  1998 ;; This function calls:
+  1999 ;;		_TMR1_CallBack
+  2000 ;;		_TMR1_WriteTimer
+  2001 ;; This function is called by:
+  2002 ;;		_INTERRUPT_InterruptManager
+  2003 ;; This function uses a non-reentrant model
+  2004 ;;
+  2005                           
+  2006                           
+  2007                           ;psect for function _TMR1_ISR
+  2008  012B                     _TMR1_ISR:
+  2009  012B                     i1l958:	
+  2010                           ;incstack = 0
+  2011                           ; Regs used in _TMR1_ISR: [wreg+status,2+status,0+pclath+cstack]
+  2012                           
+  2013                           
+  2014                           ;mcc_generated_files/tmr1.c: 161:     PIR1bits.TMR1IF = 0;
+  2015  012B  0020               	movlb	0	; select bank0
+  2016  012C  1011               	bcf	17,0	;volatile
+  2017  012D                     i1l960:
+  2018                           
+  2019                           ;mcc_generated_files/tmr1.c: 162:     TMR1_WriteTimer(timer1ReloadVal);
+  2020  012D  087B               	movf	_timer1ReloadVal+1,w	;volatile
+  2021  012E  00F6               	movwf	TMR1_WriteTimer@timerVal+1
+  2022  012F  087A               	movf	_timer1ReloadVal,w	;volatile
+  2023  0130  00F5               	movwf	TMR1_WriteTimer@timerVal
+  2024  0131  3181  210D  3181   	fcall	_TMR1_WriteTimer
+  2025                           
+  2026                           ;mcc_generated_files/tmr1.c: 166:     TMR1_CallBack();
+  2027  0134  3181  2138  3181   	fcall	_TMR1_CallBack
+  2028  0137                     i1l104:
+  2029  0137  0008               	return
+  2030  0138                     __end_of_TMR1_ISR:
+  2031                           
+  2032                           	psect	text11
+  2033  010D                     __ptext11:	
+  2034 ;; *************** function _TMR1_WriteTimer *****************
+  2035 ;; Defined at:
+  2036 ;;		line 120 in file "mcc_generated_files/tmr1.c"
+  2037 ;; Parameters:    Size  Location     Type
+  2038 ;;  timerVal        2    0[COMMON] unsigned short 
+  2039 ;; Auto vars:     Size  Location     Type
+  2040 ;;		None
+  2041 ;; Return value:  Size  Location     Type
+  2042 ;;                  1    wreg      void 
+  2043 ;; Registers used:
+  2044 ;;		wreg, status,2
+  2045 ;; Tracked objects:
+  2046 ;;		On entry : 0/0
+  2047 ;;		On exit  : 0/0
+  2048 ;;		Unchanged: 0/0
+  2049 ;; Data sizes:     COMMON   BANK0   BANK1
+  2050 ;;      Params:         2       0       0
+  2051 ;;      Locals:         0       0       0
+  2052 ;;      Temps:          0       0       0
+  2053 ;;      Totals:         2       0       0
+  2054 ;;Total ram usage:        2 bytes
+  2055 ;; Hardware stack levels used:    1
+  2056 ;; This function calls:
+  2057 ;;		Nothing
+  2058 ;; This function is called by:
+  2059 ;;		_TMR1_ISR
+  2060 ;;		_TMR1_Reload
+  2061 ;; This function uses a non-reentrant model
+  2062 ;;
+  2063                           
   2064                           
-  2065                           ;mcc_generated_files/tmr1.c: 123:     {;mcc_generated_files/tmr1.c: 125:         T1CONbi
-      +                          ts.TMR1ON = 0;
-  2066  0109  1018               	bcf	24,0	;volatile
-  2067  010A                     i1l938:
-  2068                           
-  2069                           ;mcc_generated_files/tmr1.c: 128:         TMR1H = (timerVal >> 8);
-  2070  010A  0876               	movf	TMR1_WriteTimer@timerVal+1,w
-  2071  010B  0097               	movwf	23	;volatile
-  2072  010C                     i1l940:
-  2073                           
-  2074                           ;mcc_generated_files/tmr1.c: 129:         TMR1L = timerVal;
-  2075  010C  0875               	movf	TMR1_WriteTimer@timerVal,w
-  2076  010D  0096               	movwf	22	;volatile
-  2077  010E                     i1l942:
-  2078                           
-  2079                           ;mcc_generated_files/tmr1.c: 132:         T1CONbits.TMR1ON =1;
-  2080  010E  1418               	bsf	24,0	;volatile
+  2065                           ;psect for function _TMR1_WriteTimer
+  2066  010D                     _TMR1_WriteTimer:
+  2067  010D                     i1l938:	
+  2068                           ;incstack = 0
+  2069                           ; Regs used in _TMR1_WriteTimer: [wreg+status,2]
+  2070                           
+  2071                           
+  2072                           ;mcc_generated_files/tmr1.c: 120: void TMR1_WriteTimer(uint16_t timerVal);mcc_generated_
+      +                          files/tmr1.c: 121: {;mcc_generated_files/tmr1.c: 122:     if (T1CONbits.nT1SYNC == 1)
+  2073  010D  0020               	movlb	0	; select bank0
+  2074  010E  1D18               	btfss	24,2	;volatile
+  2075  010F  2911               	goto	u14_21
+  2076  0110  2912               	goto	u14_20
+  2077  0111                     u14_21:
+  2078  0111  2919               	goto	i1l948
+  2079  0112                     u14_20:
+  2080  0112                     i1l940:
   2081                           
-  2082                           ;mcc_generated_files/tmr1.c: 133:     }
-  2083  010F  2914               	goto	i1l92
-  2084  0110                     i1l944:
+  2082                           ;mcc_generated_files/tmr1.c: 123:     {;mcc_generated_files/tmr1.c: 125:         T1CONbi
+      +                          ts.TMR1ON = 0;
+  2083  0112  1018               	bcf	24,0	;volatile
+  2084  0113                     i1l942:
   2085                           
-  2086                           ;mcc_generated_files/tmr1.c: 135:     {;mcc_generated_files/tmr1.c: 137:         TMR1H =
-      +                           (timerVal >> 8);
-  2087  0110  0876               	movf	TMR1_WriteTimer@timerVal+1,w
-  2088  0111  0097               	movwf	23	;volatile
-  2089  0112                     i1l946:
+  2086                           ;mcc_generated_files/tmr1.c: 128:         TMR1H = (timerVal >> 8);
+  2087  0113  0876               	movf	TMR1_WriteTimer@timerVal+1,w
+  2088  0114  0097               	movwf	23	;volatile
+  2089  0115                     i1l944:
   2090                           
-  2091                           ;mcc_generated_files/tmr1.c: 138:         TMR1L = timerVal;
-  2092  0112  0875               	movf	TMR1_WriteTimer@timerVal,w
-  2093  0113  0096               	movwf	22	;volatile
-  2094  0114                     i1l92:
-  2095  0114  0008               	return
-  2096  0115                     __end_of_TMR1_WriteTimer:
-  2097                           
-  2098                           	psect	text12
-  2099  012F                     __ptext12:	
-  2100 ;; *************** function _TMR1_CallBack *****************
-  2101 ;; Defined at:
-  2102 ;;		line 169 in file "mcc_generated_files/tmr1.c"
-  2103 ;; Parameters:    Size  Location     Type
-  2104 ;;		None
-  2105 ;; Auto vars:     Size  Location     Type
-  2106 ;;		None
-  2107 ;; Return value:  Size  Location     Type
-  2108 ;;                  1    wreg      void 
-  2109 ;; Registers used:
-  2110 ;;		wreg, status,2, status,0, pclath, cstack
-  2111 ;; Tracked objects:
-  2112 ;;		On entry : 0/0
-  2113 ;;		On exit  : 0/0
-  2114 ;;		Unchanged: 0/0
-  2115 ;; Data sizes:     COMMON   BANK0   BANK1
-  2116 ;;      Params:         0       0       0
-  2117 ;;      Locals:         0       0       0
-  2118 ;;      Temps:          0       0       0
-  2119 ;;      Totals:         0       0       0
-  2120 ;;Total ram usage:        0 bytes
-  2121 ;; Hardware stack levels used:    1
-  2122 ;; Hardware stack levels required when called:    1
-  2123 ;; This function calls:
-  2124 ;;		Absolute function
-  2125 ;;		_TMR1_DefaultInterruptHandler
-  2126 ;;		_secondsTick
-  2127 ;; This function is called by:
-  2128 ;;		_TMR1_ISR
-  2129 ;; This function uses a non-reentrant model
-  2130 ;;
-  2131                           
-  2132                           
-  2133                           ;psect for function _TMR1_CallBack
-  2134  012F                     _TMR1_CallBack:
-  2135  012F                     i1l948:	
-  2136                           ;incstack = 0
-  2137                           ; Regs used in _TMR1_CallBack: [wreg+status,2+status,0+pclath+cstack]
-  2138                           
-  2139                           
-  2140                           ;mcc_generated_files/tmr1.c: 172:     if(TMR1_InterruptHandler)
-  2141  012F  0020               	movlb	0	; select bank0
-  2142  0130  0820               	movf	_TMR1_InterruptHandler,w
-  2143  0131  0421               	iorwf	_TMR1_InterruptHandler+1,w
-  2144  0132  1903               	btfsc	3,2
-  2145  0133  2935               	goto	u14_21
-  2146  0134  2936               	goto	u14_20
-  2147  0135                     u14_21:
-  2148  0135  293B               	goto	i1l108
-  2149  0136                     u14_20:
-  2150  0136                     i1l950:
-  2151                           
-  2152                           ;mcc_generated_files/tmr1.c: 173:     {;mcc_generated_files/tmr1.c: 174:         TMR1_In
+  2091                           ;mcc_generated_files/tmr1.c: 129:         TMR1L = timerVal;
+  2092  0115  0875               	movf	TMR1_WriteTimer@timerVal,w
+  2093  0116  0096               	movwf	22	;volatile
+  2094  0117                     i1l946:
+  2095                           
+  2096                           ;mcc_generated_files/tmr1.c: 132:         T1CONbits.TMR1ON =1;
+  2097  0117  1418               	bsf	24,0	;volatile
+  2098                           
+  2099                           ;mcc_generated_files/tmr1.c: 133:     }
+  2100  0118  291D               	goto	i1l92
+  2101  0119                     i1l948:
+  2102                           
+  2103                           ;mcc_generated_files/tmr1.c: 135:     {;mcc_generated_files/tmr1.c: 137:         TMR1H =
+      +                           (timerVal >> 8);
+  2104  0119  0876               	movf	TMR1_WriteTimer@timerVal+1,w
+  2105  011A  0097               	movwf	23	;volatile
+  2106  011B                     i1l950:
+  2107                           
+  2108                           ;mcc_generated_files/tmr1.c: 138:         TMR1L = timerVal;
+  2109  011B  0875               	movf	TMR1_WriteTimer@timerVal,w
+  2110  011C  0096               	movwf	22	;volatile
+  2111  011D                     i1l92:
+  2112  011D  0008               	return
+  2113  011E                     __end_of_TMR1_WriteTimer:
+  2114                           
+  2115                           	psect	text12
+  2116  0138                     __ptext12:	
+  2117 ;; *************** function _TMR1_CallBack *****************
+  2118 ;; Defined at:
+  2119 ;;		line 169 in file "mcc_generated_files/tmr1.c"
+  2120 ;; Parameters:    Size  Location     Type
+  2121 ;;		None
+  2122 ;; Auto vars:     Size  Location     Type
+  2123 ;;		None
+  2124 ;; Return value:  Size  Location     Type
+  2125 ;;                  1    wreg      void 
+  2126 ;; Registers used:
+  2127 ;;		wreg, status,2, status,0, pclath, cstack
+  2128 ;; Tracked objects:
+  2129 ;;		On entry : 0/0
+  2130 ;;		On exit  : 0/0
+  2131 ;;		Unchanged: 0/0
+  2132 ;; Data sizes:     COMMON   BANK0   BANK1
+  2133 ;;      Params:         0       0       0
+  2134 ;;      Locals:         0       0       0
+  2135 ;;      Temps:          0       0       0
+  2136 ;;      Totals:         0       0       0
+  2137 ;;Total ram usage:        0 bytes
+  2138 ;; Hardware stack levels used:    1
+  2139 ;; Hardware stack levels required when called:    1
+  2140 ;; This function calls:
+  2141 ;;		Absolute function
+  2142 ;;		_TMR1_DefaultInterruptHandler
+  2143 ;;		_secondsTick
+  2144 ;; This function is called by:
+  2145 ;;		_TMR1_ISR
+  2146 ;; This function uses a non-reentrant model
+  2147 ;;
+  2148                           
+  2149                           
+  2150                           ;psect for function _TMR1_CallBack
+  2151  0138                     _TMR1_CallBack:
+  2152  0138                     i1l952:	
+  2153                           ;incstack = 0
+  2154                           ; Regs used in _TMR1_CallBack: [wreg+status,2+status,0+pclath+cstack]
+  2155                           
+  2156                           
+  2157                           ;mcc_generated_files/tmr1.c: 172:     if(TMR1_InterruptHandler)
+  2158  0138  0020               	movlb	0	; select bank0
+  2159  0139  0820               	movf	_TMR1_InterruptHandler,w
+  2160  013A  0421               	iorwf	_TMR1_InterruptHandler+1,w
+  2161  013B  1903               	btfsc	3,2
+  2162  013C  293E               	goto	u15_21
+  2163  013D  293F               	goto	u15_20
+  2164  013E                     u15_21:
+  2165  013E  2944               	goto	i1l108
+  2166  013F                     u15_20:
+  2167  013F                     i1l954:
+  2168                           
+  2169                           ;mcc_generated_files/tmr1.c: 173:     {;mcc_generated_files/tmr1.c: 174:         TMR1_In
       +                          terruptHandler();
-  2153  0136  0821               	movf	_TMR1_InterruptHandler+1,w
-  2154  0137  008A               	movwf	10
-  2155  0138  0820               	movf	_TMR1_InterruptHandler,w
-  2156  0139  000A               	callw
-  2157  013A  3181               	pagesel	$
-  2158  013B                     i1l108:
-  2159  013B  0008               	return
-  2160  013C                     __end_of_TMR1_CallBack:
-  2161                           
-  2162                           	psect	text13
-  2163  0155                     __ptext13:	
-  2164 ;; *************** function _TMR1_DefaultInterruptHandler *****************
-  2165 ;; Defined at:
-  2166 ;;		line 182 in file "mcc_generated_files/tmr1.c"
-  2167 ;; Parameters:    Size  Location     Type
-  2168 ;;		None
-  2169 ;; Auto vars:     Size  Location     Type
-  2170 ;;		None
-  2171 ;; Return value:  Size  Location     Type
-  2172 ;;                  1    wreg      void 
-  2173 ;; Registers used:
-  2174 ;;		None
-  2175 ;; Tracked objects:
-  2176 ;;		On entry : 0/0
-  2177 ;;		On exit  : 0/0
-  2178 ;;		Unchanged: 0/0
-  2179 ;; Data sizes:     COMMON   BANK0   BANK1
-  2180 ;;      Params:         0       0       0
-  2181 ;;      Locals:         0       0       0
-  2182 ;;      Temps:          0       0       0
-  2183 ;;      Totals:         0       0       0
-  2184 ;;Total ram usage:        0 bytes
-  2185 ;; Hardware stack levels used:    1
-  2186 ;; This function calls:
-  2187 ;;		Nothing
-  2188 ;; This function is called by:
-  2189 ;;		_TMR1_Initialize
-  2190 ;;		_TMR1_CallBack
-  2191 ;; This function uses a non-reentrant model
-  2192 ;;
-  2193                           
-  2194                           
-  2195                           ;psect for function _TMR1_DefaultInterruptHandler
-  2196  0155                     _TMR1_DefaultInterruptHandler:
-  2197  0155                     i1l114:	
-  2198                           ;incstack = 0
-  2199                           ; Regs used in _TMR1_DefaultInterruptHandler: []
-  2200                           
-  2201  0155  0008               	return
-  2202  0156                     __end_of_TMR1_DefaultInterruptHandler:
-  2203                           
-  2204                           	psect	text14
-  2205  0149                     __ptext14:	
-  2206 ;; *************** function _secondsTick *****************
-  2207 ;; Defined at:
-  2208 ;;		line 181 in file "main.c"
-  2209 ;; Parameters:    Size  Location     Type
-  2210 ;;		None
-  2211 ;; Auto vars:     Size  Location     Type
-  2212 ;;		None
-  2213 ;; Return value:  Size  Location     Type
-  2214 ;;                  1    wreg      void 
-  2215 ;; Registers used:
-  2216 ;;		wreg
-  2217 ;; Tracked objects:
-  2218 ;;		On entry : 0/0
-  2219 ;;		On exit  : 0/0
-  2220 ;;		Unchanged: 0/0
-  2221 ;; Data sizes:     COMMON   BANK0   BANK1
-  2222 ;;      Params:         0       0       0
-  2223 ;;      Locals:         0       0       0
-  2224 ;;      Temps:          0       0       0
-  2225 ;;      Totals:         0       0       0
-  2226 ;;Total ram usage:        0 bytes
-  2227 ;; Hardware stack levels used:    1
-  2228 ;; This function calls:
-  2229 ;;		Nothing
-  2230 ;; This function is called by:
-  2231 ;;		_main
-  2232 ;;		_TMR1_CallBack
-  2233 ;; This function uses a non-reentrant model
-  2234 ;;
-  2235                           
-  2236                           
-  2237                           ;psect for function _secondsTick
-  2238  0149                     _secondsTick:
-  2239  0149                     i1l916:	
-  2240                           ;incstack = 0
-  2241                           ; Regs used in _secondsTick: [wreg]
-  2242                           
-  2243                           
-  2244                           ;main.c: 183:     currentSecondsTick++;
-  2245  0149  3001               	movlw	1
-  2246  014A  07F2               	addwf	_currentSecondsTick,f	;volatile
-  2247  014B  3000               	movlw	0
-  2248  014C  3DF3               	addwfc	_currentSecondsTick+1,f	;volatile
-  2249  014D                     i1l206:
-  2250  014D  0008               	return
-  2251  014E                     __end_of_secondsTick:
-  2252  007E                     btemp	set	126	;btemp
-  2253  007E                     int$flags	set	126
-  2254  007E                     wtemp0	set	126
-  2255                           
-  2256                           	psect	config
-  2257                           
-  2258                           ;Config register CONFIG1 @ 0x8007
-  2259                           ;	
-  2260                           ;	FOSC = INTOSC, INTOSC oscillator; I/O function on CLKIN pin
-  2261                           ;	Watchdog Timer Enable
-  2262                           ;	WDTE = OFF, WDT disabled
-  2263                           ;	Power-up Timer Enable
-  2264                           ;	PWRTE = OFF, PWRT disabled
-  2265                           ;	MCLR Pin Function Select
-  2266                           ;	MCLRE = ON, MCLR/VPP pin function is MCLR
-  2267                           ;	Flash Program Memory Code Protection
-  2268                           ;	CP = OFF, Program memory code protection is disabled
-  2269                           ;	Brown-out Reset Enable
-  2270                           ;	BOREN = ON, Brown-out Reset enabled
-  2271                           ;	Clock Out Enable
-  2272                           ;	CLKOUTEN = OFF, CLKOUT function is disabled. I/O or oscillator function on the CLKOUT 
+  2170  013F  0821               	movf	_TMR1_InterruptHandler+1,w
+  2171  0140  008A               	movwf	10
+  2172  0141  0820               	movf	_TMR1_InterruptHandler,w
+  2173  0142  000A               	callw
+  2174  0143  3181               	pagesel	$
+  2175  0144                     i1l108:
+  2176  0144  0008               	return
+  2177  0145                     __end_of_TMR1_CallBack:
+  2178                           
+  2179                           	psect	text13
+  2180  015E                     __ptext13:	
+  2181 ;; *************** function _TMR1_DefaultInterruptHandler *****************
+  2182 ;; Defined at:
+  2183 ;;		line 182 in file "mcc_generated_files/tmr1.c"
+  2184 ;; Parameters:    Size  Location     Type
+  2185 ;;		None
+  2186 ;; Auto vars:     Size  Location     Type
+  2187 ;;		None
+  2188 ;; Return value:  Size  Location     Type
+  2189 ;;                  1    wreg      void 
+  2190 ;; Registers used:
+  2191 ;;		None
+  2192 ;; Tracked objects:
+  2193 ;;		On entry : 0/0
+  2194 ;;		On exit  : 0/0
+  2195 ;;		Unchanged: 0/0
+  2196 ;; Data sizes:     COMMON   BANK0   BANK1
+  2197 ;;      Params:         0       0       0
+  2198 ;;      Locals:         0       0       0
+  2199 ;;      Temps:          0       0       0
+  2200 ;;      Totals:         0       0       0
+  2201 ;;Total ram usage:        0 bytes
+  2202 ;; Hardware stack levels used:    1
+  2203 ;; This function calls:
+  2204 ;;		Nothing
+  2205 ;; This function is called by:
+  2206 ;;		_TMR1_Initialize
+  2207 ;;		_TMR1_CallBack
+  2208 ;; This function uses a non-reentrant model
+  2209 ;;
+  2210                           
+  2211                           
+  2212                           ;psect for function _TMR1_DefaultInterruptHandler
+  2213  015E                     _TMR1_DefaultInterruptHandler:
+  2214  015E                     i1l114:	
+  2215                           ;incstack = 0
+  2216                           ; Regs used in _TMR1_DefaultInterruptHandler: []
+  2217                           
+  2218  015E  0008               	return
+  2219  015F                     __end_of_TMR1_DefaultInterruptHandler:
+  2220                           
+  2221                           	psect	text14
+  2222  0152                     __ptext14:	
+  2223 ;; *************** function _secondsTick *****************
+  2224 ;; Defined at:
+  2225 ;;		line 185 in file "main.c"
+  2226 ;; Parameters:    Size  Location     Type
+  2227 ;;		None
+  2228 ;; Auto vars:     Size  Location     Type
+  2229 ;;		None
+  2230 ;; Return value:  Size  Location     Type
+  2231 ;;                  1    wreg      void 
+  2232 ;; Registers used:
+  2233 ;;		wreg
+  2234 ;; Tracked objects:
+  2235 ;;		On entry : 0/0
+  2236 ;;		On exit  : 0/0
+  2237 ;;		Unchanged: 0/0
+  2238 ;; Data sizes:     COMMON   BANK0   BANK1
+  2239 ;;      Params:         0       0       0
+  2240 ;;      Locals:         0       0       0
+  2241 ;;      Temps:          0       0       0
+  2242 ;;      Totals:         0       0       0
+  2243 ;;Total ram usage:        0 bytes
+  2244 ;; Hardware stack levels used:    1
+  2245 ;; This function calls:
+  2246 ;;		Nothing
+  2247 ;; This function is called by:
+  2248 ;;		_main
+  2249 ;;		_TMR1_CallBack
+  2250 ;; This function uses a non-reentrant model
+  2251 ;;
+  2252                           
+  2253                           
+  2254                           ;psect for function _secondsTick
+  2255  0152                     _secondsTick:
+  2256  0152                     i1l920:	
+  2257                           ;incstack = 0
+  2258                           ; Regs used in _secondsTick: [wreg]
+  2259                           
+  2260                           
+  2261                           ;main.c: 187:     currentSecondsTick++;
+  2262  0152  3001               	movlw	1
+  2263  0153  07F2               	addwf	_currentSecondsTick,f	;volatile
+  2264  0154  3000               	movlw	0
+  2265  0155  3DF3               	addwfc	_currentSecondsTick+1,f	;volatile
+  2266  0156                     i1l208:
+  2267  0156  0008               	return
+  2268  0157                     __end_of_secondsTick:
+  2269  007E                     btemp	set	126	;btemp
+  2270  007E                     int$flags	set	126
+  2271  007E                     wtemp0	set	126
+  2272                           
+  2273                           	psect	config
+  2274                           
+  2275                           ;Config register CONFIG1 @ 0x8007
+  2276                           ;	
+  2277                           ;	FOSC = INTOSC, INTOSC oscillator; I/O function on CLKIN pin
+  2278                           ;	Watchdog Timer Enable
+  2279                           ;	WDTE = OFF, WDT disabled
+  2280                           ;	Power-up Timer Enable
+  2281                           ;	PWRTE = OFF, PWRT disabled
+  2282                           ;	MCLR Pin Function Select
+  2283                           ;	MCLRE = ON, MCLR/VPP pin function is MCLR
+  2284                           ;	Flash Program Memory Code Protection
+  2285                           ;	CP = OFF, Program memory code protection is disabled
+  2286                           ;	Brown-out Reset Enable
+  2287                           ;	BOREN = ON, Brown-out Reset enabled
+  2288                           ;	Clock Out Enable
+  2289                           ;	CLKOUTEN = OFF, CLKOUT function is disabled. I/O or oscillator function on the CLKOUT 
       +                          pin
-  2273  8007                     	org	32775
-  2274  8007  3FE4               	dw	16356
-  2275                           
-  2276                           ;Config register CONFIG2 @ 0x8008
-  2277                           ;	Flash Memory Self-Write Protection
-  2278                           ;	WRT = OFF, Write protection off
-  2279                           ;	PLL Enable
-  2280                           ;	PLLEN = OFF, 4x PLL disabled
-  2281                           ;	Stack Overflow/Underflow Reset Enable
-  2282                           ;	STVREN = ON, Stack Overflow or Underflow will cause a Reset
-  2283                           ;	Brown-out Reset Voltage Selection
-  2284                           ;	BORV = LO, Brown-out Reset Voltage (Vbor), low trip point selected.
-  2285                           ;	Low Power Brown-out Reset enable bit
-  2286                           ;	LPBOREN = OFF, LPBOR is disabled
-  2287                           ;	Low-Voltage Programming Enable
-  2288                           ;	LVP = OFF, High-voltage on MCLR/VPP must be used for programming
-  2289  8008                     	org	32776
-  2290  8008  1EFF               	dw	7935
+  2290  8007                     	org	32775
+  2291  8007  3FE4               	dw	16356
+  2292                           
+  2293                           ;Config register CONFIG2 @ 0x8008
+  2294                           ;	Flash Memory Self-Write Protection
+  2295                           ;	WRT = OFF, Write protection off
+  2296                           ;	PLL Enable
+  2297                           ;	PLLEN = OFF, 4x PLL disabled
+  2298                           ;	Stack Overflow/Underflow Reset Enable
+  2299                           ;	STVREN = ON, Stack Overflow or Underflow will cause a Reset
+  2300                           ;	Brown-out Reset Voltage Selection
+  2301                           ;	BORV = LO, Brown-out Reset Voltage (Vbor), low trip point selected.
+  2302                           ;	Low Power Brown-out Reset enable bit
+  2303                           ;	LPBOREN = OFF, LPBOR is disabled
+  2304                           ;	Low-Voltage Programming Enable
+  2305                           ;	LVP = OFF, High-voltage on MCLR/VPP must be used for programming
+  2306  8008                     	org	32776
+  2307  8008  1EFF               	dw	7935
 
 Data Sizes:
     Strings     0
@@ -2532,103 +2550,105 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Fri Aug 14 11:09:58 2020
+Symbol Table                                                                                   Mon Aug 17 11:08:15 2020
 
-                                      l22 0142                                        l25 0151  
-                                      l19 0121                                        l46 0103  
-                                      l81 0154                                        l78 00EC  
-                                      u30 0094                                        u31 0093  
-                                     l111 0148                                       l200 00B6  
-                                     l202 00B8                                       l160 0036  
-                                     l163 0049                                       l172 0074  
-                                     l181 00D4                                       l190 00A2  
-                                     l167 005C                                       l159 0075  
-                                     l192 00A4                                       l184 0098  
-                                     l186 009A                                       l195 00AC  
-                                     l197 00AE                                       l802 0095  
-                                     l740 00F2                                       l804 009B  
-                                     l812 00BA                                       l750 013F  
-                                     l742 00F7                                       l806 00A5  
-                                     l814 00D0                                       l752 0140  
-                                     l744 00FB                                       l736 00ED  
-                                     l920 00D7                                       l808 00AF  
-                                     l746 00FE                                       l738 00EF  
-                                     l914 0143                                       l930 00E2  
-                                     l922 00D9                                       l754 014E  
-                                     l748 013C                                       l932 00E9  
-                                     l924 00DB                                       l926 00DC  
-                                     l918 00D5                                       l928 00E0  
-                                     l952 0115                                       l792 0152  
-                                     l798 008E                                       u240 003A  
-                                     u241 0039                                       u250 0044  
-                                     u251 0043                                       u260 004D  
-                                     u261 004C                                       u270 0057  
-                                     u271 0056                                       u255 0040  
-                                     u280 0060                                       u281 005F  
-                                     u290 006F                                       u291 006E  
-                                     u275 0053                                       u295 006B  
-                         _timer1ReloadVal 007A                                      l1112 007E  
-                                    l1040 0022                                      l1114 00C2  
-                                    l1050 003A                                      l1042 0025  
-                                    l1060 0065                                      l1052 0044  
-                                    l1044 0026                                      l1062 006F  
-                                    l1054 004D                                      l1046 002E  
-                                    l1056 0057                                      l1048 0031  
-                                    l1058 0060                                      l1066 0075  
-                                    _LATA 010C                                      i1l92 0114  
+                                      l22 014B                                        l25 015A  
+                                      l19 012A                                        l46 010C  
+                                      l81 015D                                        l78 00F5  
+                                      u30 009D                                        u31 009C  
+                                     l111 0151                                       l202 00BF  
+                                     l204 00C1                                       l160 0036  
+                                     l161 0049                                       l165 0052  
+                                     l174 007D                                       l183 00DD  
+                                     l159 007E                                       l192 00AB  
+                                     l169 0065                                       l194 00AD  
+                                     l186 00A1                                       l188 00A3  
+                                     l197 00B5                                       l199 00B7  
+                                     l800 0097                                       l810 00B8  
+                                     l740 00F8                                       l804 009E  
+                                     l750 0145                                       l742 00FB  
+                                     l806 00A4                                       l814 00C3  
+                                     l752 0148                                       l744 0100  
+                                     l808 00AE                                       l816 00D9  
+                                     l754 0149                                       l746 0104  
+                                     l738 00F6                                       l930 00E5  
+                                     l922 00DE                                       l748 0107  
+                                     l932 00E9                                       l924 00E0  
+                                     l756 0157                                       l918 014C  
+                                     l934 00EB                                       l926 00E2  
+                                     l936 00F2                                       l928 00E4  
+                                     l794 015B                                       l956 011E  
+                                     u300 0060                                       u301 005F  
+                                     u310 0069                                       u311 0068  
+                                     u320 0078                                       u321 0077  
+                                     u305 005C                                       u260 003A  
+                                     u325 0074                                       u261 0039  
+                                     u270 0044                                       u271 0043  
+                                     u280 004D                                       u281 004C  
+                                     u290 0056                                       u291 0055  
+                                     u275 0040                           _timer1ReloadVal 007A  
+                                    l1120 0087                                      l1122 00CB  
+                                    l1050 0026                                      l1060 004D  
+                                    l1052 002E                                      l1070 0078  
+                                    l1062 0056                                      l1054 0031  
+                                    l1046 0022                                      l1064 0060  
+                                    l1056 003A                                      l1048 0025  
+                                    l1066 0069                                      l1058 0044  
+                                    l1074 007E                                      l1068 006E  
+                                    _LATA 010C                                      i1l92 011D  
                                     _WPUA 020C                                      _main 0022  
                                     btemp 007E                                      start 0019  
               ??_TMR1_SetInterruptHandler 0079            __size_of_OSCILLATOR_Initialize 0007  
-           __end_of_OSCILLATOR_Initialize 0143                                     ?_main 0075  
-                         _TMR1_StartTimer 0152                                     _T1CON 0018  
-                                   i1l104 012E                                     i1l114 0155  
-                                   i1l131 0017                                     i1l108 013B  
-                                   i1l206 014D                                     i1l916 0149  
-                                   i1l940 010C                                     i1l950 0136  
-                                   i1l942 010E                                     i1l934 0104  
-                                   i1l936 0109                                     i1l944 0110  
-                                   i1l960 0006                                     i1l946 0112  
-                                   i1l938 010A                                     i1l954 0122  
-                                   i1l962 000A                                     i1l948 012F  
-                                   i1l956 0124                                     i1l964 000F  
-                                   i1l966 0014                                     u13_20 0109  
-                                   u13_21 0108                                     u14_20 0136  
-                                   u14_21 0135                                     u15_20 000A  
-                                   u15_21 0009                                     u16_20 000F  
-                                   u16_21 000E                                     u17_20 0014  
-                                   u17_21 0013                                     _TMR1H 0017  
-                                   _TMR1L 0016                                     _TRISA 008C  
-                        __end_of_TMR1_ISR 012F                            _WDT_Initialize 014E  
-                 __end_of_TMR1_Initialize 00ED                                     pclath 000A  
+           __end_of_OSCILLATOR_Initialize 014C                                     ?_main 0075  
+                         _TMR1_StartTimer 015B                                     _T1CON 0018  
+                                   i1l104 0137                                     i1l114 015E  
+                                   i1l131 0017                                     i1l108 0144  
+                                   i1l208 0156                                     i1l920 0152  
+                                   i1l940 0112                                     i1l950 011B  
+                                   i1l942 0113                                     i1l952 0138  
+                                   i1l944 0115                                     i1l960 012D  
+                                   i1l954 013F                                     i1l946 0117  
+                                   i1l938 010D                                     i1l970 0014  
+                                   i1l948 0119                                     i1l964 0006  
+                                   i1l958 012B                                     i1l966 000A  
+                                   i1l968 000F                                     u14_20 0112  
+                                   u14_21 0111                                     u15_20 013F  
+                                   u15_21 013E                                     u16_20 000A  
+                                   u16_21 0009                                     u17_20 000F  
+                                   u17_21 000E                                     _TMR1H 0017  
+                                   _TMR1L 0016                                     u18_20 0014  
+                                   u18_21 0013                                     _TRISA 008C  
+                        __end_of_TMR1_ISR 0138                            _WDT_Initialize 0157  
+                 __end_of_TMR1_Initialize 00F6                                     pclath 000A  
                                    status 0003                                     wtemp0 007E  
-                         _TMR1_WriteTimer 0104                           __initialization 001A  
-                            __end_of_main 008D               ?_INTERRUPT_InterruptManager 0075  
+                         _TMR1_WriteTimer 010D                           __initialization 001A  
+                            __end_of_main 0096               ?_INTERRUPT_InterruptManager 0075  
                                   ??_main 0022                              ?_secondsTick 0075  
-                  __end_of_WDT_Initialize 0152                                    _APFCON 011D  
+                  __end_of_WDT_Initialize 015B                                    _APFCON 011D  
                                   _ANSELA 018C                                    _BORCON 0116  
                                   _T1GCON 0019                   TMR1_WriteTimer@timerVal 0075  
                                   _ODCONA 028C                                    _INLVLA 038C  
                                   _OSCCON 0099                                    _WDTCON 0097  
-    __end_of_TMR1_DefaultInterruptHandler 0156     __size_of_TMR1_DefaultInterruptHandler 0001  
-            _TMR1_DefaultInterruptHandler 0155                   __end_of_TMR1_StartTimer 0155  
-                        __end_of_setState 00D5                           ?_WDT_Initialize 0075  
-TMR1_SetInterruptHandler@InterruptHandler 0077                   __end_of_TMR1_WriteTimer 0115  
-                   __end_of_TMR1_CallBack 013C                          ?_TMR1_Initialize 0075  
-                       _SYSTEM_Initialize 0115                   __end_of__initialization 001F  
+    __end_of_TMR1_DefaultInterruptHandler 015F     __size_of_TMR1_DefaultInterruptHandler 0001  
+            _TMR1_DefaultInterruptHandler 015E                   __end_of_TMR1_StartTimer 015E  
+                        __end_of_setState 00DE                           ?_WDT_Initialize 0075  
+TMR1_SetInterruptHandler@InterruptHandler 0077                   __end_of_TMR1_WriteTimer 011E  
+                   __end_of_TMR1_CallBack 0145                          ?_TMR1_Initialize 0075  
+                       _SYSTEM_Initialize 011E                   __end_of__initialization 001F  
                       ?_SYSTEM_Initialize 0075                            __pcstackCOMMON 0075  
                      ??_SYSTEM_Initialize 0079                                 ?_TMR1_ISR 0075  
            ?_TMR1_DefaultInterruptHandler 0075                            _OPTION_REGbits 0095  
-               __end_of_SYSTEM_Initialize 0122                                __pnvCOMMON 007A  
+               __end_of_SYSTEM_Initialize 012B                                __pnvCOMMON 007A  
                               __pmaintext 0022                          ?_TMR1_StartTimer 0075  
                               ??_TMR1_ISR 0077                                __pintentry 0004  
                                  _OSCTUNE 0098                                   _SLRCONA 030C  
                     __size_of_secondsTick 0005                          ?_TMR1_WriteTimer 0075  
-                               ?_setState 0075                                   __ptext1 008D  
-                                 __ptext2 0152                                   __ptext3 0115  
-                                 __ptext4 014E                                   __ptext5 00D5  
-                                 __ptext6 0143                                   __ptext7 00ED  
-                                 __ptext8 013C            ??_TMR1_DefaultInterruptHandler 0075  
-                               _T1CONbits 0018                     _OSCILLATOR_Initialize 013C  
+                               ?_setState 0075                                   __ptext1 0096  
+                                 __ptext2 015B                                   __ptext3 011E  
+                                 __ptext4 0157                                   __ptext5 00DE  
+                                 __ptext6 014C                                   __ptext7 00F6  
+                                 __ptext8 0145            ??_TMR1_DefaultInterruptHandler 0075  
+                               _T1CONbits 0018                     _OSCILLATOR_Initialize 0145  
        __size_of_TMR1_SetInterruptHandler 0006                  ??_PIN_MANAGER_Initialize 0077  
                ?_TMR1_SetInterruptHandler 0077                __size_of_SYSTEM_Initialize 000D  
                     end_of_initialization 001F                                ??_setState 0077  
@@ -2639,24 +2659,24 @@ TMR1_SetInterruptHandler@InterruptHandler 0077                   __end_of_TMR1_W
                              __pbssCOMMON 0070                                 ___latbits 0000  
                            __pcstackBANK0 0022                          setState@newState 0079  
                             _currentState 0074                                 __pnvBANK0 0020  
-                  _PIN_MANAGER_Initialize 00ED          __end_of_TMR1_SetInterruptHandler 0149  
+                  _PIN_MANAGER_Initialize 00F6          __end_of_TMR1_SetInterruptHandler 0152  
                        __size_of_setState 0048              ??_INTERRUPT_InterruptManager 0077  
                 __size_of_TMR1_StartTimer 0003                             ??_secondsTick 0075  
-                           _TMR1_CallBack 012F                                  _LATAbits 010C  
+                           _TMR1_CallBack 0138                                  _LATAbits 010C  
                                 _PIE1bits 0091                  __size_of_TMR1_WriteTimer 0011  
      __size_of_INTERRUPT_InterruptManager 0015                                  _PIR1bits 0011  
-                                _TMR1_ISR 0122                         ??_TMR1_Initialize 0079  
-                      _currentSecondsTick 0072                       __end_of_secondsTick 014E  
+                                _TMR1_ISR 012B                         ??_TMR1_Initialize 0079  
+                      _currentSecondsTick 0072                       __end_of_secondsTick 0157  
                           ?_TMR1_CallBack 0075                   ??_OSCILLATOR_Initialize 0077  
-                _TMR1_SetInterruptHandler 0143                     _TMR1_InterruptHandler 0020  
-                                __ptext10 0122                                  __ptext11 0104  
-                                __ptext12 012F                                  __ptext13 0155  
-                              _T1GCONbits 0019                                  __ptext14 0149  
-                       ??_TMR1_StartTimer 0077                             __size_of_main 006B  
-                                _setState 008D                       _demandedSecondsTick 0070  
+                _TMR1_SetInterruptHandler 014C                     _TMR1_InterruptHandler 0020  
+                                __ptext10 012B                                  __ptext11 010D  
+                                __ptext12 0138                                  __ptext13 015E  
+                              _T1GCONbits 0019                                  __ptext14 0152  
+                       ??_TMR1_StartTimer 0077                             __size_of_main 0074  
+                                _setState 0096                       _demandedSecondsTick 0070  
                                 int$flags 007E        __end_of_INTERRUPT_InterruptManager 0019  
               _INTERRUPT_InterruptManager 0004                         ??_TMR1_WriteTimer 0077  
-                              _INTCONbits 000B                               _secondsTick 0149  
+                              _INTCONbits 000B                               _secondsTick 0152  
                          ??_TMR1_CallBack 0075                   __size_of_WDT_Initialize 0004  
                                 intlevel1 0000                   ?_PIN_MANAGER_Initialize 0075  
-          __end_of_PIN_MANAGER_Initialize 0104                           _TMR1_Initialize 00D5  
+          __end_of_PIN_MANAGER_Initialize 010D                           _TMR1_Initialize 00DE  
