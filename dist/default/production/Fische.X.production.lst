@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Mon Aug 17 11:08:15 2020
+                                                                                               Fri Aug 21 14:58:09 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	12F1571
@@ -2312,14 +2312,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2282                           ;	MCLR Pin Function Select
   2283                           ;	MCLRE = ON, MCLR/VPP pin function is MCLR
   2284                           ;	Flash Program Memory Code Protection
-  2285                           ;	CP = OFF, Program memory code protection is disabled
+  2285                           ;	CP = ON, Program memory code protection is enabled
   2286                           ;	Brown-out Reset Enable
   2287                           ;	BOREN = ON, Brown-out Reset enabled
   2288                           ;	Clock Out Enable
   2289                           ;	CLKOUTEN = OFF, CLKOUT function is disabled. I/O or oscillator function on the CLKOUT 
       +                          pin
   2290  8007                     	org	32775
-  2291  8007  3FE4               	dw	16356
+  2291  8007  3F64               	dw	16228
   2292                           
   2293                           ;Config register CONFIG2 @ 0x8008
   2294                           ;	Flash Memory Self-Write Protection
@@ -2550,7 +2550,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Mon Aug 17 11:08:15 2020
+Symbol Table                                                                                   Fri Aug 21 14:58:09 2020
 
                                       l22 014B                                        l25 015A  
                                       l19 012A                                        l46 010C  
