@@ -13,12 +13,12 @@
   @Description
     This header file provides APIs for driver for TMR1.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.78.1
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6
         Device            :  PIC12F1571
         Driver Version    :  2.11
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.10 and above
-        MPLAB 	          :  MPLAB X 5.30
+        Compiler          :  XC8 2.30 and above
+        MPLAB 	          :  MPLAB X 5.40
 */
 
 /*

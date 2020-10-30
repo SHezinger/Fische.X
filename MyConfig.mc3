@@ -1,4 +1,4 @@
-<config configVersion="1.1" device="PIC12F1571" coreVersion="4.85.0">
+<config configVersion="1.1" device="PIC12F1571" coreVersion="5.0.1">
    <usedClasses class="java.util.HashMap">
       <entry>
          <string>System Module</string>
@@ -30,7 +30,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.mcu8.Mcu8PeripheralLibrary" version="1.78.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.mcu8.Mcu8PeripheralLibrary" version="1.81.6"/>
    </usedLibraries>
    <tokenMap class="java.util.HashMap">
       <entry>
@@ -315,7 +315,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="IOCAP" settingAlias="IOCAP5"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR1" registerAlias="TMRL"/>
@@ -591,7 +591,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="IOCAP"/>
-         <value>0</value>
+         <value>32</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="WDT" registerAlias="WDTCON0" settingAlias="WDTSEN" alias="OFF"/>
@@ -1115,7 +1115,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="dependentModuleKey"/>
-         <value>3</value>
+         <value>4</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="WPUA" settingAlias="WPUA4" alias="clear"/>
@@ -1559,7 +1559,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="iocUserSet RA1"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATA" settingAlias="LATA5" alias="clear"/>
@@ -1571,7 +1571,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="iocUserSet RA5"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISA" settingAlias="TRISA3" alias="output"/>
@@ -1699,7 +1699,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="IOCI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG2" settingAlias="PLLEN" alias="OFF"/>
@@ -1710,12 +1710,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG1" settingAlias="CP" alias="OFF"/>
-         <value>128</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Interrupt Module" name="IVT_NAME"/>
          <value>IVT1</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG1" settingAlias="CP" alias="OFF"/>
+         <value>128</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRA4"/>
@@ -1816,48 +1816,48 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
+         <file>mcc_generated_files\interrupt_manager.h</file>
+         <hash>31436df4d240134fc01541777c7391aad1acb244f08a42f3e567a6abfc4816bc</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>d3da97fde73432442664c764254e2522bb2821a877e2b508cfbc455c8cee8b62</hash>
+         <hash>4b766f6ecbed32c4cebd0bc62b9e99868502e10646b70d092b8aaea131c2a131</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.h</file>
-         <hash>6be5aa7e81a8a781bd7584bd98e49b8d40f464cc96c233a84dd49fb11fc9850b</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>01eec61007b47e076dca3b03e490bd3989e3a3d88e196e0d22cb694465cfd547</hash>
+         <hash>ca086ac3125a583666da83386cb9fa6997a740bc1f93030eaf3aea29d7305664</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.h</file>
-         <hash>f7dcfe856e3345dd806678666d8312f9cdc2e4b3538ccfdf83e13f777d53f8f1</hash>
+         <hash>8e110a8f77987134e5a6cd5a3a3587bd111ef22fa7ed5c7108fe7945033ad393</hash>
       </entry>
       <entry>
          <file>main.c</file>
-         <hash>916af98bb5fb38685cc3f831c1c1fa611620bcf2be69356caa534c7318c35df6</hash>
+         <hash>491958b1275420a6db846eb7948b1fe782d92780d70f7af59740369e87399cea</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.c</file>
-         <hash>e16b1555583bc3e9c3412b48350ea3dcc752a17e6a52ee253c84848de88ee1c3</hash>
+         <hash>765dd57ad1d5d5f3be5e0fb8d557d095cd46a116363a1f1126fd84d30f9af8d9</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.h</file>
-         <hash>ed7dd7d729a10f841aff3af09643cc0304483e3cf03efee51ee0247d08cb5ac0</hash>
+         <hash>abf173e1371ed9d8e52101e1c99d024156231d899dedb9d6d1878c06ff4c1f2c</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.c</file>
-         <hash>7f98be6bca5ad6bad350b80a273385d61f0ba383b8c0ad1b81fced9195a5cdf6</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>1caaee8db81a32a90c95d04a95e3df4fa3cfee28d324ef4a4561170d9710cf86</hash>
+         <hash>c6aa762a376180d203d65b885accb068b50b6d7429df8d3f0e2dd1b863a33133</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>333c6901d721bac8080d9e1fd1e9dc663d1c018c23626faf198890cfafebeaeb</hash>
+         <hash>28aa2ed2d17883e346f8505d745b5323b2c794a1d55b675aebc7fa0d0b5517ce</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>7fb5035033011ce3ccb6a158b94154d19adabb84b1e52d9592fbbe37d3c2fd9f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
-         <hash>72ec6baacb9a325b3764e67508bc20d7848a37786c829ff93de195e6315666ce</hash>
+         <hash>524bf414bf994fd3a810188b37ef3ccefbd8c6c3be72113e99636bbcfa9bbe55</hash>
       </entry>
    </generatedFileHashHistoryMap>
    <mc3libFileHashHistoryMap class="java.util.HashMap"/>
