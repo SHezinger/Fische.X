@@ -15,11 +15,11 @@ STATE_END 4
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"68 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
+"66 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"145
+"157
 [v _setState setState `(v  1 e 1 0 ]
-"185
+"197
 [v _secondsTick secondsTick `(v  1 e 1 0 ]
 "52 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
@@ -31,6 +31,8 @@ STATE_END 4
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
 "55 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"107
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
 "64 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
 "93
@@ -45,7 +47,7 @@ STATE_END 4
 [v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
 "182
 [v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
-[s S261 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S85 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -55,14 +57,14 @@ STATE_END 4
 `uc 1 GIE 1 0 :1:7 
 ]
 "374 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic12f1571.h
-[s S270 . 1 `uc 1 . 1 0 :2:0 
+[s S94 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S275 . 1 `S261 1 . 1 0 `S270 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES275  1 e 1 @11 ]
-[s S364 . 1 `uc 1 RA0 1 0 :1:0 
+[u S99 . 1 `S85 1 . 1 0 `S94 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES99  1 e 1 @11 ]
+[s S384 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -70,26 +72,26 @@ STATE_END 4
 `uc 1 RA5 1 0 :1:5 
 ]
 "447
-[s S371 . 1 `uc 1 PORTA 1 0 :6:0 
+[s S391 . 1 `uc 1 PORTA 1 0 :6:0 
 ]
-[u S373 . 1 `S364 1 . 1 0 `S371 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES373  1 e 1 @12 ]
-[s S99 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S393 . 1 `S384 1 . 1 0 `S391 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES393  1 e 1 @12 ]
+[s S139 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 . 1 0 :4:2 
 `uc 1 ADIF 1 0 :1:6 
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "501
-[u S105 . 1 `S99 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES105  1 e 1 @17 ]
+[u S145 . 1 `S139 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES145  1 e 1 @17 ]
 "607
 [v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
 "627
 [v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
 "647
 [v _T1CON T1CON `VEuc  1 e 1 @24 ]
-[s S140 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S180 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -99,15 +101,15 @@ STATE_END 4
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
 "669
-[s S149 . 1 `uc 1 . 1 0 :4:0 
+[s S189 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[u S153 . 1 `S140 1 . 1 0 `S149 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES153  1 e 1 @24 ]
+[u S193 . 1 `S180 1 . 1 0 `S189 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES193  1 e 1 @24 ]
 "714
 [v _T1GCON T1GCON `VEuc  1 e 1 @25 ]
-[s S170 . 1 `uc 1 T1GSS0 1 0 :1:0 
+[s S210 . 1 `uc 1 T1GSS0 1 0 :1:0 
 `uc 1 T1GSS1 1 0 :1:1 
 `uc 1 T1GVAL 1 0 :1:2 
 `uc 1 T1GGO_nDONE 1 0 :1:3 
@@ -117,23 +119,23 @@ STATE_END 4
 `uc 1 TMR1GE 1 0 :1:7 
 ]
 "736
-[s S179 . 1 `uc 1 T1GSS 1 0 :2:0 
+[s S219 . 1 `uc 1 T1GSS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 T1GGO 1 0 :1:3 
 ]
-[u S183 . 1 `S170 1 . 1 0 `S179 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES183  1 e 1 @25 ]
+[u S223 . 1 `S210 1 . 1 0 `S219 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES223  1 e 1 @25 ]
 "902
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
-[s S114 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S154 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 . 1 0 :4:2 
 `uc 1 ADIE 1 0 :1:6 
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "974
-[u S120 . 1 `S114 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES120  1 e 1 @145 ]
+[u S160 . 1 `S154 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES160  1 e 1 @145 ]
 [s S49 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
@@ -159,7 +161,7 @@ STATE_END 4
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
 "1688
 [v _LATA LATA `VEuc  1 e 1 @268 ]
-[s S386 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S428 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -167,10 +169,10 @@ STATE_END 4
 `uc 1 LATA5 1 0 :1:5 
 ]
 "1706
-[s S393 . 1 `uc 1 LATA 1 0 :6:0 
+[s S435 . 1 `uc 1 LATA 1 0 :6:0 
 ]
-[u S395 . 1 `S386 1 . 1 0 `S393 1 . 1 0 ]
-[v _LATAbits LATAbits `VES395  1 e 1 @268 ]
+[u S437 . 1 `S428 1 . 1 0 `S435 1 . 1 0 ]
+[v _LATAbits LATAbits `VES437  1 e 1 @268 ]
 "1890
 [v _BORCON BORCON `VEuc  1 e 1 @278 ]
 "2106
@@ -185,6 +187,18 @@ STATE_END 4
 [v _SLRCONA SLRCONA `VEuc  1 e 1 @780 ]
 "2598
 [v _INLVLA INLVLA `VEuc  1 e 1 @908 ]
+[s S406 . 1 `uc 1 IOCAP0 1 0 :1:0 
+`uc 1 IOCAP1 1 0 :1:1 
+`uc 1 IOCAP2 1 0 :1:2 
+`uc 1 IOCAP3 1 0 :1:3 
+`uc 1 IOCAP4 1 0 :1:4 
+`uc 1 IOCAP5 1 0 :1:5 
+]
+"2674
+[s S413 . 1 `uc 1 IOCAP 1 0 :6:0 
+]
+[u S415 . 1 `S406 1 . 1 0 `S413 1 . 1 0 ]
+[v _IOCAPbits IOCAPbits `VES415  1 e 1 @913 ]
 "55 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
 [v _currentState currentState `E2970  1 e 1 0 ]
 "57
@@ -195,19 +209,19 @@ STATE_END 4
 [v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
 "58
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"68 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
+"66 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"139
+"151
 } 0
-"145
+"157
 [v _setState setState `(v  1 e 1 0 ]
 {
 [v setState@newState newState `E2970  1 a 1 wreg ]
 [v setState@newState newState `E2970  1 a 1 wreg ]
-"147
+"159
 [v setState@newState newState `E2970  1 a 1 4 ]
-"182
+"194
 } 0
 "93 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
 [v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
@@ -238,7 +252,7 @@ STATE_END 4
 "55 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"103
+"105
 } 0
 "59 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
@@ -248,7 +262,7 @@ STATE_END 4
 "52 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"70
+"74
 } 0
 "157 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c
 [v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
@@ -271,8 +285,13 @@ STATE_END 4
 {
 "185
 } 0
-"185 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
+"197 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
 [v _secondsTick secondsTick `(v  1 e 1 0 ]
 {
-"188
+"200
+} 0
+"107 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
+{
+"109
 } 0

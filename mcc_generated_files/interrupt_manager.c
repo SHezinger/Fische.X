@@ -15,12 +15,12 @@
     For individual peripheral handlers please see the peripheral driver for
     all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.78.1
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6
         Device            :  PIC12F1571
         Driver Version    :  2.03
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.10 and above or later
-        MPLAB 	          :  MPLAB X 5.30
+        Compiler          :  XC8 2.30 and above or later
+        MPLAB 	          :  MPLAB X 5.40
 */
 
 /*
@@ -52,7 +52,11 @@
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(INTCONbits.PEIE == 1)
+    if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
+    {
+        PIN_MANAGER_IOC();
+    }
+    else if(INTCONbits.PEIE == 1)
     {
         if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
         {

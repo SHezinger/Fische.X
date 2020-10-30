@@ -13,7 +13,7 @@
   Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.78.1
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6
         Device            :  PIC12F1571
         Driver Version    :  2.00
 */
@@ -60,8 +60,6 @@ uint16_t demandedSecondsTick = 0;
 void setState(states_t newState);
 void secondsTick();
 
-
-
 /*
                          Main application
  */
@@ -87,6 +85,7 @@ void main(void)
     
         
     TMR1_SetInterruptHandler(secondsTick);
+
     
     TMR1_StartTimer();
     
@@ -129,7 +128,20 @@ void main(void)
                 break;
 
             case STATE_END:
-                while(1); //wait till dooms day
+                
+                //Enable interrupt on rising edge for the start button
+                IOCAPbits.IOCAP5 = 1;
+                
+                asm("SLEEP");
+                //wait till dooms day (or button pressed :) )
+                
+                //Disable interrupt on rising edge for the start button
+                IOCAPbits.IOCAP5 = 0;
+                
+                //Processor will resume work here after deep sleep
+                setState(STATE_WAIT_TIME);
+                
+
                 break;
         }
         
@@ -186,3 +198,5 @@ void secondsTick()
 {
     currentSecondsTick++;
 }
+
+
