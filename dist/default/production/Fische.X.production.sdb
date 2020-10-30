@@ -1,10 +1,10 @@
 [p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
 [d version 1.1 ]
 [d edition pro ]
-[d chip 12F1571 ]
+[d chip 12LF1571 ]
 [d frameptr 6 ]
 "55 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
-[e E2970 . `uc
+[e E2961 . `uc
 STATE_UNDEFINED 0
 STATE_WAIT_TIME 1
 STATE_OPEN_VALVE 2
@@ -56,7 +56,7 @@ STATE_END 4
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"374 C:\Program Files\Microchip\xc8\v2.20\pic\include\proc\pic12f1571.h
+"374 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic12lf1571.h
 [s S94 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -179,13 +179,13 @@ STATE_END 4
 [v _APFCON APFCON `VEuc  1 e 1 @285 ]
 "2196
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
-"2434
+"2413
 [v _WPUA WPUA `VEuc  1 e 1 @524 ]
-"2492
+"2471
 [v _ODCONA ODCONA `VEuc  1 e 1 @652 ]
-"2545
+"2524
 [v _SLRCONA SLRCONA `VEuc  1 e 1 @780 ]
-"2598
+"2577
 [v _INLVLA INLVLA `VEuc  1 e 1 @908 ]
 [s S406 . 1 `uc 1 IOCAP0 1 0 :1:0 
 `uc 1 IOCAP1 1 0 :1:1 
@@ -194,13 +194,13 @@ STATE_END 4
 `uc 1 IOCAP4 1 0 :1:4 
 `uc 1 IOCAP5 1 0 :1:5 
 ]
-"2674
+"2653
 [s S413 . 1 `uc 1 IOCAP 1 0 :6:0 
 ]
 [u S415 . 1 `S406 1 . 1 0 `S413 1 . 1 0 ]
 [v _IOCAPbits IOCAPbits `VES415  1 e 1 @913 ]
 "55 C:\Users\SHezinger\Desktop\Software\Fische.X\main.c
-[v _currentState currentState `E2970  1 e 1 0 ]
+[v _currentState currentState `E2961  1 e 1 0 ]
 "57
 [v _currentSecondsTick currentSecondsTick `VEus  1 e 2 0 ]
 "58
@@ -217,10 +217,10 @@ STATE_END 4
 "157
 [v _setState setState `(v  1 e 1 0 ]
 {
-[v setState@newState newState `E2970  1 a 1 wreg ]
-[v setState@newState newState `E2970  1 a 1 wreg ]
+[v setState@newState newState `E2961  1 a 1 wreg ]
+[v setState@newState newState `E2961  1 a 1 wreg ]
 "159
-[v setState@newState newState `E2970  1 a 1 4 ]
+[v setState@newState newState `E2961  1 a 1 4 ]
 "194
 } 0
 "93 C:\Users\SHezinger\Desktop\Software\Fische.X\mcc_generated_files/tmr1.c

@@ -1,4 +1,4 @@
-<config configVersion="1.1" device="PIC12F1571" coreVersion="5.0.1">
+<config configVersion="1.1" device="PIC12LF1571" coreVersion="5.0.1">
    <usedClasses class="java.util.HashMap">
       <entry>
          <string>System Module</string>
@@ -1817,47 +1817,47 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>31436df4d240134fc01541777c7391aad1acb244f08a42f3e567a6abfc4816bc</hash>
+         <hash>1764f76786a759b4f678a2ab5b1c14015caf2b2506d984b26cb502843362a650</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>4b766f6ecbed32c4cebd0bc62b9e99868502e10646b70d092b8aaea131c2a131</hash>
+         <hash>34417a14a413daaa36e084bd1260ef04940dc95e4981308f8fa9d3e0b6a59e2c</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.h</file>
-         <hash>ca086ac3125a583666da83386cb9fa6997a740bc1f93030eaf3aea29d7305664</hash>
+         <hash>b842e29069d6340c0e3fcc58e080abde147617189efb4fab4ea10d04cf558427</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.h</file>
-         <hash>8e110a8f77987134e5a6cd5a3a3587bd111ef22fa7ed5c7108fe7945033ad393</hash>
+         <hash>b003a9871dab7abb4bd049a1be7713f0c7c381a80f2f9c3779ea5912b0da8ab3</hash>
       </entry>
       <entry>
          <file>main.c</file>
-         <hash>491958b1275420a6db846eb7948b1fe782d92780d70f7af59740369e87399cea</hash>
+         <hash>38f3b088942142bdbe64d5ca5dcbb5ba0cb0db29d4c3e902003fcb943416877e</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.c</file>
-         <hash>765dd57ad1d5d5f3be5e0fb8d557d095cd46a116363a1f1126fd84d30f9af8d9</hash>
+         <hash>b60c72c0bc470be6b35d7ec4c7f355d9c0aba5de02fc33af01140e847539e40c</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.h</file>
-         <hash>abf173e1371ed9d8e52101e1c99d024156231d899dedb9d6d1878c06ff4c1f2c</hash>
+         <hash>3e447ec0d8fbb6a6b8fa5f239eb63394325434589e261a124527b21e8dde3656</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.c</file>
-         <hash>c6aa762a376180d203d65b885accb068b50b6d7429df8d3f0e2dd1b863a33133</hash>
+         <hash>090ecd92760081bfcd0cca4c1c60079f676a8cd4e17624de405ab96d83c72297</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>28aa2ed2d17883e346f8505d745b5323b2c794a1d55b675aebc7fa0d0b5517ce</hash>
+         <hash>23aae666550b1eebcdc3dce286df6a721a64c2da92f62337586e21f134e8354b</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
-         <hash>7fb5035033011ce3ccb6a158b94154d19adabb84b1e52d9592fbbe37d3c2fd9f</hash>
+         <hash>336f16d01173e82eaa859c71b048051a25ffec84c61b03f3b7b2b43729302a71</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
-         <hash>524bf414bf994fd3a810188b37ef3ccefbd8c6c3be72113e99636bbcfa9bbe55</hash>
+         <hash>e0765229cd9fffbe79a41a934115717924c22dcf9a595f4618a34ef8c8ef0efd</hash>
       </entry>
    </generatedFileHashHistoryMap>
    <mc3libFileHashHistoryMap class="java.util.HashMap"/>
