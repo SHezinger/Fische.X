@@ -14,4 +14,5 @@ dist/default/production/*.
 #Ingoring private Makefiles, to create them open the MPLAB IDE or use the C:\Program Files (x86)\Microchip\MPLABX\<VERSION>\mplab_ide\bin\prjMakefilesGenerator.bat script
 nbproject/Makefile-*
 nbproject/Package-*
-nbproject/private/
+nbproject/private/MyConfig.mc3.bak
+MyConfig.mc3.bak
