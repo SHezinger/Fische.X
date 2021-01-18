@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Fri Oct 30 14:51:45 2020
+                                                                                               Mon Jan 18 16:23:02 2021
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	12LF1571
@@ -1244,21 +1244,21 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1224                           ;main.c: 130:             case STATE_END:
   1225                           
   1226                           
-  1227                           ;main.c: 133:                 IOCAPbits.IOCAP5 = 1;
+  1227                           ;main.c: 132:                 IOCAPbits.IOCAP5 = 1;
   1228  008A  0027               	movlb	7	; select bank7
   1229  008B  1691               	bsf	17,5	;volatile
   1230  008C  0063               	sleep	;# 
   1231                           
-  1232                           ;main.c: 139:                 IOCAPbits.IOCAP5 = 0;
+  1232                           ;main.c: 138:                 IOCAPbits.IOCAP5 = 0;
   1233  008D  0027               	movlb	7	; select bank7
   1234  008E  1291               	bcf	17,5	;volatile
   1235  008F                     l1091:
   1236                           
-  1237                           ;main.c: 142:                 setState(STATE_WAIT_TIME);
+  1237                           ;main.c: 141:                 setState(STATE_WAIT_TIME);
   1238  008F  3001               	movlw	1
   1239  0090  3180  20AC  3180   	fcall	_setState
   1240                           
-  1241                           ;main.c: 145:                 break;
+  1241                           ;main.c: 142:                 break;
   1242  0093  2894               	goto	l1095
   1243  0094                     l167:
   1244  0094                     l1095:
@@ -1313,7 +1313,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1292  00AC                     __ptext1:	
   1293 ;; *************** function _setState *****************
   1294 ;; Defined at:
-  1295 ;;		line 157 in file "main.c"
+  1295 ;;		line 154 in file "main.c"
   1296 ;; Parameters:    Size  Location     Type
   1297 ;;  newState        1    wreg     enum E2961
   1298 ;; Auto vars:     Size  Location     Type
@@ -1351,7 +1351,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1330  00AC  00F9               	movwf	setState@newState
   1331  00AD                     l807:
   1332                           
-  1333                           ;main.c: 157: void setState(states_t newState);main.c: 158: {;main.c: 159:     if(newSta
+  1333                           ;main.c: 154: void setState(states_t newState);main.c: 155: {;main.c: 156:     if(newSta
       +                          te == currentState)
   1334  00AD  0879               	movf	setState@newState,w
   1335  00AE  0674               	xorwf	_currentState,w
@@ -1364,45 +1364,45 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1342  00B3  28F3               	goto	l188
   1343  00B4                     l811:
   1344                           
-  1345                           ;main.c: 164:     currentSecondsTick = 0;
+  1345                           ;main.c: 161:     currentSecondsTick = 0;
   1346  00B4  01F2               	clrf	_currentSecondsTick	;volatile
   1347  00B5  01F3               	clrf	_currentSecondsTick+1	;volatile
   1348                           
-  1349                           ;main.c: 167:     switch(newState)
+  1349                           ;main.c: 164:     switch(newState)
   1350  00B6  28D9               	goto	l821
   1351  00B7                     l191:	
-  1352                           ;main.c: 170:             do { LATAbits.LATA1 = 0; } while(0);
+  1352                           ;main.c: 167:             do { LATAbits.LATA1 = 0; } while(0);
   1353                           
   1354  00B7  0022               	movlb	2	; select bank2
   1355  00B8  108C               	bcf	12,1	;volatile
   1356  00B9                     l193:	
-  1357                           ;main.c: 171:             do { LATAbits.LATA2 = 0; } while(0);
+  1357                           ;main.c: 168:             do { LATAbits.LATA2 = 0; } while(0);
   1358                           
   1359  00B9  110C               	bcf	12,2	;volatile
   1360  00BA                     l813:
   1361                           
-  1362                           ;main.c: 172:             demandedSecondsTick = currentSecondsTick + 1;
+  1362                           ;main.c: 169:             demandedSecondsTick = currentSecondsTick + 2;
   1363  00BA  0872               	movf	_currentSecondsTick,w	;volatile
-  1364  00BB  3E01               	addlw	1
+  1364  00BB  3E02               	addlw	2
   1365  00BC  00F0               	movwf	_demandedSecondsTick
   1366  00BD  3000               	movlw	0
   1367  00BE  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
   1368  00BF  00F1               	movwf	_demandedSecondsTick+1
   1369                           
-  1370                           ;main.c: 173:             break;
+  1370                           ;main.c: 170:             break;
   1371  00C0  28EF               	goto	l823
   1372  00C1                     l197:	
-  1373                           ;main.c: 176:             do { LATAbits.LATA1 = 1; } while(0);
+  1373                           ;main.c: 173:             do { LATAbits.LATA1 = 1; } while(0);
   1374                           
   1375  00C1  0022               	movlb	2	; select bank2
   1376  00C2  148C               	bsf	12,1	;volatile
   1377  00C3                     l199:	
-  1378                           ;main.c: 177:             do { LATAbits.LATA2 = 0; } while(0);
+  1378                           ;main.c: 174:             do { LATAbits.LATA2 = 0; } while(0);
   1379                           
   1380  00C3  110C               	bcf	12,2	;volatile
   1381  00C4                     l815:
   1382                           
-  1383                           ;main.c: 178:             demandedSecondsTick = currentSecondsTick + 1200;
+  1383                           ;main.c: 175:             demandedSecondsTick = currentSecondsTick + 1200;
   1384  00C4  0872               	movf	_currentSecondsTick,w	;volatile
   1385  00C5  3EB0               	addlw	176
   1386  00C6  00F0               	movwf	_demandedSecondsTick
@@ -1410,20 +1410,20 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1388  00C8  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
   1389  00C9  00F1               	movwf	_demandedSecondsTick+1
   1390                           
-  1391                           ;main.c: 179:             break;
+  1391                           ;main.c: 176:             break;
   1392  00CA  28EF               	goto	l823
   1393  00CB                     l202:	
-  1394                           ;main.c: 182:             do { LATAbits.LATA1 = 0; } while(0);
+  1394                           ;main.c: 179:             do { LATAbits.LATA1 = 0; } while(0);
   1395                           
   1396  00CB  0022               	movlb	2	; select bank2
   1397  00CC  108C               	bcf	12,1	;volatile
   1398  00CD                     l204:	
-  1399                           ;main.c: 183:             do { LATAbits.LATA2 = 1; } while(0);
+  1399                           ;main.c: 180:             do { LATAbits.LATA2 = 1; } while(0);
   1400                           
   1401  00CD  150C               	bsf	12,2	;volatile
   1402  00CE                     l817:
   1403                           
-  1404                           ;main.c: 184:             demandedSecondsTick = currentSecondsTick + 10;
+  1404                           ;main.c: 181:             demandedSecondsTick = currentSecondsTick + 10;
   1405  00CE  0872               	movf	_currentSecondsTick,w	;volatile
   1406  00CF  3E0A               	addlw	10
   1407  00D0  00F0               	movwf	_demandedSecondsTick
@@ -1431,15 +1431,15 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1409  00D2  3D73               	addwfc	_currentSecondsTick+1,w	;volatile
   1410  00D3  00F1               	movwf	_demandedSecondsTick+1
   1411                           
-  1412                           ;main.c: 185:             break;
+  1412                           ;main.c: 182:             break;
   1413  00D4  28EF               	goto	l823
   1414  00D5                     l207:	
-  1415                           ;main.c: 188:             do { LATAbits.LATA1 = 0; } while(0);
+  1415                           ;main.c: 185:             do { LATAbits.LATA1 = 0; } while(0);
   1416                           
   1417  00D5  0022               	movlb	2	; select bank2
   1418  00D6  108C               	bcf	12,1	;volatile
   1419  00D7                     l209:	
-  1420                           ;main.c: 189:             do { LATAbits.LATA2 = 0; } while(0);
+  1420                           ;main.c: 186:             do { LATAbits.LATA2 = 0; } while(0);
   1421                           
   1422  00D7  110C               	bcf	12,2	;volatile
   1423  00D8  28EF               	goto	l823
@@ -1489,7 +1489,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1466  00EE  28EF               	goto	l823
   1467  00EF                     l823:
   1468                           
-  1469                           ;main.c: 193:     currentState = newState;
+  1469                           ;main.c: 190:     currentState = newState;
   1470  00EF  0879               	movf	setState@newState,w
   1471  00F0  00F7               	movwf	??_setState
   1472  00F1  0877               	movf	??_setState,w
@@ -2306,7 +2306,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2273  0169                     __ptext14:	
   2274 ;; *************** function _secondsTick *****************
   2275 ;; Defined at:
-  2276 ;;		line 197 in file "main.c"
+  2276 ;;		line 194 in file "main.c"
   2277 ;; Parameters:    Size  Location     Type
   2278 ;;		None
   2279 ;; Auto vars:     Size  Location     Type
@@ -2342,7 +2342,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2309                           ; Regs used in _secondsTick: [wreg]
   2310                           
   2311                           
-  2312                           ;main.c: 199:     currentSecondsTick++;
+  2312                           ;main.c: 196:     currentSecondsTick++;
   2313  0169  3001               	movlw	1
   2314  016A  07F2               	addwf	_currentSecondsTick,f	;volatile
   2315  016B  3000               	movlw	0
@@ -2649,7 +2649,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Fri Oct 30 14:51:45 2020
+Symbol Table                                                                                   Mon Jan 18 16:23:02 2021
 
                                       l22 0162                                        l25 0171  
                                       l19 0141                                        l48 0123  

@@ -128,7 +128,6 @@ void main(void)
                 break;
 
             case STATE_END:
-                
                 //Enable interrupt on rising edge for the start button
                 IOCAPbits.IOCAP5 = 1;
                 
@@ -140,8 +139,6 @@ void main(void)
                 
                 //Processor will resume work here after deep sleep
                 setState(STATE_WAIT_TIME);
-                
-
                 break;
         }
         
@@ -169,13 +166,13 @@ void setState(states_t newState)
         case STATE_WAIT_TIME:
             OUTPUT_1_FORWARD_SetLow();
             OUTPUT_2_RETURN_SetLow();
-            demandedSecondsTick = currentSecondsTick + 1;
+            demandedSecondsTick = currentSecondsTick + 2;
             break;
                     
         case STATE_OPEN_VALVE:
             OUTPUT_1_FORWARD_SetHigh();
             OUTPUT_2_RETURN_SetLow();
-            demandedSecondsTick = currentSecondsTick + 1200;
+            demandedSecondsTick = currentSecondsTick + 1200; //20 Minutes
             break;
                     
         case STATE_CLOSE_VALVE:
