@@ -89,6 +89,8 @@ void main(void)
     
     TMR1_StartTimer();
     
+
+    
     setState(STATE_WAIT_TIME);
     
 
@@ -130,9 +132,15 @@ void main(void)
             case STATE_END:
                 //Enable interrupt on rising edge for the start button
                 IOCAPbits.IOCAP5 = 1;
+               
                 
-                asm("SLEEP");
                 //wait till dooms day (or button pressed :) )
+                asm("SLEEP");
+                asm("NOP");
+                asm("NOP");
+                
+                
+                INTCONbits.IOCIF = 0;   //Reset interrupt flag
                 
                 //Disable interrupt on rising edge for the start button
                 IOCAPbits.IOCAP5 = 0;
@@ -166,18 +174,21 @@ void setState(states_t newState)
         case STATE_WAIT_TIME:
             OUTPUT_1_FORWARD_SetLow();
             OUTPUT_2_RETURN_SetLow();
+            currentSecondsTick = 0;
             demandedSecondsTick = currentSecondsTick + 2;
             break;
                     
         case STATE_OPEN_VALVE:
             OUTPUT_1_FORWARD_SetHigh();
             OUTPUT_2_RETURN_SetLow();
+            currentSecondsTick = 0;
             demandedSecondsTick = currentSecondsTick + 1200; //20 Minutes
             break;
                     
         case STATE_CLOSE_VALVE:
             OUTPUT_1_FORWARD_SetLow();
             OUTPUT_2_RETURN_SetHigh();
+            currentSecondsTick = 0;
             demandedSecondsTick = currentSecondsTick + 10;
             break;
                     
