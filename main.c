@@ -67,6 +67,8 @@ void main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    
+    TMR1_SetInterruptHandler(secondsTick);
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
@@ -84,13 +86,9 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     
         
-    TMR1_SetInterruptHandler(secondsTick);
 
-    
     TMR1_StartTimer();
-    
-
-    
+      
     setState(STATE_WAIT_TIME);
     
 
@@ -100,13 +98,20 @@ void main(void)
         switch(currentState)
         {
             case STATE_WAIT_TIME:
-                if(INPUT_START_GetValue() && (currentSecondsTick >= demandedSecondsTick))  //wait 1 second
+                if(INPUT_START_GetValue())
                 {
-                    setState(STATE_OPEN_VALVE);
+                    if(currentSecondsTick >= demandedSecondsTick)  //wait 1 second
+                    {
+                        setState(STATE_OPEN_VALVE);
+                    }   
+                    else if(INPUT_STOP_GetValue())
+                    {
+                        setState(STATE_CLOSE_VALVE);
+                    }
                 }
-                else if(INPUT_STOP_GetValue())
+                else
                 {
-                    setState(STATE_CLOSE_VALVE);
+                    setState(STATE_END);
                 }
                 break;
                     
@@ -131,20 +136,22 @@ void main(void)
 
             case STATE_END:
                 //Enable interrupt on rising edge for the start button
-                IOCAPbits.IOCAP5 = 1;
+             //   IOCAPbits.IOCAP5 = 1;
                
+                TMR1_StopTimer();
                 
                 //wait till dooms day (or button pressed :) )
                 asm("SLEEP");
                 asm("NOP");
-                asm("NOP");
+                
+                TMR1_StartTimer();
                 
                 
-                INTCONbits.IOCIF = 0;   //Reset interrupt flag
-                
-                //Disable interrupt on rising edge for the start button
-                IOCAPbits.IOCAP5 = 0;
-                
+//                INTCONbits.IOCIF = 0;   //Reset interrupt flag
+//                
+//                //Disable interrupt on rising edge for the start button
+//                IOCAPbits.IOCAP5 = 0;
+//                
                 //Processor will resume work here after deep sleep
                 setState(STATE_WAIT_TIME);
                 break;
