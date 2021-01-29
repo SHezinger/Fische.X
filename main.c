@@ -94,6 +94,15 @@ void main(void)
 
     while (1)
     {
+        
+        if(CMP1_GetOutputStatus())
+        {
+            OUTPUT_LOW_VOLTAGE_SetHigh();
+        }
+        else
+        {
+            OUTPUT_LOW_VOLTAGE_SetLow();
+        }
                     
         switch(currentState)
         {
