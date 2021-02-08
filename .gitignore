@@ -2,8 +2,8 @@
 build/
 dist/*
 
-dist/default/production/*.X.production.cmf
-dist/default/production/*.
+#dist/default/production/*.X.production.cmf
+#dist/default/production/*.
 !dist/default/production/*.hex
 
 
