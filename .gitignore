@@ -1,14 +1,8 @@
 # Ignoring files according to http://microchip.wikidot.com/faq:72
 build/
-#dist/*
 
-#dist/default/production/*.X.production.cmf
 dist/default/production/*
 !dist/default/production/*.hex
-
-
-
-
 
 
 #Ingoring private Makefiles, to create them open the MPLAB IDE or use the C:\Program Files (x86)\Microchip\MPLABX\<VERSION>\mplab_ide\bin\prjMakefilesGenerator.bat script
