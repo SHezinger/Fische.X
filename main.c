@@ -43,6 +43,9 @@
 
 #include "mcc_generated_files/mcc.h"
 
+#include <stdint.h>
+
+
 
 typedef enum {
     STATE_UNDEFINED = 0,
@@ -101,9 +104,11 @@ void main(void)
     {
         uint16_t adcValue = ADC1_GetConversion(channel_FVR);
         
-        float vdd = (1024.0 / adcValue) * 1.024;
         
-        if(vdd < 2.5)
+        int millivolts = (8192 / adcValue) * 1024;
+        millivolts /= 8;
+        
+        if(millivolts < 2500)
         {
             OUTPUT_LED_SetHigh();
         }

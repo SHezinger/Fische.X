@@ -1282,12 +1282,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGVAL" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="FVR" registerAlias="FVRCON" settingAlias="TSEN" alias="disabled"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGVAL" alias="enabled"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG1" settingAlias="FOSC" alias="ECH"/>
@@ -2232,12 +2232,12 @@
          <hash>b003a9871dab7abb4bd049a1be7713f0c7c381a80f2f9c3779ea5912b0da8ab3</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\adc1.c</file>
-         <hash>4ff3ac967c7c447157ca357b95d4816d8f8b3f596aac2b3ea2b0ab502858c853</hash>
-      </entry>
-      <entry>
          <file>main.c</file>
          <hash>38f3b088942142bdbe64d5ca5dcbb5ba0cb0db29d4c3e902003fcb943416877e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\adc1.c</file>
+         <hash>4ff3ac967c7c447157ca357b95d4816d8f8b3f596aac2b3ea2b0ab502858c853</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.c</file>

@@ -65,25 +65,25 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
-// get/set OUTPUT_LOW_VOLTAGE aliases
-#define OUTPUT_LOW_VOLTAGE_TRIS                 TRISAbits.TRISA0
-#define OUTPUT_LOW_VOLTAGE_LAT                  LATAbits.LATA0
-#define OUTPUT_LOW_VOLTAGE_PORT                 PORTAbits.RA0
-#define OUTPUT_LOW_VOLTAGE_WPU                  WPUAbits.WPUA0
-#define OUTPUT_LOW_VOLTAGE_OD                   ODCONAbits.ODA0
-#define OUTPUT_LOW_VOLTAGE_ANS                  ANSELAbits.ANSA0
-#define OUTPUT_LOW_VOLTAGE_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
-#define OUTPUT_LOW_VOLTAGE_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
-#define OUTPUT_LOW_VOLTAGE_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
-#define OUTPUT_LOW_VOLTAGE_GetValue()           PORTAbits.RA0
-#define OUTPUT_LOW_VOLTAGE_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
-#define OUTPUT_LOW_VOLTAGE_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
-#define OUTPUT_LOW_VOLTAGE_SetPullup()          do { WPUAbits.WPUA0 = 1; } while(0)
-#define OUTPUT_LOW_VOLTAGE_ResetPullup()        do { WPUAbits.WPUA0 = 0; } while(0)
-#define OUTPUT_LOW_VOLTAGE_SetPushPull()        do { ODCONAbits.ODA0 = 0; } while(0)
-#define OUTPUT_LOW_VOLTAGE_SetOpenDrain()       do { ODCONAbits.ODA0 = 1; } while(0)
-#define OUTPUT_LOW_VOLTAGE_SetAnalogMode()      do { ANSELAbits.ANSA0 = 1; } while(0)
-#define OUTPUT_LOW_VOLTAGE_SetDigitalMode()     do { ANSELAbits.ANSA0 = 0; } while(0)
+// get/set OUTPUT_LED aliases
+#define OUTPUT_LED_TRIS                 TRISAbits.TRISA0
+#define OUTPUT_LED_LAT                  LATAbits.LATA0
+#define OUTPUT_LED_PORT                 PORTAbits.RA0
+#define OUTPUT_LED_WPU                  WPUAbits.WPUA0
+#define OUTPUT_LED_OD                   ODCONAbits.ODA0
+#define OUTPUT_LED_ANS                  ANSELAbits.ANSA0
+#define OUTPUT_LED_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
+#define OUTPUT_LED_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
+#define OUTPUT_LED_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define OUTPUT_LED_GetValue()           PORTAbits.RA0
+#define OUTPUT_LED_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
+#define OUTPUT_LED_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
+#define OUTPUT_LED_SetPullup()          do { WPUAbits.WPUA0 = 1; } while(0)
+#define OUTPUT_LED_ResetPullup()        do { WPUAbits.WPUA0 = 0; } while(0)
+#define OUTPUT_LED_SetPushPull()        do { ODCONAbits.ODA0 = 0; } while(0)
+#define OUTPUT_LED_SetOpenDrain()       do { ODCONAbits.ODA0 = 1; } while(0)
+#define OUTPUT_LED_SetAnalogMode()      do { ANSELAbits.ANSA0 = 1; } while(0)
+#define OUTPUT_LED_SetDigitalMode()     do { ANSELAbits.ANSA0 = 0; } while(0)
 
 // get/set OUTPUT_1_FORWARD aliases
 #define OUTPUT_1_FORWARD_TRIS                 TRISAbits.TRISA1
