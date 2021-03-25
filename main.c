@@ -85,23 +85,31 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
     
+    
+    while(!FVR_IsOutputReady());              // Wait for FVR to be stable
+    
         
 
     TMR1_StartTimer();
+    
+    
       
     setState(STATE_WAIT_TIME);
     
 
     while (1)
     {
+        uint16_t adcValue = ADC1_GetConversion(channel_FVR);
         
-        if(CMP1_GetOutputStatus())
+        float vdd = (1024.0 / adcValue) * 1.024;
+        
+        if(vdd < 2.5)
         {
-            OUTPUT_LOW_VOLTAGE_SetHigh();
+            OUTPUT_LED_SetHigh();
         }
         else
         {
-            OUTPUT_LOW_VOLTAGE_SetLow();
+            OUTPUT_LED_SetLow();
         }
                     
         switch(currentState)
