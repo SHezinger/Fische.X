@@ -218,7 +218,7 @@ void setState(states_t newState)
             OUTPUT_1_FORWARD_SetLow();
             OUTPUT_2_RETURN_SetHigh();
             currentSecondsTick = 0;
-            demandedSecondsTick = currentSecondsTick + 10;
+            demandedSecondsTick = currentSecondsTick + 13;
             break;
                     
         case STATE_END:
